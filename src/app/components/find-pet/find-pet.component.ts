@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-find-pet',
@@ -6,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindPetComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public router: Router,
+  ) { }
 
   ngOnInit() {
+  }
+
+  find(id) {
+    this.router.navigate(['/petProfile']);
   }
 
 }
