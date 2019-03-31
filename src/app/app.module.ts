@@ -5,12 +5,14 @@ import { APP_ROUTING} from './app.routes';
 
 import { AppComponent } from './app.component';
 import { FindPetComponent } from './components/find-pet/find-pet.component';
+import { PetProfileComponent } from './components/pet-profile/pet-profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FindPetComponent
+    FindPetComponent,
+    PetProfileComponent
   ],
   imports: [
     BrowserModule,
