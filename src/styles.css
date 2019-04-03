@@ -45,6 +45,18 @@
     min-height: 25vh;
   }
 
+.blackBorder{
+    border: 3px solid black;
+}
+
+.minWidth25{
+    min-width: 45vh;
+}
+
+.text-center{
+    text-align: "center"
+}
+
 
 /* Animaciones */
   
