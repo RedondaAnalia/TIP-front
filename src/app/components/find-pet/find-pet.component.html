@@ -4,11 +4,11 @@
             <img src="./assets/img/search_logo_2.png"/>
         </div>
         <div class="d-flex justify-content-center">
-            <h2>Ingrese el mail del dueño</h2>
+            <h2>Ingrese el ID de la mascota</h2>
         </div>
         <div class="d-flex flex-column justify-content-center">
-            <input class="minWidth25 d-flex text-center" (keyup.enter)="find(1)" type="text"/> 
-            <a class="btn btn-outline-secondary my-2" (click)="find(1)">
+            <input (input)="input=$event.target.value" class="minWidth25 d-flex text-center" (keyup.enter)="find()" type="text"/> 
+            <a class="btn btn-outline-secondary my-2" (click)="find()">
                 <strong>Buscar</strong>
                 <i class="fas fa-search"></i>
             </a>

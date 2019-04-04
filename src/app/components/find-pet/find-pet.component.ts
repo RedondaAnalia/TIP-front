@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PetService } from '../../services/pet-service';
 
 @Component({
   selector: 'app-find-pet',
@@ -7,15 +8,22 @@ import { Router } from '@angular/router';
 })
 export class FindPetComponent implements OnInit {
 
+  input;
+
   constructor(
-    public router: Router,
+    private router: Router,
+    private _petService: PetService
   ) { }
 
   ngOnInit() {
   }
 
-  find(id) {
-    this.router.navigate(['/petProfile']);
+  find() {
+    this._petService.findPetById(this.input).subscribe( (res) => {
+      this._petService.res = res;
+      console.log(res);
+      this.router.navigate(['/petProfile']);
+    });
   }
 
 }
