@@ -9,7 +9,8 @@ export class PetProfileComponent implements OnInit {
 
   constructor(private _petService: PetService) { }
 
-  private pet = this._petService.res.savedPet;
+  private pet = this._petService.pet;
+
   ngOnInit() {
   }
 

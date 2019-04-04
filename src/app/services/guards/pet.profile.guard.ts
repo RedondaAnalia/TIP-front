@@ -9,7 +9,7 @@ export class PetProfileGuard implements CanActivate {
   constructor(private _pet: PetService, private router: Router) {}
 
   canActivate( next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this._pet.res) {
+    if (this._pet.pet) {
       return true;
     } else {
       console.log('Bloqueado por el guard');

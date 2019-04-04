@@ -4,13 +4,21 @@
             <img src="./assets/img/search_logo_2.png"/>
         </div>
         <div class="d-flex justify-content-center">
-            <h2>Ingrese el ID de la mascotas</h2>
+            <h2>Ingrese el ID de la mascota</h2>
         </div>
         <div class="d-flex flex-column justify-content-center">
             <input (input)="input=$event.target.value" class="minWidth25 d-flex text-center" (keyup.enter)="find()" type="text"/> 
-            <a class="btn btn-outline-secondary my-2" (click)="find()">
-                <strong>Buscar</strong>
-                <i class="fas fa-search"></i>
+            
+            <a class=" d-flex flex-row justify-content-center btn btn-outline-secondary my-2" (click)="find()">
+                 <div class= "d-flex px-2 justify-content-center" *ngIf="busy">
+                    <i class="fas fa-spinner fa-spin"></i>
+                 </div>
+                 <div class= "d-flex px-2 justify-content-center" *ngIf="!busy">
+                    <i class="fas fa-search"></i>
+                 </div>                
+                <div class= "d-flex justify-content-center">
+                    <strong>Buscar</strong>
+                </div>
             </a>
         </div>
     </div>
