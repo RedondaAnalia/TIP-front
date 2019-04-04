@@ -10,12 +10,13 @@ import { FindPetComponent } from './components/find-pet/find-pet.component';
 import { PetProfileComponent } from './components/pet-profile/pet-profile.component';
 import { PetService } from './services/pet-service';
 import { HttpClientModule } from '@angular/common/http';
+import { PetProfileGuard } from './services/guards/pet.profile.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     FindPetComponent,
-    PetProfileComponent
+    PetProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     APP_ROUTING
   ],
   providers: [
-    PetService
+    PetService,
+    PetProfileGuard
   ],
   bootstrap: [AppComponent]
 })
