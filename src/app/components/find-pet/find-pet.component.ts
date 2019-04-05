@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PetService } from '../../services/pet-service';
 import 'rxjs/add/operator/catch';
-import { HttpResponse } from '@angular/common/http';
+import * as _swal from 'sweetalert';
+import { SweetAlert } from 'sweetalert/typings/core';
+
+const swal: SweetAlert = _swal as any;
 
 @Component({
   selector: 'app-find-pet',
@@ -34,7 +37,7 @@ export class FindPetComponent implements OnInit {
       },
       error => {
         this.busy = false;
-        alert(error.error.mensaje);
+        swal('Importante', error.error.mensaje, 'error');
       }
     );
   }

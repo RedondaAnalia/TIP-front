@@ -16,7 +16,7 @@ export class PetService {
   findPetById(id: String) {
     const url = URL_SERVICIOS + 'pets/' + id;
     return this.http.get(url);
-    }
   }
 
 }
+
