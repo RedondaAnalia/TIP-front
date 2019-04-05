@@ -37,7 +37,7 @@ export class FindPetComponent implements OnInit {
       },
       error => {
         this.busy = false;
-        swal('Importante', error.error.mensaje, 'error');
+        swal('Importante', error.error.mensaje, 'errors');
       }
     );
   }
