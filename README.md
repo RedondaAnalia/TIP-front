@@ -1,16 +1,25 @@
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+# PET-HEROES (Front-End)
 
 
-## Further help
+## Documentacion del proyecto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[Github](https://github.com/RedondaAnalia/TIP-documentation.git)
+
+### Instalación
+
+Para descargarse el proyecto solo se debe...
+
+```
+git clone https://github.com/RedondaAnalia/TIP-front.git
+```
+Parado en la carpeta donde se descargo, se debe ejecutar:
+```
+npm install
+```
+Y despues ejecutar
+```
+ng serve
+```
+
+## Para un uso local...
+Con el [backend] (https://github.com/RedondaAnalia/TIP-core.git) corriendo, abrir un navegador en la direccion `http://localhost:4200/`
