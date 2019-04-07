@@ -11,12 +11,16 @@ import { PetProfileComponent } from './components/pet-profile/pet-profile.compon
 import { PetService } from './services/pet-service';
 import { HttpClientModule } from '@angular/common/http';
 import { PetProfileGuard } from './services/guards/pet.profile.guard';
+import { DateFormatterPipe } from './pipes/date-formatter.pipe';
+import { NullTransformerPipe } from './pipes/null-transformer.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     FindPetComponent,
     PetProfileComponent,
+    DateFormatterPipe,
+    NullTransformerPipe,
   ],
   imports: [
     BrowserModule,

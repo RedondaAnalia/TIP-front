@@ -53,6 +53,10 @@
     min-width: 45vh;
 }
 
+.maxWidth10{
+    max-width: 40vh;
+}
+
 .text-center{
     text-align: "center"
 }

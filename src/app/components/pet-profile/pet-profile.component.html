@@ -16,31 +16,26 @@
           <i class="fas fa-calendar-day"></i>
           F. de nacimiento: 
         </strong> 
-          28-08-2018
+          {{pet.date_of_birth| dateFormatter}}
       </li>
       <li class="list-group-item blackBorder justify-content-between d-flex">
         <strong>
           <i class="fas fa-paw"></i>
           Especie: 
         </strong> 
-        Gato 
+        {{ pet.species | nullTransformer}} 
       </li>
       <li class="list-group-item blackBorder justify-content-between d-flex">
         <strong>
           <i class="fas fa-award"></i>
           Raza: 
         </strong> 
-        Puro gato
+        {{ pet.breed | nullTransformer}}
       </li>
       <li class="list-group-item blackBorder"></li>
     </ul>
 
   </div>
-
-
-
-
-
 
   <h2 class="py-4 grey-background d-flex justify-content-center">
     | Historia clínica | 
@@ -59,8 +54,6 @@
   </ul>
 
 
-
-
   <div class="tab-content min25" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Hola yo soy la primer historia clinica</div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Yo soy la segunda historia</div>
@@ -72,71 +65,22 @@
 </div>
 
   <h2 class="margin-top-40 py-4 grey-background d-flex justify-content-center">| Vacunas | </h2>
-  <div class="card-columns">
-  <div class="card">
-    <div class="card-body text-right">
-      <h5 class="card-title">ANTIRRABICA</h5>
-      <p class="card-text">Fecha optima de aplicacion: 20/09/2019</p>
-      <footer class="blockquote-footer">
-        <small class="text-muted">
-          Someone famous in 
-        </small>
-      </footer>
-    </div>
-  </div>
-  <div class="card p-3">
-    <blockquote class="blockquote mb-0 card-body">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">
-        <small class="text-muted">
-          Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
-      </footer>
-    </blockquote>
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card bg-primary text-white text-center p-3">
-    <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
-      <footer class="blockquote-footer">
-        <small>
-          Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
-      </footer>
-    </blockquote>
-  </div>
-  <div class="card text-center">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-  </div>
-  <div class="card p-3 text-right">
-    <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">
-        <small class="text-muted">
-          Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
-      </footer>
-    </blockquote>
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-</div>
+  
 
+  <div class="py-2 card-columns">
+    <div *ngFor="let application of _petService.pet.applications" class="card maxWidth10 animated fadeIn fast">
+      <div class="card-body text-right">
+        <h5 class="card-title"><u>{{application.vaccine.name| uppercase}}</u></h5>
+        <div class="card-text text-muted">
+          Fecha optima de aplicacion: 
+          <div>
+            {{application.estimated_date| dateFormatter}}
+          </div>
+        </div>
+        <footer class="margin-top-40">
+          <a href=# *ngIf="!application.application_date" class="card-link">Marcar como aplicada</a>
+        </footer>
+      </div>
+    </div>
+  </div>
 </div>

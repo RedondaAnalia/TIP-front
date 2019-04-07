@@ -12,6 +12,7 @@ export class PetProfileComponent implements OnInit {
   private pet = this._petService.pet;
 
   ngOnInit() {
+    console.log(this.pet);
   }
 
 }

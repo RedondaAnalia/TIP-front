@@ -14,7 +14,6 @@ const swal: SweetAlert = _swal as any;
 export class FindPetComponent implements OnInit {
 
   input;
-  error = false;
   busy = false;
 
   constructor(
@@ -27,7 +26,6 @@ export class FindPetComponent implements OnInit {
 
 
   find() {
-    this.error = false;
     this.busy = true;
     this._petService.findPetById(this.input).subscribe(
       (data: any) => {
@@ -37,7 +35,7 @@ export class FindPetComponent implements OnInit {
       },
       error => {
         this.busy = false;
-        swal('Importante', error.error.mensaje, 'errors');
+        swal( error.error.mensaje, '' , 'error');
       }
     );
   }
