@@ -29,13 +29,13 @@ export class FindPetComponent implements OnInit {
     this.busy = true;
     this._petService.findPetById(this.input).subscribe(
       (data: any) => {
+        this._petService.pet = data.pet;
         this.busy = false;
-        this._petService.pet = data.savedPet;
         this.router.navigate(['/petProfile']);
       },
       error => {
         this.busy = false;
-        swal( error.error.mensaje, '' , 'error');
+        swal( 'No existe mascota con el id ' + this.input, '' , 'error');
       }
     );
   }

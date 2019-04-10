@@ -9,28 +9,28 @@
 
     <ul class="list-group list-group-flush margin-left-40 justify-content-center ">
       <li class="list-group-item blackBorder justify-content-center d-flex">
-        <h1>- {{pet.name | uppercase}} -</h1>
+        <h1>- {{_petService.pet.name | uppercase}} -</h1>
       </li>
       <li class="list-group-item blackBorder justify-content-between d-flex">
         <strong>
           <i class="fas fa-calendar-day"></i>
           F. de nacimiento: 
         </strong> 
-          {{pet.date_of_birth| dateFormatter}}
+          {{_petService.pet.date_of_birth | dateFormatter}}
       </li>
       <li class="list-group-item blackBorder justify-content-between d-flex">
         <strong>
           <i class="fas fa-paw"></i>
           Especie: 
         </strong> 
-        {{ pet.species | nullTransformer}} 
+        {{ _petService.pet.species | nullTransformer}} 
       </li>
       <li class="list-group-item blackBorder justify-content-between d-flex">
         <strong>
           <i class="fas fa-award"></i>
           Raza: 
         </strong> 
-        {{ pet.breed | nullTransformer}}
+        {{ _petService.pet.breed | nullTransformer}}
       </li>
       <li class="list-group-item blackBorder"></li>
     </ul>
@@ -68,17 +68,17 @@
   
 
   <div class="py-2 card-columns">
-    <div *ngFor="let application of _petService.pet.applications" class="card maxWidth10 animated fadeIn fast">
+    <div *ngFor="let application of _petService.pet.applications;  let i= index" class="card maxWidth10 animated fadeIn fast">
       <div class="card-body text-right">
         <h5 class="card-title"><u>{{application.vaccine.name| uppercase}}</u></h5>
         <div class="card-text text-muted">
           Fecha optima de aplicacion: 
           <div>
-            {{application.estimated_date| dateFormatter}}
+            {{application.estimated_date | dateFormatter}}
           </div>
         </div>
         <footer class="margin-top-40">
-          <a href=# *ngIf="!application.application_date" class="card-link">Marcar como aplicada</a>
+          <button (click)="applyVaccine(application, i)" *ngIf="!application.application_date" class="card-link">Marcar como aplicada</button>
         </footer>
       </div>
     </div>

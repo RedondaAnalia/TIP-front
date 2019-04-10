@@ -22,4 +22,6 @@ ng serve
 ```
 
 ## Para un uso local...
-Con el [backend] (https://github.com/RedondaAnalia/TIP-core.git) corriendo, abrir un navegador en la direccion `http://localhost:4200/`
+Con el backend corriendo, abrir un navegador en la direccion `http://localhost:4200/`
+
+ [Backend](https://github.com/RedondaAnalia/TIP-core.git)

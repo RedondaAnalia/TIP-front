@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PetService } from '../../services/pet-service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-pet-profile',
@@ -7,12 +8,19 @@ import { PetService } from '../../services/pet-service';
 })
 export class PetProfileComponent implements OnInit {
 
-  constructor(private _petService: PetService) { }
+  constructor(public _petService: PetService) { }
 
-  private pet = this._petService.pet;
 
   ngOnInit() {
-    console.log(this.pet);
+  }
+
+  applyVaccine(application, index) {
+    const body = {
+      application_id: application._id,
+      application_date: new Date().toISOString();
+    };
+
+    this._petService.applyVaccine(body, index).subscribe((res) => console.log("Llegue al final!"));
   }
 
 }
