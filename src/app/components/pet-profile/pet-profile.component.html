@@ -87,7 +87,7 @@
           </footer>
         </div>
       </div>
-    <div  *ngIf="!application.application_date" class="card maxWidth10 animated fadeIn fast" [ngClass]="{'bg-light': application.estimated_date > this.date, 'bg-danger': application.estimated_date <= this.date}">
+    <div  *ngIf="!application.application_date" class="card maxWidth10 animated fadeIn fast" [ngClass]="{'bg-success': application.estimated_date > this.date, 'bg-danger': application.estimated_date <= this.date}">
       <div class="card-body text-right">
         <h5 class="card-title"><u>{{application.vaccine.name| uppercase}}</u></h5>
         <div class="card-text">
