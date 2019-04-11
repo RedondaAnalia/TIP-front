@@ -9,7 +9,7 @@
       <div class="card-text">
         
         <nav>
-          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Perfil</a>
             <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Historia clínica</a>
             <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Vacunas</a>
@@ -19,7 +19,7 @@
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <div class="d-flex flex-row justify-content-center ">
-              <div class="d-flex py-1">
+              <div class="d-flex py-3">
                 <img class="profile-image img-thumbnail rounded-circle" src="./assets/img/perfil_gato.jpg"/>
               </div>
 
@@ -48,7 +48,7 @@
                   </strong> 
                   {{ _petService.pet.breed | nullTransformer}}
                 </li>
-                <li class="list-group-item blackBorder"></li>
+                <li class="list-group-item blackBorder bg-light"></li>
               </ul>
             </div>
           </div>
@@ -75,10 +75,10 @@
                     </div>
                   </div>
                   <div  *ngIf="!application.application_date" class="card maxWidth10 animated fadeIn fast" [ngClass]="{'bg-success': application.estimated_date > this.date, 'bg-danger': application.estimated_date <= this.date}">
-                    <div class="card-body text-right">
+                    <div class="card-body text-center">
                       <h5 class="card-title"><u>{{application.vaccine.name| uppercase}}</u></h5>
                       <div class="card-text">
-                        Fecha optima de aplicación: 
+                        Fecha óptima de aplicación: 
                         <div>
                           {{application.estimated_date | dateFormatter}}
                         </div>
