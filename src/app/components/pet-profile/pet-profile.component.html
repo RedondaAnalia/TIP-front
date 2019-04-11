@@ -1,110 +1,100 @@
 
 <div class="main-container animated fadeIn fast">
-<div class="d-flex flex-column">
-
-  <div class="d-flex flex-row justify-content-center ">
-    <div class="d-flex py-1">
-      <img class="profile-image img-thumbnail rounded-circle" src="./assets/img/perfil_gato.jpg"/>
-    </div>
-
-    <ul class="list-group list-group-flush margin-left-40 justify-content-center ">
-      <li class="list-group-item blackBorder justify-content-center d-flex">
-        <h1>- {{_petService.pet.name | uppercase}} -</h1>
-      </li>
-      <li class="list-group-item blackBorder justify-content-between d-flex">
-        <strong>
-          <i class="fas fa-calendar-day"></i>
-          F. de nacimiento: 
-        </strong> 
-          {{_petService.pet.date_of_birth | dateFormatter}}
-      </li>
-      <li class="list-group-item blackBorder justify-content-between d-flex">
-        <strong>
-          <i class="fas fa-paw"></i>
-          Especie: 
-        </strong> 
-        {{ _petService.pet.species | nullTransformer}} 
-      </li>
-      <li class="list-group-item blackBorder justify-content-between d-flex">
-        <strong>
-          <i class="fas fa-award"></i>
-          Raza: 
-        </strong> 
-        {{ _petService.pet.breed | nullTransformer}}
-      </li>
-      <li class="list-group-item blackBorder"></li>
-    </ul>
-
-  </div>
-
-  <h2 class="py-4 grey-background d-flex justify-content-center">
-    | Historia clínica | 
-  </h2>
  
-  <ul class="nav nav-tabs py-2 " id="myTab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">30/01/2018</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">30/01/2017</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">30/01/2016</a>
-    </li>
-  </ul>
 
 
-  <div class="tab-content min25" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Hola yo soy la primer historia clinica</div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Yo soy la segunda historia</div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Yo soy la tercer historia</div>
-  </div>
+<div class="card bg-light animated fadeIn fast">
+  <div class="card-body text-center">
+    <h1 class="card-title"><u>- {{this._petService.pet.name | uppercase}} -</u></h1>
+      <div class="card-text">
+        
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Perfil</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Historia clínica</a>
+            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Vacunas</a>
+          </div>
+        </nav>
+        
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="d-flex flex-row justify-content-center ">
+              <div class="d-flex py-1">
+                <img class="profile-image img-thumbnail rounded-circle" src="./assets/img/perfil_gato.jpg"/>
+              </div>
 
-
-
-</div>
-
-  <h2 class="margin-top-40 py-4 grey-background d-flex justify-content-center">| Vacunas | </h2>
-  
-
-  <div class="py-2 card-columns">
-    <div *ngFor="let application of _petService.pet.applications;  let i= index">
-    
-      <div *ngIf="application.application_date" class="card maxWidth10 bg-light animated fadeIn fast">
-        <div class="card-body text-center">
-          <h5 class="card-title"><u>{{application.vaccine.name| uppercase}}</u></h5>
-          <div class="card-text">
-            Fecha de aplicación: 
-            <div>
-              {{application.application_date | dateFormatter}}
+              <ul class="list-group list-group-flush margin-left-40 justify-content-center bg-light">
+                <li class="list-group-item blackBorder justify-content-center d-flex bg-light">
+                  <h1>- {{_petService.pet.name | uppercase}} -</h1>
+                </li>
+                <li class="list-group-item blackBorder justify-content-between d-flex bg-light">
+                  <strong>
+                    <i class="fas fa-calendar-day"></i>
+                      F. de nacimiento: 
+                  </strong> 
+                    {{_petService.pet.date_of_birth | dateFormatter}}
+                </li>
+                <li class="list-group-item blackBorder justify-content-between d-flex bg-light">
+                  <strong>
+                    <i class="fas fa-paw"></i>
+                      Especie: 
+                  </strong> 
+                  {{ _petService.pet.species | nullTransformer}} 
+                </li>
+                <li class="list-group-item blackBorder justify-content-between d-flex bg-light">
+                  <strong>
+                    <i class="fas fa-award"></i>
+                      Raza: 
+                  </strong> 
+                  {{ _petService.pet.breed | nullTransformer}}
+                </li>
+                <li class="list-group-item blackBorder"></li>
+              </ul>
             </div>
           </div>
-          <footer class="margin-top-40">
-            <span class="badge badge-info">
-              <i class="fas fa-check-circle"></i>
-              Aplicada
-            </span>
-          </footer>
-        </div>
-      </div>
-    <div  *ngIf="!application.application_date" class="card maxWidth10 animated fadeIn fast" [ngClass]="{'bg-success': application.estimated_date > this.date, 'bg-danger': application.estimated_date <= this.date}">
-      <div class="card-body text-right">
-        <h5 class="card-title"><u>{{application.vaccine.name| uppercase}}</u></h5>
-        <div class="card-text">
-          Fecha optima de aplicación: 
-          <div>
-            {{application.estimated_date | dateFormatter}}
+  
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">una</div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+              <div class="py-2 card-columns">
+                <div *ngFor="let application of _petService.pet.applications;  let i= index">
+                  <div *ngIf="application.application_date" class="card maxWidth10 bg-light animated fadeIn fast">
+                    <div class="card-body text-center">
+                      <h5 class="card-title"><u>{{application.vaccine.name| uppercase}}</u></h5>
+                      <div class="card-text">
+                        Fecha de aplicación: 
+                        <div>
+                        {{application.application_date | dateFormatter}}
+                        </div>
+                      </div>
+                      <footer class="margin-top-40">
+                        <span class="badge badge-info">
+                          <i class="fas fa-check-circle"></i>
+                          Aplicada
+                        </span>
+                      </footer>
+                    </div>
+                  </div>
+                  <div  *ngIf="!application.application_date" class="card maxWidth10 animated fadeIn fast" [ngClass]="{'bg-success': application.estimated_date > this.date, 'bg-danger': application.estimated_date <= this.date}">
+                    <div class="card-body text-right">
+                      <h5 class="card-title"><u>{{application.vaccine.name| uppercase}}</u></h5>
+                      <div class="card-text">
+                        Fecha optima de aplicación: 
+                        <div>
+                          {{application.estimated_date | dateFormatter}}
+                        </div>
+                      </div>
+                      <footer class="margin-top-40">
+                        <span (click)="applyVaccine(application, i)" class="badge badge-success btn">
+                          <i class="fas fa-exclamation-circle"></i>
+                          Aplicar
+                        </span>
+                      </footer>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <footer class="margin-top-40">
-          <span (click)="applyVaccine(application, i)" class="badge badge-success btn">
-            <i class="fas fa-exclamation-circle"></i>
-            Aplicar
-          </span>
-        </footer>
       </div>
     </div>
-    </div>
-</div>
-</div>
-
