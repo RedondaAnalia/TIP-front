@@ -10,6 +10,8 @@ export class PetProfileComponent implements OnInit {
 
   constructor(public _petService: PetService) { }
 
+  date = new Date().toISOString();
+
 
   ngOnInit() {
   }
@@ -17,10 +19,12 @@ export class PetProfileComponent implements OnInit {
   applyVaccine(application, index) {
     const body = {
       application_id: application._id,
-      application_date: new Date().toISOString();
+      application_date: new Date().toISOString()
     };
 
     this._petService.applyVaccine(body, index).subscribe((res) => console.log("Llegue al final!"));
   }
+
+  
 
 }
