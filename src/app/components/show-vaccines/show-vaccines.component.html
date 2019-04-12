@@ -1,12 +1,14 @@
-<div class="py-5 card-columns">
   <div [formGroup]="forma" class=" mb-3 width d-flex flex-column py-2">
-    <select formControlName="status" class="custom-select" id="inputGroupSelect02">
+    <div class="d-flex flex-row justify-content-center">
+    <select formControlName="status" class="custom-select maxWidth10" id="inputGroupSelect02">
       <option value='ALL' >TODAS</option>
       <option value='APPLIED'>APLICADAS</option>
       <option value='PENDING'>PENDIENTES</option>
       <option value='EXPIRED'>VENCIDAS</option>
     </select>
+    </div>
   </div>
+<div class="py-2 card-columns justify-content-center">
   <div *ngFor="let application of this.vaccines; let i= index">
     <div *ngIf="application.application_date" class="card maxWidth10 bg-light animated fadeIn fast">
       <div class="card-body text-center">
