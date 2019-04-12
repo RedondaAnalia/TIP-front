@@ -1,0 +1,38 @@
+<div class="py-5 card-columns">
+  <div *ngFor="let application of _petService.pet.applications; let i= index">
+    <div *ngIf="application.application_date" class="card maxWidth10 bg-light animated fadeIn fast">
+      <div class="card-body text-center">
+        <h5 class="card-title"><u>{{application.vaccine.name| uppercase}}</u></h5>
+        <div class="card-text">
+          Fecha de aplicación: 
+          <div>
+          {{application.application_date | dateFormatter}}
+          </div>
+        </div>
+        <footer class="margin-top-40">
+          <span class="badge badge-info">
+            <i class="fas fa-check-circle"></i>
+            Aplicada
+          </span>
+        </footer>
+      </div>
+    </div>
+    <div  *ngIf="!application.application_date" class="card maxWidth10 animated fadeIn fast" [ngClass]="{'bg-success': application.estimated_date > this.date, 'bg-danger': application.estimated_date <= this.date}">
+      <div class="card-body text-center">
+        <h5 class="card-title"><u>{{application.vaccine.name| uppercase}}</u></h5>
+        <div class="card-text">
+          Fecha óptima de aplicación: 
+          <div>
+            {{application.estimated_date | dateFormatter}}
+          </div>
+        </div>
+        <footer class="margin-top-40">
+          <span (click)="applyVaccine(application, i)" class="badge badge-success btn">
+            <i class="fas fa-exclamation-circle"></i>
+            Aplicar
+          </span>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>

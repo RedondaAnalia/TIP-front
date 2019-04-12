@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PetProfileGuard } from './services/guards/pet.profile.guard';
 import { DateFormatterPipe } from './pipes/date-formatter.pipe';
 import { NullTransformerPipe } from './pipes/null-transformer.pipe';
+import { ShowVaccinesComponent } from './components/show-vaccines/show-vaccines.component';
+import { ShowPetProfileComponent } from './components/show-pet-profile/show-pet-profile.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { NullTransformerPipe } from './pipes/null-transformer.pipe';
     PetProfileComponent,
     DateFormatterPipe,
     NullTransformerPipe,
+    ShowVaccinesComponent,
+    ShowPetProfileComponent,
   ],
   imports: [
     BrowserModule,
