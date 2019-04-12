@@ -1,5 +1,13 @@
 <div class="py-5 card-columns">
-  <div *ngFor="let application of _petService.pet.applications; let i= index">
+  <div [formGroup]="forma" class=" mb-3 width d-flex flex-column py-2">
+    <select formControlName="status" class="custom-select" id="inputGroupSelect02">
+      <option value='ALL' >TODAS</option>
+      <option value='APPLIED'>APLICADAS</option>
+      <option value='PENDING'>PENDIENTES</option>
+      <option value='EXPIRED'>VENCIDAS</option>
+    </select>
+  </div>
+  <div *ngFor="let application of this.vaccines; let i= index">
     <div *ngIf="application.application_date" class="card maxWidth10 bg-light animated fadeIn fast">
       <div class="card-body text-center">
         <h5 class="card-title"><u>{{application.vaccine.name| uppercase}}</u></h5>

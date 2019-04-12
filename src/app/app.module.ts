@@ -15,6 +15,7 @@ import { DateFormatterPipe } from './pipes/date-formatter.pipe';
 import { NullTransformerPipe } from './pipes/null-transformer.pipe';
 import { ShowVaccinesComponent } from './components/show-vaccines/show-vaccines.component';
 import { ShowPetProfileComponent } from './components/show-pet-profile/show-pet-profile.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import { ShowPetProfileComponent } from './components/show-pet-profile/show-pet-
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
     APP_ROUTING
