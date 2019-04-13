@@ -1,0 +1,48 @@
+  <div [formGroup]="forma" class=" mb-3 width d-flex flex-column py-2">
+    <div class="d-flex flex-row justify-content-center">
+    <select formControlName="status" class="custom-select maxWidth10" id="inputGroupSelect02">
+      <option value='ALL' >TODAS</option>
+      <option value='APPLIED'>APLICADAS</option>
+      <option value='PENDING'>PENDIENTES</option>
+      <option value='EXPIRED'>VENCIDAS</option>
+    </select>
+    </div>
+  </div>
+<div class="py-2 card-columns justify-content-center">
+  <div *ngFor="let application of this.vaccines; let i= index">
+    <div *ngIf="application.application_date" class="card maxWidth10 bg-light animated fadeIn fast">
+      <div class="card-body text-center">
+        <h5 class="card-title"><u>{{application.vaccine.name| uppercase}}</u></h5>
+        <div class="card-text">
+          Fecha de aplicación: 
+          <div>
+          {{application.application_date | dateFormatter}}
+          </div>
+        </div>
+        <footer class="margin-top-40">
+          <span class="badge badge-info">
+            <i class="fas fa-check-circle"></i>
+            Aplicada
+          </span>
+        </footer>
+      </div>
+    </div>
+    <div  *ngIf="!application.application_date" class="card maxWidth10 animated fadeIn fast" [ngClass]="{'bg-success': application.estimated_date > this.date, 'bg-danger': application.estimated_date <= this.date}">
+      <div class="card-body text-center">
+        <h5 class="card-title"><u>{{application.vaccine.name| uppercase}}</u></h5>
+        <div class="card-text">
+          Fecha óptima de aplicación: 
+          <div>
+            {{application.estimated_date | dateFormatter}}
+          </div>
+        </div>
+        <footer class="margin-top-40">
+          <span (click)="applyVaccine(application, i)" class="badge badge-success btn">
+            <i class="fas fa-exclamation-circle"></i>
+            Aplicar
+          </span>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>

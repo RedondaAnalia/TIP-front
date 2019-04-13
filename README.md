@@ -1,27 +1,27 @@
-# TIP.Front
+# PET-HEROES (Front-End)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
-## Development server
+## Documentacion del proyecto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[Github](https://github.com/RedondaAnalia/TIP-documentation.git)
 
-## Code scaffolding
+### Instalación
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para descargarse el proyecto solo se debe...
 
-## Build
+```
+git clone https://github.com/RedondaAnalia/TIP-front.git
+```
+Parado en la carpeta donde se descargo, se debe ejecutar:
+```
+npm install
+```
+Y despues ejecutar
+```
+ng serve
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Para un uso local...
+Con el backend corriendo, abrir un navegador en la direccion `http://localhost:4200/`
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ [Backend](https://github.com/RedondaAnalia/TIP-core.git)
