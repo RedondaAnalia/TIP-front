@@ -31,23 +31,31 @@ export class FindPetComponent implements OnInit {
     this.busy = true;
     this._userService.findUserPets(this.input).subscribe(
       (data: any) => {
-          switch (data.pets.length) {
-            case 0: swal('El usuario ' + data.name + ' no posee mascotas'); 
-                    break;
-            case 1: this._petService.findPetById(data.pets[0]._id).subscribe(( res: any) => {
-              this._petService.pet = res.pet;
-              this.busy = false;
-              this.router.navigate(['/petProfile']);
-            });
-              break;
-            default: this._petService.pets = data.pets;
-                    this.router.navigate(['/selectPet']);
-                    break;
-          }
-        },
+        if (!data) {
+          this.busy = false;
+          swal( 'No existe un usuario con el mail ' + this.input, '' , 'error');
+          return;
+        }
+        switch (data.pets.length) {
+          case 0: swal('El usuario ' + data.name + ' no posee mascotas');
+          this.busy = false;
+                  break;
+          case 1: this._petService.findPetById(data.pets[0]._id).subscribe(( res: any) => {
+            this.busy = false;
+            this._petService.pet = res.pet;
+            this.busy = false;
+            this.router.navigate(['/petProfile']);
+          });
+            break;
+          default: this._petService.pets = data.pets;
+                  this.router.navigate(['/selectPet']);
+                  break;
+        }
+      },
       error => {
         this.busy = false;
         swal( 'No existe un usuario con el mail ' + this.input, '' , 'error');
+        return;
       }
     );
   }

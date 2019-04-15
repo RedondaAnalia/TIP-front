@@ -67,6 +67,10 @@
     max-width: 50%;
 }
 
+.maxWidth20{
+    max-width: 100px;
+}
+
 .minWidth40{
     min-width: 40%;
 }

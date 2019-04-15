@@ -1,4 +1,4 @@
-  <div [formGroup]="forma" class=" mb-3 width d-flex flex-column py-2">
+  <div [formGroup]="forma" class=" mb-3 width d-flex flex-column justify-content-center py-2">
     <div class="d-flex flex-row justify-content-center">
     <select formControlName="status" class="custom-select maxWidth10" id="inputGroupSelect02">
       <option value='ALL' >TODAS</option>
@@ -8,7 +8,7 @@
     </select>
     </div>
   </div>
-  <div *ngIf="this.vaccines.length === 0"class="alert alert-primary" role="alert">
+  <div *ngIf="this.vaccines.length === 0" class="alert alert-primary maxWidth50" role="alert">
     No hay vacunas para mostrar
   </div>
 <div class="py-2 card-columns justify-content-center">
