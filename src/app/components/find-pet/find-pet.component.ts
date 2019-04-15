@@ -4,6 +4,7 @@ import { PetService } from '../../services/pet-service';
 import 'rxjs/add/operator/catch';
 import * as _swal from 'sweetalert';
 import { SweetAlert } from 'sweetalert/typings/core';
+import { UserService } from '../../services/user.service';
 
 const swal: SweetAlert = _swal as any;
 
@@ -18,7 +19,8 @@ export class FindPetComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private _petService: PetService
+    private _petService: PetService,
+    private _userService: UserService
   ) { }
 
   ngOnInit() {
@@ -27,15 +29,25 @@ export class FindPetComponent implements OnInit {
 
   find() {
     this.busy = true;
-    this._petService.findPetById(this.input).subscribe(
+    this._userService.findUserPets(this.input).subscribe(
       (data: any) => {
-        this._petService.pet = data.pet;
-        this.busy = false;
-        this.router.navigate(['/petProfile']);
-      },
+          switch (data.pets.length) {
+            case 0: swal('El usuario ' + data.name + ' no posee mascotas'); 
+                    break;
+            case 1: this._petService.findPetById(data.pets[0]._id).subscribe(( res: any) => {
+              this._petService.pet = res.pet;
+              this.busy = false;
+              this.router.navigate(['/petProfile']);
+            });
+              break;
+            default: this._petService.pets = data.pets;
+                    this.router.navigate(['/selectPet']);
+                    break;
+          }
+        },
       error => {
         this.busy = false;
-        swal( 'No existe mascota con el id ' + this.input, '' , 'error');
+        swal( 'No existe un usuario con el mail ' + this.input, '' , 'error');
       }
     );
   }
