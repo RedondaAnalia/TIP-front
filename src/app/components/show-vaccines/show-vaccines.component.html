@@ -8,6 +8,9 @@
     </select>
     </div>
   </div>
+  <div *ngIf="this.vaccines.length === 0"class="alert alert-primary" role="alert">
+    No hay vacunas para mostrar
+  </div>
 <div class="py-2 card-columns justify-content-center">
   <div *ngFor="let application of this.vaccines; let i= index">
     <div *ngIf="application.application_date" class="card maxWidth10 bg-light animated fadeIn fast">

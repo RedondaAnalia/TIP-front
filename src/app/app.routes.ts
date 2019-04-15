@@ -12,7 +12,7 @@ const APP_ROUTES: Routes = [
         canActivate: [PetProfileGuard] },
     { path: 'selectPet',
         component: SelectPetfromUserComponent,
-        canActivate:[SelectPetGuard] },
+        canActivate: [SelectPetGuard] },
     { path: '**', pathMatch: 'full', redirectTo: 'findPet' }
 ] ;
 
