@@ -33,6 +33,12 @@
     align-items: center;
 }
 
+.select-image{
+    width: 2cm;
+    height: 2cm;
+    align-items: center;
+}
+
 .margin-top-40 {
     margin-top: 40px;
 }
@@ -57,9 +63,22 @@
     max-width: 40vh;
 }
 
+.maxWidth50{
+    max-width: 50%;
+}
+
+.minWidth40{
+    min-width: 40%;
+}
+
 .text-center{
     text-align: "center"
 }
+
+.all{
+    min-height: 100%
+}
+
 
 
 /* Animaciones */

@@ -16,6 +16,7 @@ import { NullTransformerPipe } from './pipes/null-transformer.pipe';
 import { ShowVaccinesComponent } from './components/show-vaccines/show-vaccines.component';
 import { ShowPetProfileComponent } from './components/show-pet-profile/show-pet-profile.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SelectPetfromUserComponent } from './components/select-petfrom-user/select-petfrom-user.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     NullTransformerPipe,
     ShowVaccinesComponent,
     ShowPetProfileComponent,
+    SelectPetfromUserComponent,
   ],
   imports: [
     BrowserModule,
