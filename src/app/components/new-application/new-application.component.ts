@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 
 import * as _swal from 'sweetalert';
 import { SweetAlert } from 'sweetalert/typings/core';
+import { MatSnackBar } from '@angular/material';
 
 const swal: SweetAlert = _swal as any;
 
@@ -17,7 +18,7 @@ export class NewApplicationComponent implements OnInit {
   date;
   vaccineSelected;
 
-  constructor(private _applicationService: ApplicationService) {
+  constructor(private _applicationService: ApplicationService, public snackBar: MatSnackBar) {
     // Busco todas las vacunas disponibles en sistema para ofrecerlas como opcion
     this._applicationService.getAllVaccines().subscribe(res => this.vaccines = res );
     this.date = new FormControl(new Date());
@@ -33,7 +34,7 @@ export class NewApplicationComponent implements OnInit {
     } else {
       console.log(this.date.value);
        this._applicationService.postVaccine(this.vaccineSelected._id, this.date.value.toISOString())
-                               .subscribe(res => console.log('volvi'));
+                               .subscribe(res => {this.openSnackBar(); this.date.value = null, this.vaccineSelected = null; });
     }
   }
 
@@ -41,6 +42,9 @@ export class NewApplicationComponent implements OnInit {
     this.date.value = event.value;
   }
 
-
-
+  openSnackBar() {
+    this.snackBar.open('Vacuna agregada', 'HECHO', {
+      duration: 2000,
+    });
+  }
 }
