@@ -8,7 +8,9 @@ import { NewApplicationComponent } from './components/new-application/new-applic
 
 const APP_ROUTES: Routes = [
     { path: 'findPet', component: FindPetComponent },
-    { path: 'newApplication', component: NewApplicationComponent},
+    { path: 'newApplication',
+        component: NewApplicationComponent,
+        canActivate: [PetProfileGuard, SelectPetGuard]},
     { path: 'petProfile',
         component: PetProfileComponent,
         canActivate: [PetProfileGuard] },

@@ -73,6 +73,7 @@ export class ShowVaccinesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.vaccines = this._petService.pet.applications;
       console.log('The dialog was closed');
     });
   }
