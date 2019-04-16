@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PetService } from '../../services/pet-service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { NewApplicationComponent } from '../new-application/new-application.component';
 
 @Component({
   selector: 'app-show-vaccines',
@@ -12,7 +14,7 @@ export class ShowVaccinesComponent implements OnInit {
   vaccines;
   forma;
 
-  constructor(public _petService: PetService) {
+  constructor(public _petService: PetService, public dialog: MatDialog) {
     this.date = new Date().toISOString();
     this.vaccines = this._petService.pet.applications;
 
@@ -61,6 +63,18 @@ export class ShowVaccinesComponent implements OnInit {
     };
 
     this._petService.applyVaccine(body, index).subscribe((res) => {});
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(NewApplicationComponent, {
+      height: '350px',
+      width: '600px',
+      data: { }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

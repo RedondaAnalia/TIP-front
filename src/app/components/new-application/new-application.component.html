@@ -1,0 +1,24 @@
+
+<div class="main-container d-flex flex-column justify-content-center">
+  <div class="d-flex flex-row justify-content-around">
+    <h4> Agregar una vacuna al calendario</h4>
+  </div>
+  <div class="main-container d-flex flex-row justify-content-around">
+    <mat-form-field>
+      <mat-label>Selecciona una vacuna</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let vaccine of vaccines" [value]="vaccine.name">
+          {{vaccine.name|uppercase}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class=" main-container d-flex flex-row justify-content-around">
+    <button (click)="addVaccine()"mat-raised-button color="primary">Agregar futura vacuna</button>
+  </div>
+</div>
