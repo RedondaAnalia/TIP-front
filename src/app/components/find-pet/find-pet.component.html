@@ -1,15 +1,15 @@
 <div class="d-flex flex-row justify-content-center blue-background animated fadeIn fast">
     <div class="d-flex flex-column justify-content-center">
-        <div class="py-5">
+        <div class="d-flex justify-content-center py-5">
             <img src="./assets/img/search_logo_2.png"/>
         </div>
         <div class="d-flex justify-content-center">
-            <h2>Ingrese el ID de la mascota</h2>
+            <h2>Ingrese el mail del dueño de la mascota</h2>
         </div>
-        <div class="d-flex flex-column justify-content-center">
-            <input (input)="input=$event.target.value" class="minWidth25 d-flex text-center" (keyup.enter)="find()" type="text"/> 
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <input (input)="input=$event.target.value" autofocus class="minWidth25 d-flex text-center" (keyup.enter)="find()" type="text"/> 
             
-            <a class=" d-flex flex-row justify-content-center btn btn-outline-secondary my-2" (click)="find()">
+            <a class=" d-flex flex-row justify-content-center btn btn-outline-secondary my-2 maxWidth20" (click)="find()">
                  <div class= "d-flex px-2 justify-content-center" *ngIf="busy">
                     <i class="fas fa-spinner fa-spin"></i>
                  </div>

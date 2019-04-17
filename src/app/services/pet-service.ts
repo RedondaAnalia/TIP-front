@@ -11,6 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class PetService {
 
   public pet;
+  public pets;
 
   constructor( public http: HttpClient) { }
 
