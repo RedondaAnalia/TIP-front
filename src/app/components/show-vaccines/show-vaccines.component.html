@@ -1,11 +1,16 @@
   <div [formGroup]="forma" class=" mb-3 width d-flex flex-column justify-content-center py-2">
-    <div class="d-flex flex-row justify-content-center">
-    <select formControlName="status" class="custom-select maxWidth10" id="inputGroupSelect02">
-      <option value='ALL' >TODAS</option>
-      <option value='APPLIED'>APLICADAS</option>
-      <option value='PENDING'>PENDIENTES</option>
-      <option value='EXPIRED'>VENCIDAS</option>
-    </select>
+    <div class="d-flex justify-content-center">
+      <select formControlName="status" class="custom-select maxWidth10" id="inputGroupSelect02">
+        <option value='ALL' >TODAS</option>
+        <option value='APPLIED'>APLICADAS</option>
+        <option value='PENDING'>PENDIENTES</option>
+        <option value='EXPIRED'>VENCIDAS</option>
+      </select>
+      <div class="d-flex px-2 justify-content-center align-self-end">
+        <a (click)="openDialog()" class="btn">
+          <i class="fas fa-plus-circle fa-3x" style="color:green"></i>
+        </a>
+      </div>
     </div>
   </div>
   <div *ngIf="this.vaccines.length === 0" class="d-flex flex-row justify-content-center">
@@ -51,3 +56,4 @@
     </div>
   </div>
 </div>
+
