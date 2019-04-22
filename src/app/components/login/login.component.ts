@@ -27,7 +27,11 @@ export class LoginComponent implements OnInit {
     } else {
       this._userService.login(this.user, this.pass).subscribe(
         (data: any) => {
-          this.router.navigate(['/userProfile']);
+          switch (data.usuario.role) {
+            case 'USER_ROLE': this.router.navigate(['/userProfile']); break;
+            case 'VET_ROLE': this.router.navigate(['/findPet']); break;
+            default: swal('El rol obtenido es inesperado:' + data.usuario.role, '', 'error'); break;
+          }
         },
         error => {
           swal(error.error.mensaje, '', 'error');

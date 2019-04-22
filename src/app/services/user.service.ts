@@ -4,13 +4,15 @@ import { URL_SERVICIOS } from '../../config/config';
 
 @Injectable()
 export class UserService {
-  user;
+
+  userLogged;
+  userToken;
 
   constructor(public http: HttpClient) { }
 
   findUserPets(mail) {
     const url = URL_SERVICIOS + 'users/' + mail ;
-    return this.http.get(url).map((res: any) => {this.user = res.data; return res.data; });
+    return this.http.get(url).map((res: any) => res.data );
   }
 
   login(user, pass) {
@@ -24,8 +26,11 @@ export class UserService {
         email : user,
         password : pass
       };
-    return this.http.post(url, body, httpOptions).map((res: any) => {
-      return res;
-      });
+    return this.http.post(url, body, httpOptions)
+                    .map((res: any) => {
+                                        this.userLogged = res.user;
+                                        this.userToken = res.token;
+                                        return res;
+                                        });
   }
 }
