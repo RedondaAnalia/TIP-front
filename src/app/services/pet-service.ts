@@ -21,7 +21,7 @@ export class PetService {
   }
 
   applyVaccine(body, index) {
-    const url = 'http://localhost:3000/applications';
+    const url = URL_SERVICIOS + 'applications';
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
