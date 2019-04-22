@@ -31,6 +31,10 @@ import { PetService } from './services/pet-service';
 import { SelectPetGuard } from './services/guards/select-pet.guard';
 import { ApplicationService } from './services/application.service';
 import { NewApplicationComponent } from './components/new-application/new-application.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { LoginComponent } from './components/login/login.component';
+import { ShowUserProfileComponent } from './components/show-user-profile/show-user-profile.component';
+import { PetsListComponent } from './components/pets-list/pets-list.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,10 @@ import { NewApplicationComponent } from './components/new-application/new-applic
     ShowPetProfileComponent,
     SelectPetfromUserComponent,
     NewApplicationComponent,
+    UserProfileComponent,
+    LoginComponent,
+    ShowUserProfileComponent,
+    PetsListComponent,
   ],
   imports: [
     BrowserModule,

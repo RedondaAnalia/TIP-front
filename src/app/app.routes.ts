@@ -5,9 +5,13 @@ import { PetProfileGuard } from './services/guards/pet.profile.guard';
 import { SelectPetfromUserComponent } from './components/select-petfrom-user/select-petfrom-user.component';
 import { SelectPetGuard } from './services/guards/select-pet.guard';
 import { NewApplicationComponent } from './components/new-application/new-application.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { LoginComponent } from './components/login/login.component';
 
 const APP_ROUTES: Routes = [
     { path: 'findPet', component: FindPetComponent },
+    { path: 'userProfile', component: UserProfileComponent },
+    { path: 'login', component: LoginComponent },
     { path: 'newApplication',
         component: NewApplicationComponent,
         canActivate: [PetProfileGuard, SelectPetGuard]},
