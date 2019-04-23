@@ -3,6 +3,7 @@ import * as _swal from 'sweetalert';
 import { SweetAlert } from 'sweetalert/typings/core';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { PetService } from '../../services/pet-service';
 
 const swal: SweetAlert = _swal as any;
 
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   user;
   pass;
-  constructor(private _userService: UserService, private router: Router) {
+  constructor(private _userService: UserService, private router: Router, private _petService: PetService) {
    }
 
   ngOnInit() {
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit {
       this._userService.login(this.user, this.pass).subscribe(
         (data: any) => {
           switch (data.usuario.role) {
-            case 'USER_ROLE': this.router.navigate(['/userProfile']); break;
+            case 'USER_ROLE': this._petService.pets = data.usuario.pets,
+                             this.router.navigate(['/userProfile']); break;
             case 'VET_ROLE': this.router.navigate(['/findPet']); break;
             default: swal('El rol obtenido es inesperado:' + data.usuario.role, '', 'error'); break;
           }
