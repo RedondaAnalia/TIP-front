@@ -35,6 +35,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { LoginComponent } from './components/login/login.component';
 import { ShowUserProfileComponent } from './components/show-user-profile/show-user-profile.component';
 import { PetsListComponent } from './components/pets-list/pets-list.component';
+import { LoggedGuard } from './services/guards/logged.guard';
+import { UserLoggedGuard } from './services/guards/user-logged.guard';
+import { VetLoggedGuard } from './services/guards/vet-logged.guard';
 
 @NgModule({
   declarations: [
@@ -77,7 +80,10 @@ import { PetsListComponent } from './components/pets-list/pets-list.component';
     UserService,
     ApplicationService,
     PetProfileGuard,
-    SelectPetGuard
+    SelectPetGuard,
+    LoggedGuard,
+    UserLoggedGuard,
+    VetLoggedGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -7,10 +7,17 @@ import { SelectPetGuard } from './services/guards/select-pet.guard';
 import { NewApplicationComponent } from './components/new-application/new-application.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { LoginComponent } from './components/login/login.component';
+import { LoggedGuard } from './services/guards/logged.guard';
+import { UserLoggedGuard } from './services/guards/user-logged.guard';
+import { VetLoggedGuard } from './services/guards/vet-logged.guard';
 
 const APP_ROUTES: Routes = [
-    { path: 'findPet', component: FindPetComponent },
-    { path: 'userProfile', component: UserProfileComponent },
+    { path: 'findPet',
+            component: FindPetComponent,
+            canActivate: [LoggedGuard, VetLoggedGuard] },
+    { path: 'userProfile',
+            component: UserProfileComponent,
+            canActivate: [LoggedGuard, UserLoggedGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'newApplication',
         component: NewApplicationComponent,
@@ -21,7 +28,7 @@ const APP_ROUTES: Routes = [
     { path: 'selectPet',
         component: SelectPetfromUserComponent,
         canActivate: [SelectPetGuard] },
-    { path: '**', pathMatch: 'full', redirectTo: 'findPet' }
+    { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ] ;
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

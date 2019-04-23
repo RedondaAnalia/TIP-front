@@ -27,8 +27,8 @@ export class UserService {
         password : pass
       };
     return this.http.post(url, body, httpOptions)
-                    .map((res: any) => {
-                                        this.userLogged = res.user;
+                    .map((res: any) => {console.log(res.usuario);
+                                        this.userLogged = res.usuario;
                                         this.userToken = res.token;
                                         return res;
                                         });
