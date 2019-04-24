@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         (data: any) => {
           switch (data.usuario.role) {
             case 'USER_ROLE': this._petService.pets = data.usuario.pets,
-                             this.router.navigate(['/userProfile']); break;
+                             this.router.navigate(['/yourPets']); break;
             case 'VET_ROLE': this.router.navigate(['/findPet']); break;
             default: swal('El rol obtenido es inesperado:' + data.usuario.role, '', 'error'); break;
           }

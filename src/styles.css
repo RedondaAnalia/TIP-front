@@ -69,6 +69,10 @@
     min-width: 20vh;;
 }
 
+.minWidth90percent{
+    min-width: 90%;
+}
+
 .minWidth25{
     min-width: 45vh;
 }

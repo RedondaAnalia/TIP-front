@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
 export class PetsListComponent implements OnInit {
 
   pets;
+  url;
 
   constructor(private _petService: PetService, private router: Router) {
     this.pets = this._petService.pets;
+    this.url = this.router.routerState.snapshot.url;
   }
 
   ngOnInit() {
@@ -20,7 +22,10 @@ export class PetsListComponent implements OnInit {
   irAPerfil(pet) {
     this._petService.findPetById(pet._id).subscribe(( res: any) => {
       this._petService.pet = res.pet;
-      this.router.navigate(['/petProfile']);
+      switch (this.url) {
+        case '/yourPets': this.router.navigate(['/myPet']); break;
+        default: this.router.navigate(['/petProfile']); break;
+      }
     });
   }
 
