@@ -18,7 +18,14 @@
     </label>
   </div>
 -->
-  <button class="btn btn-lg btn-primary btn-block" (click)="login()" type="submit">Sign in</button>
+  <button class="btn btn-lg btn-primary btn-block" (click)="login()" type="submit">
+    <div class= "d-flex justify-content-center align-items-center">
+    Sign in
+    <div class= "d-flex px-2 justify-content-center" *ngIf="busy">
+      <i class="fas fa-spinner fa-spin"></i>
+    </div>
+    </div>
+  </button>
   <p class="mt-5 mb-3 text-muted">&copy; 12-Cactus 2019</p>
 </form>
 </body>

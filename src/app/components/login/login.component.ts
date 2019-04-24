@@ -16,7 +16,9 @@ export class LoginComponent implements OnInit {
 
   user;
   pass;
+  busy;
   constructor(private _userService: UserService, private router: Router, private _petService: PetService) {
+    this.busy = false;
    }
 
   ngOnInit() {
@@ -26,8 +28,10 @@ export class LoginComponent implements OnInit {
     if (!this.user || !this.pass) {
       swal( 'Por favor completa los campos', '' , 'error');
     } else {
+      this.busy = true;
       this._userService.login(this.user, this.pass).subscribe(
         (data: any) => {
+          this.busy = false;
           switch (data.usuario.role) {
             case 'USER_ROLE': this._petService.pets = data.usuario.pets,
                              this.router.navigate(['/yourPets']); break;
