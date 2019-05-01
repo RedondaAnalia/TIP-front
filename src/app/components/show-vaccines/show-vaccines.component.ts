@@ -18,6 +18,7 @@ export class ShowVaccinesComponent implements OnInit {
 
   constructor(private _userService: UserService, public _petService: PetService, public dialog: MatDialog) {
     this.date = new Date().toISOString();
+    console.log(this._petService.pet);
     this.vaccines = this._petService.pet.applications;
 
     this.forma = new FormGroup({
