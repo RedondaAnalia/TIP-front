@@ -18,10 +18,13 @@
         {{mc.title}}
       </div>
       <div class="d-flex justify-content-end allW">
-        {{mc.veterinary.name}}
+        <small>
+        Subido por:
+        {{mc.veterinary.name| uppercase}}
         <div class="text-muted px-1">
           ({{mc.veterinary.email}})
         </div>
+        </small>
       </div>
       <br>
     </div>
