@@ -105,6 +105,10 @@
     min-height: 100%
 }
 
+.allW{
+    min-width: 100%;
+}
+
 
 
 /* Animaciones */

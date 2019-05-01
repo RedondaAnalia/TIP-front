@@ -40,6 +40,7 @@ import { VetLoggedGuard } from './services/guards/vet-logged.guard';
 import { UserProfileComponent } from './components/pages/user-profile/user-profile.component';
 import { USER_ROUTES } from './components/pages/user-profile/user-profile.routes';
 import { UserModule } from './components/pages/user-profile/user.module';
+import { ShowMedicalCardsComponent } from './components/show-medical-cards/show-medical-cards.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { UserModule } from './components/pages/user-profile/user.module';
     LoginComponent,
     ShowUserProfileComponent,
     PetsListComponent,
+    ShowMedicalCardsComponent,
   ],
   imports: [
     BrowserModule,
