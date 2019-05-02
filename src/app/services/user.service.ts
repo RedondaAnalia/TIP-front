@@ -10,6 +10,11 @@ export class UserService {
 
   constructor(public http: HttpClient) { }
 
+  reset() {
+    this.userLogged = null;
+    this.userToken = null;
+  }
+
   findUserPets(mail) {
     const url = URL_SERVICIOS + 'users/' + mail ;
     return this.http.get(url).map((res: any) => res.data );

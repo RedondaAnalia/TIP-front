@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PetService } from '../../services/pet-service';
+import { PetService } from '../../../services/pet-service';
 import 'rxjs/add/operator/catch';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../../services/user.service';
 import * as _swal from 'sweetalert';
 import { SweetAlert } from 'sweetalert/typings/core';
 

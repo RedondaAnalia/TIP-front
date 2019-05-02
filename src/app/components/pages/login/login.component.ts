@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
-import { PetService } from '../../services/pet-service';
+import { PetService } from '../../../services/pet-service';
 
 import * as _swal from 'sweetalert';
 import { SweetAlert } from 'sweetalert/typings/core';
@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   busy;
   constructor(private _userService: UserService, private router: Router, private _petService: PetService) {
     this.busy = false;
+    this._userService.reset();
    }
 
   ngOnInit() {
