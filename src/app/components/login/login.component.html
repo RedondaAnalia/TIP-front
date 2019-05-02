@@ -1,33 +1,37 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
- </head>
-  <body class="text-center">
-    <form class="form-signin">
-  <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-  <label for="inputEmail" class="sr-only">Email address</label>
-  <input (input)="user=$event.target.value" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input (keyup.enter)="login()" (input)="pass=$event.target.value" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-<!--
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
--->
-  <button class="btn btn-lg btn-primary btn-block" (click)="login()" type="submit">
-    <div class= "d-flex justify-content-center align-items-center">
-    Sign in
-    <div class= "d-flex px-2 justify-content-center" *ngIf="busy">
-      <i class="fas fa-spinner fa-spin"></i>
-    </div>
-    </div>
-  </button>
-  <p class="mt-5 mb-3 text-muted">&copy; 12-Cactus 2019</p>
-</form>
-</body>
-</html>
+<div class="allW text-center py-3">
+<div class="body d-flex flex-row align-self-center">
+  <form class="form-signin">
+    <img class="mb-4" src="../../../assets/img/icono-login.png" alt="" width="200" height="200">
+    <h1 class="h3 mb-3 font-weight-normal text-muted" >Ingresa a Pet Heroes</h1>
 
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input (input)="user=$event.target.value" type="email" matInput placeholder="Usuario" required>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input (keyup.enter)="login()" (input)="pass=$event.target.value"  matInput placeholder="Contraseña" type="password" required >
+      </mat-form-field>    
+    </form>
+<!--
+<div class="checkbox mb-3">
+  <label>
+    <input type="checkbox" value="remember-me"> Remember me
+  </label>
+</div>
+-->
+    <button mat-raised-button color="primary" (click)="login()" type="submit">
+      <div class= "d-flex justify-content-center align-items-center">
+        Sign in
+        <div class= "d-flex px-2 justify-content-center" *ngIf="busy">
+          <i class="fas fa-spinner fa-spin"></i>
+        </div>
+      </div>
+    </button>
+  </form>
+</div>
+    <footer class="footer d-flex align-self-bottom justify-content-center py-2">
+      <p class=" text-muted">&copy; 12-Cactus 2019</p>
+    </footer>
+
+</div>
