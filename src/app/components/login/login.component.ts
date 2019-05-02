@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import * as _swal from 'sweetalert';
-import { SweetAlert } from 'sweetalert/typings/core';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { PetService } from '../../services/pet-service';
 
+import * as _swal from 'sweetalert';
+import { SweetAlert } from 'sweetalert/typings/core';
 const swal: SweetAlert = _swal as any;
 
 @Component({

@@ -40,5 +40,29 @@ export class PetService {
                                         });
   }
 
+  addMedicalCard(title, diagnostic) {
+    const url = URL_SERVICIOS +  'pets/medicalCard?token=' + this._userService.userToken;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    const body = {
+      pet_id: this.pet._id,
+      email: this._userService.userLogged.email,
+      medicalCard: {
+            title: title,
+            diagnostic: diagnostic,
+            veterinary: this._userService.userLogged._id
+      }
+    };
+
+    return this.http.post(url, body, httpOptions).map((res: any) => {
+      this.pet = res.pet;
+      return res;
+      });
+    }
+
+
 }
 

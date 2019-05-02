@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // tslint:disable-next-line:max-line-length
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatStepperModule} from '@angular/material';
 
 
 // Config
@@ -41,6 +41,7 @@ import { UserProfileComponent } from './components/pages/user-profile/user-profi
 import { USER_ROUTES } from './components/pages/user-profile/user-profile.routes';
 import { UserModule } from './components/pages/user-profile/user.module';
 import { ShowMedicalCardsComponent } from './components/show-medical-cards/show-medical-cards.component';
+import { NewMedicalCardComponent } from './components/new-medical-card/new-medical-card.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ShowMedicalCardsComponent } from './components/show-medical-cards/show-
     ShowUserProfileComponent,
     PetsListComponent,
     ShowMedicalCardsComponent,
+    NewMedicalCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +77,7 @@ import { ShowMedicalCardsComponent } from './components/show-medical-cards/show-
     MatCardModule,
     MatSnackBarModule,
     MatSelectModule,
+    MatStepperModule,
     MatDatepickerModule,        // <----- import(must)
     MatNativeDateModule,        // <----- import for date formating(optional)
     APP_ROUTING,
@@ -90,6 +93,7 @@ import { ShowMedicalCardsComponent } from './components/show-medical-cards/show-
     UserLoggedGuard,
     VetLoggedGuard
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ NewMedicalCardComponent ]
 })
 export class AppModule { }
