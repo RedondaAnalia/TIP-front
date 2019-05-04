@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
           }
         },
         error => {
+          this.busy = false;
           swal(error.error.mensaje, '', 'error');
         }
       );

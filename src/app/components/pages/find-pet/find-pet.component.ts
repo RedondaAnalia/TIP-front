@@ -30,7 +30,7 @@ export class FindPetComponent implements OnInit {
   find() {
     if (this.input === undefined) {
       swal( 'Por favor ingrese un mail', '' , 'warning');
-    }else{
+    } else {
     this.busy = true;
     this._userService.findUserPets(this.input).subscribe(
       (data: any) => {

@@ -1,5 +1,5 @@
 <div class="py-2 d-flex justify-content-end">
-    <button *ngIf= "this.userRole==='VET_ROLE'"class="btn btn-primary" (click)="openDialog()">Agregar historia clinica</button>
+    <button mat-raised-button color="primary" *ngIf= "this.userRole==='VET_ROLE'" (click)="openDialog()">Agregar atención médica</button>
   </div>
 <div class="main-container">
   <div *ngIf='this.medicalCards.length === 0' >
