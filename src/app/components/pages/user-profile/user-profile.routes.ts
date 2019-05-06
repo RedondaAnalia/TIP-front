@@ -2,8 +2,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserProfileComponent } from './user-profile.component';
 import { LoggedGuard } from '../../../services/guards/logged.guard';
 import { UserLoggedGuard } from '../../../services/guards/user-logged.guard';
-import { PetsListComponent } from '../../pets-list/pets-list.component';
 import { PetProfileComponent } from '../../pet-profile/pet-profile.component';
+import { MyMilestonesComponent } from '../my-milestones/my-milestones.component';
+import { MyPetsComponent } from '../my-pets/my-pets.component';
 
 const userRoutes: Routes = [
     {
@@ -11,9 +12,10 @@ const userRoutes: Routes = [
         component: UserProfileComponent,
         canActivate: [LoggedGuard, UserLoggedGuard],
         children: [
-            { path: 'yourPets', component: PetsListComponent},
+            { path: 'myPets', component: MyPetsComponent},
             { path: 'myPet', component: PetProfileComponent},
-            { path: '', redirectTo: '/yourPets', pathMatch: 'full' }
+            { path: 'myMilestones', component: MyMilestonesComponent},
+            { path: '', redirectTo: '/myPets', pathMatch: 'full' }
         ]
     }
 ];

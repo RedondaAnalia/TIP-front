@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // tslint:disable-next-line:max-line-length
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatStepperModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatStepperModule, MatGridListModule, MatList, MatListModule} from '@angular/material';
 
 
 // Config
@@ -42,6 +42,8 @@ import { USER_ROUTES } from './components/pages/user-profile/user-profile.routes
 import { UserModule } from './components/pages/user-profile/user.module';
 import { ShowMedicalCardsComponent } from './components/show-medical-cards/show-medical-cards.component';
 import { NewMedicalCardComponent } from './components/new-medical-card/new-medical-card.component';
+import { MyPetsComponent } from './components/pages/my-pets/my-pets.component';
+import { MyMilestonesComponent } from './components/pages/my-milestones/my-milestones.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { NewMedicalCardComponent } from './components/new-medical-card/new-medic
     PetsListComponent,
     ShowMedicalCardsComponent,
     NewMedicalCardComponent,
+    MyPetsComponent,
+    MyMilestonesComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +76,7 @@ import { NewMedicalCardComponent } from './components/new-medical-card/new-medic
     MatTabsModule,
     MatButtonModule,
     MatIconModule,
+    MatListModule,
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,

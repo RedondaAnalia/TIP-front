@@ -24,7 +24,7 @@ export class PetsListComponent implements OnInit {
     this._petService.findPetById(pet._id).subscribe(( res: any) => {
       this._petService.pet = res.pet;
       switch (this.url) {
-        case '/yourPets': this.router.navigate(['/myPet']); break;
+        case '/myPets': this.router.navigate(['/myPet']); break;
         default: this.router.navigate(['/petProfile']); break;
       }
     });

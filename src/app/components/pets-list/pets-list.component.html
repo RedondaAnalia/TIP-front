@@ -3,13 +3,15 @@
                 No tienes mascotas registradas.
         </div>
 </div>
-<ul class="d-flex list-group list-group-flush justify-content-center bg-light" >
-        <div *ngFor="let pet of this.pets">
-        <li class="list-group-item blackBorder d-flex flex-row bg-light justify-content-around btn" (click)="irAPerfil(pet)">
-                <img class="select-image img-thumbnail rounded-circle" src="./assets/img/perfil_gato.jpg"/>    
-                <h3 class="d-flex flex-column justify-content-center"> {{pet.name| uppercase}} </h3>
-        </li>
-        <li class="list-group-item blackBorder">
-        </li>
-        </div>
-</ul>
+
+<mat-list class="py-2">
+   <mat-list-item *ngFor="let pet of pets; last as last" (click)="irAPerfil(pet)">
+      <img class="select-image img-thumbnail rounded-circle" src="./assets/img/perfil_gato.jpg"/>
+      <h4 mat-line>
+      <i class="fas fa-hand-point-right"></i>
+      {{pet.name| uppercase}}</h4>
+      <p mat-line class="demo-2"> Especie: {{pet.species | nullTransformer}} </p>
+      <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+   </mat-list-item>
+   <mat-divider></mat-divider>
+</mat-list>

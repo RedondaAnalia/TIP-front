@@ -8,10 +8,10 @@
                 <app-show-user-profile></app-show-user-profile>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#">
-                  <span data-feather="home"></span>
-                  Dashboard <span class="sr-only">(current)</span>
-                </a>
+                <button mat-button color="primary" (click)="viewPets()">Mascotas</button>
+              </li>
+              <li class="nav-item">
+                <button mat-button color="primary" (click)="viewMilestones()">Logros</button>
               </li>
               
             </ul>
@@ -34,7 +34,6 @@
         </nav>
          <div class="col-md-9 d-flex flex-row justify-content-center">
          <div class="d-flex flex-column main-container minWidth90percent">
-         <h2 class="text-center">MASCOTAS</h2>
           <router-outlet></router-outlet>
           </div>
          </div>
