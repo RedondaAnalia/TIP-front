@@ -6,7 +6,7 @@
         <option value='PENDING'>PENDIENTES</option>
         <option value='EXPIRED'>VENCIDAS</option>
       </select>
-      <div class="d-flex px-2 justify-content-center align-self-end">
+      <div class="d-flex px-2 justify-content-center align-self-end" *ngIf="isVet()">
         <a (click)="openDialog()" class="btn">
           <i class="fas fa-plus-circle fa-3x" style="color:green"></i>
         </a>
@@ -46,7 +46,7 @@
             {{application.estimated_date | dateFormatter}}
           </div>
         </div>
-        <footer class="margin-top-40">
+        <footer class="margin-top-40" *ngIf="isVet()">
           <span (click)="applyVaccine(application, i)" class="badge badge-success btn">
             <i class="fas fa-exclamation-circle"></i>
             Aplicar

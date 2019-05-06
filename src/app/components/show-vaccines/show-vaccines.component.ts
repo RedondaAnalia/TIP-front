@@ -3,6 +3,8 @@ import { PetService } from '../../services/pet-service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { NewApplicationComponent } from '../new-application/new-application.component';
+import { UserService } from '../../services/user.service';
+import { applySourceSpanToExpressionIfNeeded } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-show-vaccines',
@@ -14,8 +16,9 @@ export class ShowVaccinesComponent implements OnInit {
   vaccines;
   forma;
 
-  constructor(public _petService: PetService, public dialog: MatDialog) {
+  constructor(private _userService: UserService, public _petService: PetService, public dialog: MatDialog) {
     this.date = new Date().toISOString();
+    console.log(this._petService.pet);
     this.vaccines = this._petService.pet.applications;
 
     this.forma = new FormGroup({
@@ -32,24 +35,28 @@ export class ShowVaccinesComponent implements OnInit {
         }
       }
     );
-   }
+  }
 
-   filterAppliedVaccines() {
-      const vac = this._petService.pet.applications;
-      this.vaccines = vac.filter(app => app.application_date);
-      return;
-   }
-
-   filterPendingVaccines() {
+  filterAppliedVaccines() {
     const vac = this._petService.pet.applications;
-     this.vaccines = vac.filter(app => !app.application_date);
-      return ;
-   }
+    this.vaccines = vac.filter(app => app.application_date);
+    return;
+  }
 
-   filterExpiredVaccines() {
+  filterPendingVaccines() {
+    const vac = this._petService.pet.applications;
+    this.vaccines = vac.filter(app => !app.application_date);
+    return ;
+  }
+
+  filterExpiredVaccines() {
     const vac = this._petService.pet.applications;
     this.vaccines = vac.filter(app => app.estimated_date <= this.date && !app.application_date);
     return;
+  }
+
+  isVet() {
+    return this._userService.userLogged.role === 'VET_ROLE';
   }
 
 
@@ -57,12 +64,8 @@ export class ShowVaccinesComponent implements OnInit {
   }
 
   applyVaccine(application, index) {
-    const body = {
-      application_id: application._id,
-      application_date: new Date().toISOString()
-    };
 
-    this._petService.applyVaccine(body, index).subscribe((res) => {});
+    this._petService.applyVaccine(application._id, new Date().toISOString(), index).subscribe((res) => {});
   }
 
   openDialog(): void {

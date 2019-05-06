@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PetService } from '../../services/pet-service';
+import { PetService } from '../../../services/pet-service';
 import 'rxjs/add/operator/catch';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../../services/user.service';
 import * as _swal from 'sweetalert';
 import { SweetAlert } from 'sweetalert/typings/core';
 
@@ -14,7 +14,7 @@ const swal: SweetAlert = _swal as any;
 })
 export class FindPetComponent implements OnInit {
 
-  input;
+  input = undefined;
   busy = false;
 
   constructor(
@@ -28,6 +28,9 @@ export class FindPetComponent implements OnInit {
 
 
   find() {
+    if (this.input === undefined) {
+      swal( 'Por favor ingrese un mail', '' , 'warning');
+    } else {
     this.busy = true;
     this._userService.findUserPets(this.input).subscribe(
       (data: any) => {
@@ -59,5 +62,6 @@ export class FindPetComponent implements OnInit {
       }
     );
   }
+}
 
 }

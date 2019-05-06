@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 
 import { URL_SERVICIOS } from '../../config/config';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UserService } from './user.service';
 
 @Injectable()
 export class PetService {
@@ -13,19 +14,24 @@ export class PetService {
   public pet;
   public pets;
 
-  constructor( public http: HttpClient) { }
+  constructor( public http: HttpClient, private _userService: UserService) { }
 
   findPetById(id: String) {
     const url = URL_SERVICIOS + 'pets/' + id;
     return this.http.get(url);
   }
 
-  applyVaccine(body, index) {
-    const url = 'http://localhost:3000/applications';
+  applyVaccine(applicationId, date, index) {
+    const url = URL_SERVICIOS + 'applications?token=' + this._userService.userToken;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
       })
+    };
+    const body = {
+      application_id: applicationId,
+      application_date: date,
+      email: this._userService.userLogged.email
     };
 
     return this.http.put(url, body, httpOptions).map((res: any) => {
@@ -33,6 +39,30 @@ export class PetService {
                                         return res;
                                         });
   }
+
+  addMedicalCard(title, diagnostic) {
+    const url = URL_SERVICIOS +  'pets/medicalCard?token=' + this._userService.userToken;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    const body = {
+      pet_id: this.pet._id,
+      email: this._userService.userLogged.email,
+      medicalCard: {
+            title: title,
+            diagnostic: diagnostic,
+            veterinary: this._userService.userLogged._id
+      }
+    };
+
+    return this.http.post(url, body, httpOptions).map((res: any) => {
+      this.pet = res.pet;
+      return res;
+      });
+    }
+
 
 }
 

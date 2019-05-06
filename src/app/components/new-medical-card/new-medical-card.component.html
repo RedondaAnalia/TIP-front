@@ -1,0 +1,18 @@
+<div class="main-container">
+  <h3 class="text-center">NUEVA ATENCIÓN MÉDICA</h3>
+  <div class="py-5 d-flex">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="diagnostic" [ngModelOptions]="{standalone: true}" placeholder="Diagnóstico" value="">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <textarea matInput [(ngModel)]="title" [ngModelOptions]="{standalone: true}" placeholder="Comentarios"></textarea>
+      </mat-form-field>
+
+      <div class="main-container d-flex flex-row justify-content-around">
+        <button mat-raised-button (click)="addToMedicalHistory()" color="primary">Agregar a historia clínica</button>
+      </div>
+    </form>
+  </div>
+</div>
