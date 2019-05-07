@@ -3,15 +3,16 @@
                 No tienes mascotas registradas.
         </div>
 </div>
-
+<div class="pet-list justify-content-center">
 <mat-list class="py-2">
-   <mat-list-item *ngFor="let pet of pets; last as last" (click)="irAPerfil(pet)">
+   <mat-list-item *ngFor="let pet of pets; last as last" (click)="goToProfile(pet)">
       <img class="select-image img-thumbnail rounded-circle" src="./assets/img/perfil_gato.jpg"/>
       <h4 mat-line>
-      <i class="fas fa-hand-point-right"></i>
+      <i class="far fa-check-circle"></i>
       {{pet.name| uppercase}}</h4>
       <p mat-line class="demo-2"> Especie: {{pet.species | nullTransformer}} </p>
-      <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+      <mat-divider class="example-full-width" [inset]="true" *ngIf="!last"></mat-divider>
    </mat-list-item>
    <mat-divider></mat-divider>
 </mat-list>
+</div>

@@ -10,6 +10,7 @@ import { LoggedGuard } from './services/guards/logged.guard';
 import { UserLoggedGuard } from './services/guards/user-logged.guard';
 import { VetLoggedGuard } from './services/guards/vet-logged.guard';
 import { UserProfileComponent } from './components/pages/user-profile/user-profile.component';
+import { NewPetComponent } from './components/new-pet/new-pet.component';
 
 const APP_ROUTES: Routes = [
     { path: 'findPet',
@@ -17,6 +18,7 @@ const APP_ROUTES: Routes = [
             canActivate: [LoggedGuard, VetLoggedGuard]
     },
     { path: 'login', component: LoginComponent },
+    { path: 'petnuevo', component: NewPetComponent },
     { path: 'newApplication',
         component: NewApplicationComponent,
         canActivate: [PetProfileGuard, SelectPetGuard]},

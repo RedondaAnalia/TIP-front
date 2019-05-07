@@ -20,7 +20,7 @@ export class PetsListComponent implements OnInit {
   ngOnInit() {
   }
 
-  irAPerfil(pet) {
+  goToProfile(pet) {
     this._petService.findPetById(pet._id).subscribe(( res: any) => {
       this._petService.pet = res.pet;
       switch (this.url) {

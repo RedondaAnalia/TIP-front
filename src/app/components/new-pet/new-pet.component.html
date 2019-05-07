@@ -1,0 +1,80 @@
+<div class="mat-body main-container">
+ <h3 class="text-center">Nueva Mascota!</h3>
+<mat-vertical-stepper [linear]="true" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Nombre</ng-template>
+      <mat-form-field>
+        <input autofocus matInput placeholder="Nombre de tu mascota" formControlName="name" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fecha de nacimiento</ng-template>
+      <mat-form-field>
+        <input autofocus matInput matStepperNext [matDatepicker]="picker" placeholder="Choose a date" formControlName="birthday" (dateChange)="setDate($event)">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+   <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Esta castrado/a?</ng-template>
+      <mat-form-field>
+        <mat-select matInput matStepperNext autofocus placeholder="Select" formControlName="castrate">
+          <mat-option value="true">SI</mat-option>
+          <mat-option value="false">NO</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="fourthFormGroup">
+    <form [formGroup]="fourthFormGroup">
+      <ng-template matStepLabel>Género</ng-template>
+      <mat-form-field>
+        <mat-select matInput matStepperNext autofocus placeholder="Select" formControlName="gender">
+          <mat-option value="FEMALE">Hembra</mat-option>
+          <mat-option value="MALE">Macho</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Por favor, confirmá los datos</ng-template>
+    <div>
+      Nombre: {{this.firstFormGroup.value.name}}
+    </div>
+    <div>
+      Fecha de nacimiento: {{this.secondFormGroup.value.birthday | dateFormatter}}
+    </div>
+    <div>
+      Castrado/a: {{this.thirdFormGroup.value.castrate | booleanTransformer}}
+    </div>
+    <div>
+      Genero: {{this.fourthFormGroup.value.gender | genderTransformer}}
+    </div>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="submit()">Agregar Nueva Mascota!</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
+</div>

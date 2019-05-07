@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { NewPetComponent } from '../../new-pet/new-pet.component';
 
 @Component({
   selector: 'app-my-pets',
@@ -6,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyPetsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  newPet() {
+    const dialogRef = this.dialog.open(NewPetComponent, {
+      height: '350px',
+      width: '600px',
+      data: { }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
 }

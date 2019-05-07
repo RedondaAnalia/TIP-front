@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // tslint:disable-next-line:max-line-length
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatStepperModule, MatGridListModule, MatList, MatListModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatStepperModule, MatGridListModule, MatList, MatListModule, MatRadioModule, MatChipsModule} from '@angular/material';
 
 
 // Config
@@ -44,6 +44,9 @@ import { ShowMedicalCardsComponent } from './components/show-medical-cards/show-
 import { NewMedicalCardComponent } from './components/new-medical-card/new-medical-card.component';
 import { MyPetsComponent } from './components/pages/my-pets/my-pets.component';
 import { MyMilestonesComponent } from './components/pages/my-milestones/my-milestones.component';
+import { NewPetComponent } from './components/new-pet/new-pet.component';
+import { BooleanTransformerPipe } from './pipes/boolean-transformer.pipe';
+import { GenderTransformerPipe } from './pipes/gender-transformer.pipe';
 
 @NgModule({
   declarations: [
@@ -64,6 +67,9 @@ import { MyMilestonesComponent } from './components/pages/my-milestones/my-miles
     NewMedicalCardComponent,
     MyPetsComponent,
     MyMilestonesComponent,
+    NewPetComponent,
+    BooleanTransformerPipe,
+    GenderTransformerPipe,
   ],
   imports: [
     BrowserModule,
@@ -77,11 +83,14 @@ import { MyMilestonesComponent } from './components/pages/my-milestones/my-miles
     MatButtonModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatChipsModule,
     MatCardModule,
     MatSnackBarModule,
     MatSelectModule,
+    MatRadioModule,
     MatStepperModule,
     MatDatepickerModule,        // <----- import(must)
     MatNativeDateModule,        // <----- import for date formating(optional)
@@ -99,6 +108,6 @@ import { MyMilestonesComponent } from './components/pages/my-milestones/my-miles
     VetLoggedGuard
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ NewMedicalCardComponent ]
+  entryComponents: [ NewMedicalCardComponent, NewPetComponent ]
 })
 export class AppModule { }
