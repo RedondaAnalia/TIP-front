@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../../services/user.service';
+import { MatDialogRef, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-new-pet',
@@ -14,7 +16,10 @@ export class NewPetComponent implements OnInit {
 
   today;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder,
+              private _userService: UserService,
+              private snackBar: MatSnackBar,
+              private dialogRef: MatDialogRef<NewPetComponent>) {}
 
   ngOnInit() {
     this.today = new Date();
@@ -32,13 +37,25 @@ export class NewPetComponent implements OnInit {
     });
   }
 
-  submit() {
-    // tslint:disable-next-line:max-line-length
-    console.log(this.firstFormGroup.value.name + ' ' + this.secondFormGroup.value.birthday.toISOString() + ' ' + this.thirdFormGroup.value.castrate + ' ' + this.fourthFormGroup.value.gender);
-  }
 
   setDate($event) {
     this.secondFormGroup.value.birthday = $event.value.toISOString();
   }
 
+  submit() {
+    this._userService.addPet(this.firstFormGroup.value.name,
+                            this.secondFormGroup.value.birthday,
+                            this.thirdFormGroup.value.castrate,
+                            this.fourthFormGroup.value.gender
+                    ).subscribe(res => {
+                      this.openSnackBar();
+                      this.dialogRef.close();
+                    });
+  }
+
+  openSnackBar() {
+    this.snackBar.open('Mascota agregada', 'HECHO', {
+      duration: 2000,
+    });
+  }
 }
