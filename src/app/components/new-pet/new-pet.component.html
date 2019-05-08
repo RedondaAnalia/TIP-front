@@ -16,7 +16,7 @@
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Fecha de nacimiento</ng-template>
       <mat-form-field>
-        <input autofocus matInput matStepperNext [matDatepicker]="picker" placeholder="Choose a date" formControlName="birthday" (dateChange)="setDate($event)">
+        <input [max]="today" autofocus matInput matStepperNext [matDatepicker]="picker" placeholder="Choose a date" formControlName="birthday" (dateChange)="setDate($event)">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -59,21 +59,23 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Por favor, confirmá los datos</ng-template>
-    <div>
+    <div class="d-flex flex-column align-content-center justify-content-center">
+    <div class="text-center">
       Nombre: {{this.firstFormGroup.value.name}}
     </div>
-    <div>
-      Fecha de nacimiento: {{this.secondFormGroup.value.birthday | dateFormatter}}
+    <div class="text-center">
+      Fecha de Nacimiento: {{this.secondFormGroup.value.birthday | dateFormatter}}
     </div>
-    <div>
+    <div class="text-center">
       Castrado/a: {{this.thirdFormGroup.value.castrate | booleanTransformer}}
     </div>
-    <div>
-      Genero: {{this.fourthFormGroup.value.gender | genderTransformer}}
+    <div class="text-center">
+      Género: {{this.fourthFormGroup.value.gender | genderTransformer}}
     </div>
-    <div>
+    <div class="d-flex justify-content-around py-4">
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="submit()">Agregar Nueva Mascota!</button>
+      <button mat-raised-button color="primary" (click)="submit()">Agregar Nueva Mascota!</button>
+    </div>
     </div>
   </mat-step>
 </mat-vertical-stepper>

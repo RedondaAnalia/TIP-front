@@ -15,7 +15,7 @@ export class MyPetsComponent implements OnInit {
 
   newPet() {
     const dialogRef = this.dialog.open(NewPetComponent, {
-      height: '350px',
+      height: '675px',
       width: '600px',
       data: { }
     });

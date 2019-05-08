@@ -18,7 +18,6 @@ const APP_ROUTES: Routes = [
             canActivate: [LoggedGuard, VetLoggedGuard]
     },
     { path: 'login', component: LoginComponent },
-    { path: 'petnuevo', component: NewPetComponent },
     { path: 'newApplication',
         component: NewApplicationComponent,
         canActivate: [PetProfileGuard, SelectPetGuard]},

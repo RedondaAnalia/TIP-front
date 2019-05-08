@@ -12,9 +12,12 @@ export class NewPetComponent implements OnInit {
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
 
+  today;
+
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
+    this.today = new Date();
     this.firstFormGroup = this._formBuilder.group({
       name: ['', Validators.required]
     });
