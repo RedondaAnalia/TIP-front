@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // tslint:disable-next-line:max-line-length
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatStepperModule, MatGridListModule, MatList, MatListModule, MatRadioModule, MatChipsModule, MAT_DATE_LOCALE} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatStepperModule, MatGridListModule, MatListModule, MatRadioModule, MatChipsModule, MAT_DATE_LOCALE} from '@angular/material';
 
 
 // Config
@@ -81,6 +81,7 @@ import { GenderTransformerPipe } from './pipes/gender-transformer.pipe';
     MatToolbarModule,
     MatTabsModule,
     MatButtonModule,
+    MatGridListModule,
     MatIconModule,
     MatListModule,
     MatCardModule,

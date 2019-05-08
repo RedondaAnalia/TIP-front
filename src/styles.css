@@ -82,7 +82,7 @@
 }
 
 .maxWidth10{
-    max-width: 40vh;
+    max-width: 30vh;
 }
 
 .maxWidth50{
@@ -140,6 +140,10 @@
   .pet-list{
       min-width: 400px;
       max-width: 500px
+  }
+
+  .minHeight100{
+      min-height: 100%;
   }
 
 

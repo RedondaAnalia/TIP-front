@@ -61,16 +61,16 @@
     <ng-template matStepLabel>Por favor, confirmá los datos</ng-template>
     <div class="d-flex flex-column align-content-center justify-content-center">
     <div class="text-center">
-      Nombre: {{this.firstFormGroup.value.name}}
+      <strong>Nombre: </strong>{{this.firstFormGroup.value.name}}
     </div>
     <div class="text-center">
-      Fecha de Nacimiento: {{this.secondFormGroup.value.birthday | dateFormatter}}
+      <strong>Fecha de Nacimiento: </strong>{{this.secondFormGroup.value.birthday | dateFormatter}}
     </div>
     <div class="text-center">
-      Castrado/a: {{this.thirdFormGroup.value.castrate | booleanTransformer}}
+      <strong>Castrado/a: </strong>{{this.thirdFormGroup.value.castrate | booleanTransformer}}
     </div>
     <div class="text-center">
-      Género: {{this.fourthFormGroup.value.gender | genderTransformer}}
+      <strong>Género: </strong>{{this.fourthFormGroup.value.gender | genderTransformer}}
     </div>
     <div class="d-flex justify-content-around py-4">
       <button mat-button matStepperPrevious>Back</button>

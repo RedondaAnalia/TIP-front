@@ -1,45 +1,15 @@
 <div class="mat-body">
-  <div class="d-flex py-3 flex-column minWidth10">
-    <div class="d-flex flex-row justify-content-end">
-    <span class="badge badge-pill badge-success">Nivel: {{this.user.level}}</span>
-    </div>
-    <img class="profile-image img-thumbnail rounded-circle" src="./assets/img/no-image.png"/>
-  </div>
-  <div>
-    <ul class="list-group list-group-flush maxWidth8cm justify-content-center bg-light">
-      <li class="list-group-item blackBorder justify-content-center d-flex bg-light">
-        <strong>
-            Nombre: 
-        </strong>
-        <div class="px-2">
-          {{this.user.name}}
-        </div> 
-      </li>
-      <li class="list-group-item blackBorder justify-content-center d-flex bg-light">
-        <strong>
-            Genero: 
-        </strong> 
-        <div class="px-2">
-          {{this.user.gender}}
-        </div>
-      </li>
-      <li class="list-group-item blackBorder justify-content-center d-flex bg-light">
-        <strong>
-            Mail: 
-        </strong>
-        <div class="px-2"> 
-          {{this.user.email}}
-        </div>
-      </li>
-       <li class="list-group-item blackBorder justify-content-center d-flex bg-light">
-        <strong>
-          Experiencia: 
-        </strong>
-        <div class="px-2"> 
-        {{this.user.experience}} pts.
-        </div>
-      </li>
-      <li class="list-group-item blackBorder bg-light"></li>
-    </ul>
-  </div>
+
+<mat-grid-list cols="1" rowHeight="100px">
+  <mat-grid-tile class="py-2" colspan="1" rowspan="3" style.background="lightblue">
+    <img class="profile-image img-thumbnail rounded-circle" src="./assets/img/no-image.png" alt="..."> 
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1" rowspan="1" style.background="lightblue">
+    <h4 class="text-center" matLine> {{this.user.name | uppercase}} 
+      <div class="text-muted">
+        ({{this.user.email}}) 
+      </div>
+    </h4>  
+  </mat-grid-tile>
+</mat-grid-list>
 </div>
