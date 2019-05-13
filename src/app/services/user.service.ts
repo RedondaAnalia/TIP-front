@@ -8,6 +8,7 @@ export class UserService {
 
   userLogged;
   userToken;
+  petOwner;
 
   private userLoggedSubject = new Subject<any>();
   userLogged$ = this.userLoggedSubject.asObservable();
@@ -21,7 +22,7 @@ export class UserService {
 
   findUserPets(mail) {
     const url = URL_SERVICIOS + 'users/' + mail ;
-    return this.http.get(url).map((res: any) => res.data );
+    return this.http.get(url).map((res: any) => {this.petOwner = mail; return res.data; } );
   }
 
   login(user, pass) {

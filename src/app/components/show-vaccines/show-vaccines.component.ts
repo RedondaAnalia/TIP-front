@@ -65,7 +65,7 @@ export class ShowVaccinesComponent implements OnInit {
 
   applyVaccine(application, index) {
 
-    this._petService.applyVaccine(application._id, new Date().toISOString(), index).subscribe((res) => {});
+    this._petService.applyVaccine(this._userService.petOwner, application._id, new Date().toISOString(), index).subscribe((res) => {});
   }
 
   openDialog(): void {
