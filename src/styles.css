@@ -151,6 +151,10 @@
       max-height: 45vh;
   }
 
+  .cardHeight{
+      min-height: 75vh;
+  }
+
   .example-card {
     max-width: 400px;
   }

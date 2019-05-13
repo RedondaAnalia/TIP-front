@@ -1,22 +1,20 @@
-
-<div class="main-container animated fadeIn fast mat-body">
- 
-  <div class="card bg-light animated fadeIn fast">
-    <mat-card>
-      <mat-card-title class="mat-h2">{{this._petService.pet.name | uppercase}} </mat-card-title>
-        <mat-card-content>
-        
-          <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Perfil</a>
-              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Historia clínica</a>
-              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Vacunas</a>
-            </div>
-          </nav>
-        
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+<mat-card class="example-full-width cardHeight">
+   <mat-card-title class="mat-h2">{{this._petService.pet.name | uppercase}} </mat-card-title>
+      <mat-card-content>
+      
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Perfil</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Historia clínica</a>
+            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Vacunas</a>
+          </div>
+        </nav>
+      
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="d-flex flex-row align-content-center align-self-center">
               <app-show-pet-profile></app-show-pet-profile>
+            </div>
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
               <app-show-medical-cards></app-show-medical-cards>              
@@ -24,5 +22,11 @@
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
               <app-show-vaccines></app-show-vaccines>
             </div>
-          </div>
-         </mat-card-content>
+        </div>
+        </mat-card-content>
+</mat-card>
+
+
+
+
+         
