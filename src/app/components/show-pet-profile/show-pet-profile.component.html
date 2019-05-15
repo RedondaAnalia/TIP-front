@@ -1,33 +1,33 @@
-<div class="d-flex flex-row justify-content-center ">
-              <div class="d-flex py-3">
-                <img class="profile-image img-thumbnail rounded-circle" src="./assets/img/perfil_gato.jpg"/>
-              </div>
+<div class="d-flex flex-row justify-content-center mat-body">
+  <div class="d-flex py-3">
+    <img class="profile-image img-thumbnail rounded-circle" src="./assets/img/perfil_gato.jpg"/>
+  </div>
 
-              <ul class="list-group list-group-flush margin-left-40 justify-content-center bg-light">
-                <li class="list-group-item blackBorder justify-content-center d-flex bg-light">
-                  <h1>- {{_petService.pet.name | uppercase}} -</h1>
-                </li>
-                <li class="list-group-item blackBorder justify-content-between d-flex bg-light">
-                  <strong>
-                    <i class="fas fa-calendar-day"></i>
-                      F. de nacimiento: 
-                  </strong> 
-                    {{_petService.pet.date_of_birth | dateFormatter}}
-                </li>
-                <li class="list-group-item blackBorder justify-content-between d-flex bg-light">
-                  <strong>
-                    <i class="fas fa-paw"></i>
-                      Especie: 
-                  </strong> 
-                  {{ _petService.pet.species | nullTransformer}} 
-                </li>
-                <li class="list-group-item blackBorder justify-content-between d-flex bg-light">
-                  <strong>
-                    <i class="fas fa-award"></i>
-                      Raza: 
-                  </strong> 
-                  {{ _petService.pet.breed | nullTransformer}}
-                </li>
-                <li class="list-group-item blackBorder bg-light"></li>
-              </ul>
-            </div>
+  <ul class="list-group list-group-flush margin-left-40 justify-content-center">
+    <li class="list-group-item blackBorder justify-content-center d-flex">
+      <div class="mat-h1">- {{_petService.pet.name | uppercase}} -</div>
+    </li>
+    <li class="list-group-item blackBorder justify-content-between d-flex">
+      <strong>
+        <i class="fas fa-calendar-day"></i>
+          F. de nacimiento: 
+      </strong> 
+        {{_petService.pet.date_of_birth | dateFormatter}}
+    </li>
+    <li class="list-group-item blackBorder justify-content-between d-flex">
+      <strong>
+        <i class="fas fa-paw"></i>
+          Especie: 
+      </strong> 
+      {{ _petService.pet.species | nullTransformer}} 
+    </li>
+    <li class="list-group-item blackBorder justify-content-between d-flex">
+      <strong>
+        <i class="fas fa-award"></i>
+          Raza: 
+      </strong> 
+      {{ _petService.pet.breed | nullTransformer}}
+    </li>
+    <li class="list-group-item blackBorder"></li>
+  </ul>
+</div>

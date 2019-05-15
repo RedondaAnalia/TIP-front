@@ -82,7 +82,7 @@
 }
 
 .maxWidth10{
-    max-width: 40vh;
+    max-width: 30vh;
 }
 
 .maxWidth50{
@@ -111,6 +111,11 @@
     position: absolute;
 }
 
+.center{
+    position: relative;
+    justify-content: center;
+}
+
 .allW{
     min-width: 100%;
 }
@@ -130,6 +135,15 @@
   
   .example-full-width {
     width: 100%;
+  }
+
+  .pet-list{
+      min-width: 400px;
+      max-width: 500px
+  }
+
+  .minHeight100{
+      min-height: 100%;
   }
 
 

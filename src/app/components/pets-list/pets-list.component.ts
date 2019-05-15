@@ -13,18 +13,20 @@ export class PetsListComponent implements OnInit {
 
   constructor(private _petService: PetService, private router: Router) {
     this.pets = this._petService.pets;
-    console.log(this.pets);
+    this._petService.petList$.subscribe(res => {
+      this.pets = res;
+    });
     this.url = this.router.routerState.snapshot.url;
   }
 
   ngOnInit() {
   }
 
-  irAPerfil(pet) {
+  goToProfile(pet) {
     this._petService.findPetById(pet._id).subscribe(( res: any) => {
       this._petService.pet = res.pet;
       switch (this.url) {
-        case '/yourPets': this.router.navigate(['/myPet']); break;
+        case '/myPets': this.router.navigate(['/myPet']); break;
         default: this.router.navigate(['/petProfile']); break;
       }
     });

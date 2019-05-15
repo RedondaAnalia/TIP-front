@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import { URL_SERVICIOS } from '../../config/config';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserService } from './user.service';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class PetService {
@@ -14,7 +15,15 @@ export class PetService {
   public pet;
   public pets;
 
-  constructor( public http: HttpClient, private _userService: UserService) { }
+  private petListSubject = new Subject<any>();
+  petList$ = this.petListSubject.asObservable();
+
+  constructor( public http: HttpClient, private _userService: UserService) {
+    this._userService.userLogged$.subscribe(user => {
+      this.pets = user.pets;
+      this.petListSubject.next(this.pets);
+    });
+   }
 
   findPetById(id: String) {
     const url = URL_SERVICIOS + 'pets/' + id;

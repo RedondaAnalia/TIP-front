@@ -1,5 +1,5 @@
 
-<div class="container-fluid">
+<div class="container-fluid minHeight100">
       <div class="row">
         <nav class="col-md-3 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
@@ -7,34 +7,30 @@
               <li class="nav-item">
                 <app-show-user-profile></app-show-user-profile>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">
-                  <span data-feather="home"></span>
-                  Dashboard <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              
             </ul>
 
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Current month
-                </a>
-              </li>
-            </ul>
+<mat-nav-list>
+   <mat-divider></mat-divider>
+   <a mat-list-item class="d-flex justify-content-center" (click)="viewPets()">
+    <div class="px-2">
+      <i class="fas fa-paw"></i>
+    </div>
+    Mascotas 
+   </a>
+   <mat-divider></mat-divider>
+   <a mat-list-item class="d-flex justify-content-center" (click)="viewMilestones()">
+    <div class="px-2">
+      <i class="fas fa-trophy"></i>
+    </div> 
+    Logros 
+   </a>
+   <mat-divider></mat-divider>
+</mat-nav-list>
+  
           </div>
         </nav>
          <div class="col-md-9 d-flex flex-row justify-content-center">
          <div class="d-flex flex-column main-container minWidth90percent">
-         <h2 class="text-center">MASCOTAS</h2>
           <router-outlet></router-outlet>
           </div>
          </div>
