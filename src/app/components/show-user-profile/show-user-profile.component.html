@@ -2,7 +2,7 @@
 
 <mat-grid-list cols="1" rowHeight="100px">
   <mat-grid-tile class="py-2" colspan="1" rowspan="3" style.background="lightblue">
-    <img class="profile-image img-thumbnail rounded-circle" src="./assets/img/no-image.png" alt="..."> 
+    <img matTooltip="Cambiar foto de perfil"  matTooltipPosition="before" (click)="changePhoto()" class="profile-image img-thumbnail rounded-circle" [src]="srcPhoto | image" alt="..."> 
   </mat-grid-tile>
   <mat-grid-tile colspan="1" rowspan="1" style.background="lightblue">
     <h4 class="text-center" matLine> {{this.user.name | uppercase}} 

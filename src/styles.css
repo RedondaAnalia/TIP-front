@@ -159,6 +159,11 @@
     max-width: 400px;
   }
 
+  .preview-image{
+    max-width: 30vh;
+    max-height: 30vh;
+  }
+
 
 
 

@@ -67,4 +67,15 @@ export class UserService {
                                         return res;
                                         });
   }
+
+  changePhoto(file) {
+    const url = URL_SERVICIOS + 'users/image';
+      const formData = new FormData();
+        formData.append('image', file);
+        formData.append('id', this.userLogged._id);
+        return this.http.put(url, formData)
+                        .map((res: any) => { this.userLogged = res.data;
+                                            this.userLoggedSubject.next(this.userLogged);
+                                            });
+  }
 }
