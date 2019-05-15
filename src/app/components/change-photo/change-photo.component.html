@@ -1,0 +1,8 @@
+<div class="mat-body d-flex flex-column">
+  <h1 class="mat-dialog-title align-self-center"> Cambiar foto de perfil! </h1>
+  <mat-dialog-content class="d-flex flex-column justify-content-center align-content-center">
+    <img id="blah" [src]="imageSrc |image" alt="your image" class="py-3 preview-image align-self-center rounded-image" />
+    <input type='file' (change)="readURL($event);" class="align-self-center" id="input"/>
+  </mat-dialog-content>
+  <button mat-raised-button color="primary" class="my-2 align-self-end" (click)="changePhoto()" (enter)="changePhoto()">Cambiar foto!</button>
+</div>

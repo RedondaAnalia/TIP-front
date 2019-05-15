@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // tslint:disable-next-line:max-line-length
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatStepperModule, MatGridListModule, MatListModule, MatRadioModule, MatChipsModule, MAT_DATE_LOCALE} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatStepperModule, MatGridListModule, MatListModule, MatRadioModule, MatChipsModule, MAT_DATE_LOCALE, MatTooltipModule, MatDialogModule} from '@angular/material';
 
 
 // Config
@@ -47,6 +47,8 @@ import { MyMilestonesComponent } from './components/pages/my-milestones/my-miles
 import { NewPetComponent } from './components/new-pet/new-pet.component';
 import { BooleanTransformerPipe } from './pipes/boolean-transformer.pipe';
 import { GenderTransformerPipe } from './pipes/gender-transformer.pipe';
+import { ChangePhotoComponent } from './components/change-photo/change-photo.component';
+import { ImagenPipe } from './pipes/imagen.pipe';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { GenderTransformerPipe } from './pipes/gender-transformer.pipe';
     NewPetComponent,
     BooleanTransformerPipe,
     GenderTransformerPipe,
+    ChangePhotoComponent,
+    ImagenPipe,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +93,9 @@ import { GenderTransformerPipe } from './pipes/gender-transformer.pipe';
     MatInputModule,
     MatChipsModule,
     MatCardModule,
+    BrowserAnimationsModule,
+    MatTooltipModule,
+    MatDialogModule,
     MatSnackBarModule,
     MatSelectModule,
     MatRadioModule,
@@ -110,6 +117,9 @@ import { GenderTransformerPipe } from './pipes/gender-transformer.pipe';
     {provide: MAT_DATE_LOCALE, useValue: 'es'},
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ NewMedicalCardComponent, NewPetComponent ]
+  entryComponents: [
+    NewMedicalCardComponent,
+    NewPetComponent,
+    ChangePhotoComponent ]
 })
 export class AppModule { }

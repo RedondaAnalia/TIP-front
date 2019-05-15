@@ -146,6 +146,25 @@
       min-height: 100%;
   }
 
+  .card{
+      max-width: 45vh;
+      max-height: 45vh;
+  }
+
+  .cardHeight{
+      min-height: 75vh;
+  }
+
+  .example-card {
+    max-width: 400px;
+  }
+
+  .preview-image{
+    max-width: 30vh;
+    max-height: 30vh;
+  }
+
+
 
 
 

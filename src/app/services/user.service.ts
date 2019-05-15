@@ -8,6 +8,7 @@ export class UserService {
 
   userLogged;
   userToken;
+  petOwner;
 
   private userLoggedSubject = new Subject<any>();
   userLogged$ = this.userLoggedSubject.asObservable();
@@ -21,7 +22,7 @@ export class UserService {
 
   findUserPets(mail) {
     const url = URL_SERVICIOS + 'users/' + mail ;
-    return this.http.get(url).map((res: any) => res.data );
+    return this.http.get(url).map((res: any) => {this.petOwner = mail; return res.data; } );
   }
 
   login(user, pass) {
@@ -65,5 +66,16 @@ export class UserService {
                                         this.userLoggedSubject.next(this.userLogged);
                                         return res;
                                         });
+  }
+
+  changePhoto(file) {
+    const url = URL_SERVICIOS + 'users/image';
+      const formData = new FormData();
+        formData.append('image', file);
+        formData.append('id', this.userLogged._id);
+        return this.http.put(url, formData)
+                        .map((res: any) => { this.userLogged = res.data;
+                                            this.userLoggedSubject.next(this.userLogged);
+                                            });
   }
 }

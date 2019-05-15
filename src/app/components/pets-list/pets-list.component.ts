@@ -15,6 +15,7 @@ export class PetsListComponent implements OnInit {
     this.pets = this._petService.pets;
     this._petService.petList$.subscribe(res => {
       this.pets = res;
+      console.log(res);
     });
     this.url = this.router.routerState.snapshot.url;
   }

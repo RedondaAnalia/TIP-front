@@ -30,14 +30,15 @@ export class PetService {
     return this.http.get(url);
   }
 
-  applyVaccine(applicationId, date, index) {
-    const url = URL_SERVICIOS + 'applications?token=' + this._userService.userToken;
+  applyVaccine(pet_owner_email, applicationId, date, index) {
+    const url = URL_SERVICIOS + 'applications/apply?token=' + this._userService.userToken;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
       })
     };
     const body = {
+      pet_owner_email: pet_owner_email,
       application_id: applicationId,
       application_date: date,
       email: this._userService.userLogged.email
