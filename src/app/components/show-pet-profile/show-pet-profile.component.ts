@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PetService } from '../../services/pet-service';
+import { MatDialog } from '@angular/material';
+import { ChangePhotoComponent } from '../change-photo/change-photo.component';
+import { URL_PHOTO_SERVICE } from '../../../config/config';
 
 @Component({
   selector: 'app-show-pet-profile',
@@ -7,9 +10,28 @@ import { PetService } from '../../services/pet-service';
 })
 export class ShowPetProfileComponent implements OnInit {
 
-  constructor(public _petService: PetService) { }
+  srcPhoto;
+  pet;
+
+  constructor(private _petService: PetService, public dialog: MatDialog) {
+    this.pet = this._petService.pet;
+    this.pet.image !== null ? this.srcPhoto = (URL_PHOTO_SERVICE + this.pet.image) : this.srcPhoto = null ;
+    this._petService.pet$.subscribe(res => {this.pet = res; this.srcPhoto = this.pet.image; });
+   }
 
   ngOnInit() {
   }
 
+  changePhoto() {
+    const dialogRef = this.dialog.open(ChangePhotoComponent, {
+      height: '400px',
+      width: '600px',
+      data: { imgSrc : this.srcPhoto,
+              class : 'pets' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }

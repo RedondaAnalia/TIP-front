@@ -4,7 +4,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 
-import { URL_SERVICIOS } from '../../config/config';
+import { URL_SERVICIOS, URL_PHOTO_SERVICE } from '../../config/config';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserService } from './user.service';
 import { Subject } from 'rxjs/Subject';
@@ -13,10 +13,14 @@ import { Subject } from 'rxjs/Subject';
 export class PetService {
 
   public pet;
+  petIndex;
   public pets;
 
   private petListSubject = new Subject<any>();
+  private petSubject = new Subject<any>();
   petList$ = this.petListSubject.asObservable();
+  pet$ = this.petSubject.asObservable();
+
 
   constructor( public http: HttpClient, private _userService: UserService) {
     this._userService.userLogged$.subscribe(user => {
@@ -70,8 +74,25 @@ export class PetService {
     return this.http.post(url, body, httpOptions).map((res: any) => {
       this.pet = res.pet;
       return res;
-      });
-    }
+    });
+  }
+
+  changePhoto(file) {
+    const url = URL_SERVICIOS + 'pets/image';
+        const formData = new FormData();
+        formData.append('id', this.pet._id);
+        formData.append('image', file);
+        return this.http.put(url, formData)
+                        .map((res: any) => { this.processPhoto(res.data);
+                                              this.pet = res.data;
+                                             this.pets[this.petIndex] = this.pet;
+                                             this.petSubject.next(this.pet);
+                                            });
+  }
+
+  processPhoto(pet) {
+    pet.image !== null ? pet.image = (URL_PHOTO_SERVICE + pet.image) : pet.image = null;
+  }
 
 
 }

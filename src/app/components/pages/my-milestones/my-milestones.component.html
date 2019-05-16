@@ -10,6 +10,12 @@
 </div>
 -->
 
+  <div *ngIf='this.milestones.length === 0' >
+    <div class="alert alert-light text-center" role="alert">
+      Aun no tienes logros. Sigue esforzándote!
+    </div>
+  </div>
+
 <mat-grid-list [cols]="breakpoint" rowHeight="4:5" (window:resize)="onResize($event)" >
   <mat-grid-tile *ngFor="let milestone of this.milestones">
     <div>

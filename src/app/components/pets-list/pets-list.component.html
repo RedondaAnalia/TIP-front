@@ -4,8 +4,8 @@
         </div>
 </div>
 <mat-nav-list class="py-2">
-  <mat-list-item *ngFor="let pet of pets; last as last" (click)="goToProfile(pet)">
-    <img matListAvatar src="./assets/img/perfil_gato.jpg" alt="...">
+  <mat-list-item *ngFor="let pet of pets; let i=index; last as last" (click)="goToProfile(pet,i)">
+    <img matListAvatar [src]="pet.image| image" alt="...">
     <h3 matLine> {{pet.name| uppercase}} </h3>
     <p matLine>
       <span class="text-muted">Especie: {{pet.species| nullTransformer}} </span>

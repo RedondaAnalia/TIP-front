@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { URL_SERVICIOS } from '../../config/config';
+import { URL_SERVICIOS, URL_PHOTO_SERVICE } from '../../config/config';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
@@ -20,6 +20,16 @@ export class UserService {
     this.userToken = null;
   }
 
+  processImages() {
+    this.userLogged.image !== null ? this.userLogged.image = URL_PHOTO_SERVICE + this.userLogged.image : this.userLogged.image = null ;
+    console.log(this.userLogged.image);
+    this.userLogged.pets.map( (x) => this.processPhoto(x) );
+  }
+
+  processPhoto(pet) {
+    pet.image !== null ? pet.image = (URL_PHOTO_SERVICE + pet.image) : pet.image = null;
+  }
+
   findUserPets(mail) {
     const url = URL_SERVICIOS + 'users/' + mail ;
     return this.http.get(url).map((res: any) => {this.petOwner = mail; return res.data; } );
@@ -37,8 +47,9 @@ export class UserService {
         password : pass
       };
     return this.http.post(url, body, httpOptions)
-                    .map((res: any) => {console.log(res.usuario);
-                                        this.userLogged = res.usuario;
+                    .map((res: any) => {this.userLogged = res.usuario;
+                                        this.processImages();
+                                        this.userLoggedSubject.next(this.userLogged);
                                         this.userToken = res.token;
                                         return res;
                                         });
@@ -63,6 +74,7 @@ export class UserService {
     return this.http.post(url, body, httpOptions)
                     .map((res: any) => {console.log(res.user);
                                         this.userLogged = res.user;
+                                        this.processImages();
                                         this.userLoggedSubject.next(this.userLogged);
                                         return res;
                                         });
@@ -71,10 +83,11 @@ export class UserService {
   changePhoto(file) {
     const url = URL_SERVICIOS + 'users/image';
       const formData = new FormData();
-        formData.append('image', file);
-        formData.append('id', this.userLogged._id);
+      formData.append('id', this.userLogged._id);
+      formData.append('image', file);
         return this.http.put(url, formData)
                         .map((res: any) => { this.userLogged = res.data;
+                                            this.processImages();
                                             this.userLoggedSubject.next(this.userLogged);
                                             });
   }
