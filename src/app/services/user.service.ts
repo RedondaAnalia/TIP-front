@@ -22,7 +22,6 @@ export class UserService {
 
   processImages() {
     this.userLogged.image !== null ? this.userLogged.image = URL_PHOTO_SERVICE + this.userLogged.image : this.userLogged.image = null ;
-    console.log(this.userLogged.image);
     this.userLogged.pets.map( (x) => this.processPhoto(x) );
   }
 
@@ -32,7 +31,11 @@ export class UserService {
 
   findUserPets(mail) {
     const url = URL_SERVICIOS + 'users/' + mail ;
-    return this.http.get(url).map((res: any) => {this.petOwner = mail; return res.data; } );
+    return this.http.get(url).map((res: any) => {this.petOwner = mail;
+      res.data.pets.map( (x) => this.processPhoto(x));
+      console.log(res.data.pets);
+
+                                                return res.data; } );
   }
 
   login(user, pass) {

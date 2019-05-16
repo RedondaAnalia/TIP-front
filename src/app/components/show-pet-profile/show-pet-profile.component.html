@@ -1,6 +1,7 @@
 <div class="d-flex flex-row justify-content-center mat-body">
   <div class="d-flex py-3">
-    <img matTooltip="Cambiar foto de perfil"  matTooltipPosition="before" (click)="changePhoto()" class="profile-image img-thumbnail rounded-circle" [src]="srcPhoto | image "/>
+    <img *ngIf="isUserRole" matTooltip="Cambiar foto de perfil"  matTooltipPosition="before" (click)="changePhoto()" class="profile-image img-thumbnail rounded-circle" [src]="srcPhoto | image "/>
+    <img *ngIf="!isUserRole" class="profile-image img-thumbnail rounded-circle" [src]="srcPhoto | image "/>
   </div>
 
   <ul class="list-group list-group-flush margin-left-40 justify-content-center">
