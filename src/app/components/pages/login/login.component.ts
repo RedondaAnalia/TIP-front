@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   busy;
   constructor(private _userService: UserService, private router: Router, private _petService: PetService) {
     this.busy = false;
-    this._userService.reset();
+    this._userService.signOut();
    }
 
   ngOnInit() {

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URL_SERVICIOS, URL_PHOTO_SERVICE } from '../../config/config';
 import { Subject } from 'rxjs/Subject';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UserService {
@@ -13,11 +14,12 @@ export class UserService {
   private userLoggedSubject = new Subject<any>();
   userLogged$ = this.userLoggedSubject.asObservable();
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, private router: Router) { }
 
-  reset() {
+  signOut() {
     this.userLogged = null;
     this.userToken = null;
+    this.router.navigate(['/login']);
   }
 
   processImages() {

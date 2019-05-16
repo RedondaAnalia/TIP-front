@@ -9,7 +9,9 @@
   </mat-card>
 </div>
 -->
-
+<div class="mat-body d-flex flex-column align-content-center justify-content-center">
+  <h2 class="text-center">LOGROS</h2>
+  
   <div *ngIf='this.milestones.length === 0' >
     <div class="alert alert-light text-center" role="alert">
       Aun no tienes logros. Sigue esforzándote!
@@ -19,15 +21,17 @@
 <mat-grid-list [cols]="breakpoint" rowHeight="4:5" (window:resize)="onResize($event)" >
   <mat-grid-tile *ngFor="let milestone of this.milestones">
     <div>
-      <mat-card class="example-card">
-    <img mat-card-image class="d-flex" src="../../../assets/img/pet_with_vaccine.jpeg" alt="Milestone image">
-    <mat-card-content>
-      <p class="d-flex">
-        Le has puesto una vacuna a tiempo a tu mascota!!
-      </p>
-    </mat-card-content>
-  </mat-card>
+      <mat-card class="example-card mx-1">
+        <img mat-card-image class="d-flex" src="../../../assets/img/pet_with_vaccine.jpeg" alt="Milestone image">
+        <mat-card-content>
+          <p class="d-flex">
+            Le has puesto una vacuna a tiempo a tu mascota!!
+          </p>
+        </mat-card-content>
+      </mat-card>
     </div>
   </mat-grid-tile>
 </mat-grid-list>
 
+
+</div>

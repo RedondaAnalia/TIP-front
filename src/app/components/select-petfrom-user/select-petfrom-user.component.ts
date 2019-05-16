@@ -23,4 +23,8 @@ export class SelectPetfromUserComponent implements OnInit {
       this.router.navigate(['/petProfile']);
     });
   }
+
+  goBack() {
+    this.router.navigate(['/findPet']);
+  }
 }

@@ -64,4 +64,7 @@ export class FindPetComponent implements OnInit {
   }
 }
 
+signOut() {
+  this._userService.signOut();
+}
 }
