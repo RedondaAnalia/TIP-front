@@ -6,6 +6,8 @@ import * as _swal from 'sweetalert';
 import { SweetAlert } from 'sweetalert/typings/core';
 import { MatSnackBar, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
+import { PetService } from '../../services/pet-service';
 const swal: SweetAlert = _swal as any;
 
 
@@ -21,7 +23,10 @@ export class ChangePhotoComponent implements OnInit {
 
   constructor(private snackBar: MatSnackBar,
               private dialogRef: MatDialogRef<ChangePhotoComponent>,
-              private _userService: UserService, @Inject(MAT_DIALOG_DATA) private data: any) {
+              private _userService: UserService,
+              private _petService: PetService,
+              private router: Router,
+              @Inject(MAT_DIALOG_DATA) private data: any) {
 
                 this.imageSrc = data.imgSrc;
               }
@@ -58,10 +63,17 @@ export class ChangePhotoComponent implements OnInit {
 
 
   changePhoto() {
+    console.log(this.router.routerState.snapshot.url);
+
     if (!this.image) {
       swal ('Debe elegir una foto valida!');
     } else {
-      this._userService.changePhoto(this.image).subscribe(res => {
+      let chosenService;
+      switch (this.data.class) {
+        case ('pets') : chosenService = this._petService; break;
+        case ('users') : chosenService = this._userService; break;
+      }
+      chosenService.changePhoto(this.image).subscribe(res => {
         this.openSnackBar();
         this.dialogRef.close();
       });

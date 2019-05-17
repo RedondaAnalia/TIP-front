@@ -16,17 +16,16 @@ export class ShowUserProfileComponent implements OnInit {
   srcPhoto;
 
   constructor(private _userService: UserService, public dialog: MatDialog) {
-    this.user = this._userService.userLogged;
-    this.user.image !== null ? this.srcPhoto = (URL_PHOTO_SERVICE + this.user.image) : this.srcPhoto = null ;
-    console.log(this.srcPhoto);
-    this._userService.userLogged$.subscribe(res => {this.user = res;
-      console.log(this.user);
-                                                    // tslint:disable-next-line:max-line-length
-                                                    this.user.image !== null ? this.srcPhoto = (URL_PHOTO_SERVICE + this.user.image) : this.srcPhoto = null ;
-                                                    console.log(this.srcPhoto); });
+    this.setVariables();
+    this._userService.userLogged$.subscribe(res => this.setVariables());
    }
 
   ngOnInit() {
+  }
+
+  setVariables() {
+    this.user = this._userService.userLogged;
+    this.srcPhoto = this.user.image;
   }
 
   changePhoto() {
@@ -34,15 +33,13 @@ export class ShowUserProfileComponent implements OnInit {
     const dialogRef = this.dialog.open(ChangePhotoComponent, {
       height: '400px',
       width: '600px',
-      data: { imgSrc : this.srcPhoto }
+      data: { imgSrc : this.srcPhoto,
+              class : 'users' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
-
-  
-
-  }
+}
 

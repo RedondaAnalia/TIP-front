@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,13 +8,17 @@ import { Router } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _userService: UserService) { }
 
   ngOnInit() {
   }
 
   viewPets() {
     this.router.navigate(['/myPets']);
+  }
+
+  signOut() {
+    this._userService.signOut();
   }
 
   viewMilestones() {

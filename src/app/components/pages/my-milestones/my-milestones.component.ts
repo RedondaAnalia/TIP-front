@@ -8,9 +8,10 @@ import { UserService } from '../../../services/user.service';
 export class MyMilestonesComponent implements OnInit {
 
   milestones;
+  points;
 
   constructor(private _userService: UserService) {
-    console.log(this._userService.userLogged.milestones);
+    this.points = this._userService.userLogged.experience;
     this.milestones = this._userService.userLogged.milestones;
     this._userService.userLogged$.subscribe((res: any) => {console.log(res); this.milestones = res.milestones; });
    }
