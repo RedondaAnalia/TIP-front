@@ -63,8 +63,6 @@ export class ChangePhotoComponent implements OnInit {
 
 
   changePhoto() {
-    console.log(this.router.routerState.snapshot.url);
-
     if (!this.image) {
       swal ('Debe elegir una foto valida!');
     } else {

@@ -32,7 +32,6 @@ export class NewApplicationComponent implements OnInit {
     if (!this.vaccineSelected || !this.date.value) {
       swal( 'Por favor, completa todos los campos' , '' , 'error');
     } else {
-      console.log(this.date.value);
        this._applicationService.postVaccine(this.vaccineSelected._id, this.date.value.toISOString())
                                .subscribe(res => {this.openSnackBar(); this.date.value = null, this.vaccineSelected = null; });
     }
