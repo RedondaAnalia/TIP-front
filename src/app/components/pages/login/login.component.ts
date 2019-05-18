@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
 import { PetService } from '../../../services/pet-service';
+import { MatSnackBar } from '@angular/material';
 
-import * as _swal from 'sweetalert';
-import { SweetAlert } from 'sweetalert/typings/core';
-const swal: SweetAlert = _swal as any;
 
 @Component({
   selector: 'app-login',
@@ -17,7 +15,10 @@ export class LoginComponent implements OnInit {
   user;
   pass;
   busy;
-  constructor(private _userService: UserService, private router: Router, private _petService: PetService) {
+  constructor(private _userService: UserService,
+              private snackBar: MatSnackBar,
+              private router: Router,
+              private _petService: PetService) {
     this.busy = false;
     this._userService.signOut();
    }
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (!this.user || !this.pass) {
-      swal( 'Por favor completa los campos', '' , 'error');
+      this.erroredSnackBar( 'Por favor completa los campos');
     } else {
       this.busy = true;
       this._userService.login(this.user, this.pass).subscribe(
@@ -37,15 +38,25 @@ export class LoginComponent implements OnInit {
             case 'USER_ROLE': this._petService.pets = data.usuario.pets,
                              this.router.navigate(['/myPets']); break;
             case 'VET_ROLE': this.router.navigate(['/findPet']); break;
-            default: swal('El rol obtenido es inesperado:' + data.usuario.role, '', 'error'); break;
           }
         },
         error => {
           this.busy = false;
-          swal(error.error.mensaje, '', 'error');
+          this.erroredSnackBar(error.error.mensaje);
         }
       );
     }
   }
 
+  successSnackBar(msj ) {
+    this.snackBar.open(msj , 'HECHO', {
+      duration: 2000,
+    });
+  }
+
+    erroredSnackBar(msj) {
+    this.snackBar.open(msj , 'ERROR', {
+      duration: 2000,
+    });
+  }
 }

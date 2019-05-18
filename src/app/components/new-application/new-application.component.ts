@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApplicationService } from '../../services/application.service';
 import { FormControl } from '@angular/forms';
 
-import * as _swal from 'sweetalert';
-import { SweetAlert } from 'sweetalert/typings/core';
 import { MatSnackBar } from '@angular/material';
 
-const swal: SweetAlert = _swal as any;
 
 @Component({
   selector: 'app-new-application',
@@ -30,10 +27,12 @@ export class NewApplicationComponent implements OnInit {
 
   addVaccine() {
     if (!this.vaccineSelected || !this.date.value) {
-      swal( 'Por favor, completa todos los campos' , '' , 'error');
+      this.erroredSnackBar( 'Por favor, completa todos los campos');
     } else {
        this._applicationService.postVaccine(this.vaccineSelected._id, this.date.value.toISOString())
-                               .subscribe(res => {this.openSnackBar(); this.date.value = null, this.vaccineSelected = null; });
+                               .subscribe(res => {this.successSnackBar('Vacuna agregada');
+                                                  this.date.value = null,
+                                                  this.vaccineSelected = null; });
     }
   }
 
@@ -41,8 +40,14 @@ export class NewApplicationComponent implements OnInit {
     this.date.value = event.value;
   }
 
-  openSnackBar() {
-    this.snackBar.open('Vacuna agregada', 'HECHO', {
+  successSnackBar(msj ) {
+    this.snackBar.open(msj , 'HECHO', {
+      duration: 2000,
+    });
+  }
+
+    erroredSnackBar(msj) {
+    this.snackBar.open(msj , 'ERROR', {
       duration: 2000,
     });
   }

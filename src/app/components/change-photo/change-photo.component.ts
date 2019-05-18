@@ -1,14 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { DomSanitizer} from '@angular/platform-browser';
 import { VALID_PHOTO_EXTENSIONS, MAX_PHOTO_SIZE } from '../../../config/config';
 
-import * as _swal from 'sweetalert';
-import { SweetAlert } from 'sweetalert/typings/core';
 import { MatSnackBar, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { PetService } from '../../services/pet-service';
-const swal: SweetAlert = _swal as any;
 
 
 @Component({
@@ -50,7 +46,7 @@ export class ChangePhotoComponent implements OnInit {
       reader.onload = e => this.imageSrc = reader.result;
       reader.readAsDataURL(file);
     } else {
-      swal('La foto debe pesar menos de 5 MB y tener extension .jpeg o .png', '', 'error');
+      this.erroredSnackBar('La foto debe pesar menos de 5 MB y tener extension .jpeg o .png');
     }
   }
 
@@ -64,7 +60,7 @@ export class ChangePhotoComponent implements OnInit {
 
   changePhoto() {
     if (!this.image) {
-      swal ('Debe elegir una foto valida!');
+       this.erroredSnackBar('Debe elegir una foto valida!');
     } else {
       let chosenService;
       switch (this.data.class) {
@@ -72,14 +68,20 @@ export class ChangePhotoComponent implements OnInit {
         case ('users') : chosenService = this._userService; break;
       }
       chosenService.changePhoto(this.image).subscribe(res => {
-        this.openSnackBar();
+        this.successSnackBar('Foto cambiada!');
         this.dialogRef.close();
       });
     }
   }
 
-    openSnackBar() {
-    this.snackBar.open('Foto cambiada!', 'HECHO', {
+    successSnackBar(msj ) {
+    this.snackBar.open(msj , 'HECHO', {
+      duration: 2000,
+    });
+  }
+
+    erroredSnackBar(msj) {
+    this.snackBar.open(msj , 'ERROR', {
       duration: 2000,
     });
   }
