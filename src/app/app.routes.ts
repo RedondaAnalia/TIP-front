@@ -7,10 +7,8 @@ import { SelectPetGuard } from './services/guards/select-pet.guard';
 import { NewApplicationComponent } from './components/new-application/new-application.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { LoggedGuard } from './services/guards/logged.guard';
-import { UserLoggedGuard } from './services/guards/user-logged.guard';
 import { VetLoggedGuard } from './services/guards/vet-logged.guard';
-import { UserProfileComponent } from './components/pages/user-profile/user-profile.component';
-import { NewPetComponent } from './components/new-pet/new-pet.component';
+import { VeterinariesMapComponent } from './components/veterinaries-map/veterinaries-map.component';
 
 const APP_ROUTES: Routes = [
     { path: 'findPet',
@@ -18,6 +16,7 @@ const APP_ROUTES: Routes = [
             canActivate: [LoggedGuard, VetLoggedGuard]
     },
     { path: 'login', component: LoginComponent },
+    { path: 'map', component: VeterinariesMapComponent },
     { path: 'newApplication',
         component: NewApplicationComponent,
         canActivate: [PetProfileGuard, SelectPetGuard]},
@@ -27,7 +26,7 @@ const APP_ROUTES: Routes = [
     { path: 'selectPet',
         component: SelectPetfromUserComponent,
         canActivate: [SelectPetGuard] },
-    { path: '**', pathMatch: 'full', redirectTo: 'login' }
+    { path: '**', pathMatch: 'full', redirectTo: 'map' }
 ] ;
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
