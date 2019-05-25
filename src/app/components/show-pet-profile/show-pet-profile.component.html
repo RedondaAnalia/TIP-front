@@ -1,4 +1,5 @@
 <div class="d-flex flex-row justify-content-center mat-body">
+  
   <div class="d-flex py-3">
     <img *ngIf="isUserRole" matTooltip="Cambiar foto de perfil"  matTooltipPosition="before" (click)="changePhoto()" class="profile-image img-thumbnail rounded-circle" [src]="srcPhoto | image "/>
     <img *ngIf="!isUserRole" class="profile-image img-thumbnail rounded-circle" [src]="srcPhoto | image "/>
@@ -32,3 +33,5 @@
     <li class="list-group-item blackBorder"></li>
   </ul>
 </div>
+
+

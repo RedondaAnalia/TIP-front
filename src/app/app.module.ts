@@ -24,7 +24,9 @@ import {MatButtonModule,
         MatChipsModule,
         MAT_DATE_LOCALE,
         MatTooltipModule,
-        MatDialogModule} from '@angular/material';
+        MatDialogModule,
+        MatMenuModule,
+        MatSidenavModule} from '@angular/material';
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -68,6 +70,7 @@ import { GenderTransformerPipe } from './pipes/gender-transformer.pipe';
 import { ChangePhotoComponent } from './components/change-photo/change-photo.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { VeterinariesMapComponent } from './components/veterinaries-map/veterinaries-map.component';
+import { MyNearbyVeterinariansComponent } from './components/pages/my-nearby-veterinarians/my-nearby-veterinarians.component';
 
 @NgModule({
   declarations: [
@@ -94,10 +97,12 @@ import { VeterinariesMapComponent } from './components/veterinaries-map/veterina
     ChangePhotoComponent,
     ImagenPipe,
     VeterinariesMapComponent,
+    MyNearbyVeterinariansComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAx82m7KSQg0obJQYw7L5tGcEXcoM1u9sE'
+      apiKey: 'AIzaSyAx82m7KSQg0obJQYw7L5tGcEXcoM1u9sE',
+      libraries: ['places'],
     }),
     BrowserModule,
     FormsModule,
@@ -118,6 +123,8 @@ import { VeterinariesMapComponent } from './components/veterinaries-map/veterina
     MatCardModule,
     BrowserAnimationsModule,
     MatTooltipModule,
+    MatMenuModule,
+    MatSidenavModule,
     MatDialogModule,
     MatSnackBarModule,
     MatSelectModule,

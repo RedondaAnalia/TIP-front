@@ -1,4 +1,4 @@
-
+<!--
 <div class="container-fluid minHeight100">
       <div class="row">
         <nav class="col-md-3 d-none d-md-block bg-light sidebar">
@@ -25,6 +25,13 @@
     Logros 
    </a>
    <mat-divider></mat-divider>
+   <a mat-list-item class="d-flex justify-content-center" (click)="viewNearbyVeterinarians()">
+    <div class="px-2">
+      <i class="fas fa-map-marker-alt" style="color:gold"></i>
+    </div> 
+    Buscar veterinarias 
+   </a>
+   <mat-divider></mat-divider>
    <a mat-list-item class="d-flex justify-content-center" (click)="signOut()">
     <div class="px-2">
       <i class="fas fa-sign-out-alt" style="color:primary"></i>
@@ -38,9 +45,54 @@
         </nav>
          <div class="col-md-9 d-flex flex-row justify-content-center">
          <div class="d-flex flex-column main-container minWidth90percent">
-          <router-outlet></router-outlet>
+          
           </div>
          </div>
   </div>
 </div>
+-->
+<mat-drawer-container class="example-container min-width-100-percent">
+  <mat-drawer mode="side" opened="true" class="sidebar-width">
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <app-show-user-profile></app-show-user-profile>
+    </li>
+  </ul>
+  <mat-nav-list>
+   <mat-divider></mat-divider>
+   <a mat-list-item class="d-flex justify-content-center" (click)="viewPets()">
+    <div class="px-2">
+      <i class="fas fa-paw" style="color:purple"></i>
+    </div>
+    Mascotas 
+   </a>
+   <mat-divider></mat-divider>
+   <a mat-list-item class="d-flex justify-content-center" (click)="viewMilestones()">
+    <div class="px-2">
+      <i class="fas fa-trophy" style="color:gold"></i>
+    </div> 
+    Logros 
+   </a>
+   <mat-divider></mat-divider>
+   <a mat-list-item class="d-flex justify-content-center" (click)="viewNearbyVeterinarians()">
+    <div class="px-2">
+      <i class="fas fa-map-marker-alt" style="color:gold"></i>
+    </div> 
+    Buscar veterinarias 
+   </a>
+   <mat-divider></mat-divider>
+   <a mat-list-item class="d-flex justify-content-center" (click)="signOut()">
+    <div class="px-2">
+      <i class="fas fa-sign-out-alt" style="color:primary"></i>
+    </div> 
+    Salir 
+   </a>
+   <mat-divider></mat-divider>
+</mat-nav-list>
+
+  </mat-drawer>
+  <mat-drawer-content class="px-2 main-container">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
 

@@ -24,4 +24,8 @@ export class UserProfileComponent implements OnInit {
   viewMilestones() {
     this.router.navigate(['/myMilestones']);
   }
+
+  viewNearbyVeterinarians() {
+    this.router.navigate(['/nearbyVeterinarians']);
+  }
 }

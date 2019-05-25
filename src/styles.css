@@ -28,6 +28,7 @@
     margin-left: 20px;
 }
 
+
 .complete-main-container {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -38,9 +39,13 @@
 }
 
 .profile-image {
-    width: 8cm;
-    height: 8cm;
+    min-width: 8cm;
+    min-height: 8cm;
     align-items: center;
+}
+
+.sidebar-width{
+    min-width: 8cm;
 }
 
 .maxWidth8cm{
@@ -142,6 +147,11 @@
       max-width: 500px
   }
 
+  .vet-map{
+    min-width: 100%;
+    max-width: 100%
+}
+
   .minHeight100{
       min-height: 100%;
   }
@@ -152,7 +162,7 @@
   }
 
   .cardHeight{
-      min-height: 75vh;
+      min-height: 55vh;
   }
 
   .example-card {
@@ -165,7 +175,7 @@
   }
 
   agm-map { 
-      height: 300px; /* height is required */ 
+      height: 600px; /* height is required */ 
     }
 
 

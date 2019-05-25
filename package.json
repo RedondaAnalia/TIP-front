@@ -12,7 +12,7 @@
   },
   "private": true,
   "dependencies": {
-    "@agm/core": "1.0.0-beta.2",
+    "@agm/core": "~1.0.0-beta.2",
     "@angular/animations": "^5.2.11",
     "@angular/cdk": "^5.2.5",
     "@angular/common": "^5.2.0",
@@ -24,7 +24,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
-    "@types/googlemaps": "^3.30.8",
+    "@types/googlemaps": "~3.30.8",
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^4.3.1",
     "core-js": "^2.4.1",
