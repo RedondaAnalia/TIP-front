@@ -1,7 +1,10 @@
 <div class="py-2 d-flex justify-content-end">
+  <div class="button-row">
+    <button mat-raised-button color="warn" *ngIf= "this.userRole==='VET_ROLE'" (click)="downloadPDF()">Descargar PDF</button>
     <button mat-raised-button color="primary" *ngIf= "this.userRole==='VET_ROLE'" (click)="openDialog()">Agregar atención médica</button>
   </div>
-<div class="main-container">
+  </div>
+<div id="medical-content" class="main-container">
   <div *ngIf='this.medicalCards.length === 0' >
     <div class="alert alert-light text-center" role="alert">
       El historial clinico esta vacio.

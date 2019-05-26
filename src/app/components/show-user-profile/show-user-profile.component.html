@@ -1,15 +1,21 @@
 <div class="mat-body">
-
 <mat-grid-list cols="1" rowHeight="100px">
   <mat-grid-tile class="py-2" colspan="1" rowspan="3" style.background="lightblue">
     <img matTooltip="Cambiar foto de perfil"  matTooltipPosition="before" (click)="changePhoto()" class="profile-image img-thumbnail rounded-circle" [src]="srcPhoto | image" alt="..."> 
   </mat-grid-tile>
+
   <mat-grid-tile colspan="1" rowspan="1" style.background="lightblue">
-    <h4 class="text-center" matLine> {{this.user.name | uppercase}} 
+
+    <h4 class="text-center" matLine> {{this.user.name | uppercase}}
+
       <div class="text-muted">
         ({{this.user.email}}) 
       </div>
+      <mat-chip-list >
+        <mat-chip color="primary" selected>Nivel: {{this.user.level}} </mat-chip>
+      </mat-chip-list>
     </h4>  
   </mat-grid-tile>
 </mat-grid-list>
+
 </div>

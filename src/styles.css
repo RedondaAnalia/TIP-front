@@ -192,7 +192,10 @@
         opacity: 1;
     }
 }
-
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}
 .fadeIn {
     animation-name: fadeIn;
 }
