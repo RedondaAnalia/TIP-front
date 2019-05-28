@@ -1,10 +1,26 @@
-<div class="py-2 d-flex justify-content-end">
-  <div class="button-row">
-    <button mat-raised-button color="warn" *ngIf= "this.userRole==='VET_ROLE'" (click)="downloadPDF()" data-toggle="modal" data-target="#myModal2">Descargar PDF</button>
-    <button mat-raised-button color="primary" *ngIf= "this.userRole==='VET_ROLE'" (click)="openDialog()">Agregar atención médica</button>
-  </div>
-  </div>
-<div id="medical-content" class="main-container">
+<h1 mat-dialog-title>Historia clinica</h1>
+<div mat-dialog-content>
+  <div class="invoice-box" id="medical-pdf">
+    <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td class="title">
+                            <div class="company-logo-wrapper" >
+                                <div class='company-logo'></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="heading ">
+            <td>
+                Diagnosticos
+            </td>
+        </tr>
+        <div id="medical-content" class="main-container">
   <div *ngIf='this.medicalCards.length === 0' >
     <div class="alert alert-light text-center" role="alert">
       El historial clinico esta vacio.
@@ -39,4 +55,8 @@
     </div>
   </div>
 </div>
-
+    </table>
+  </div> 
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+</div>

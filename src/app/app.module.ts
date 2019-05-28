@@ -49,6 +49,8 @@ import { BooleanTransformerPipe } from './pipes/boolean-transformer.pipe';
 import { GenderTransformerPipe } from './pipes/gender-transformer.pipe';
 import { ChangePhotoComponent } from './components/change-photo/change-photo.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
+import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
+import { PdfService } from './services/pdf.service';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     GenderTransformerPipe,
     ChangePhotoComponent,
     ImagenPipe,
+    PdfViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -108,6 +111,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
   providers: [
     PetService,
     UserService,
+    PdfService,
     ApplicationService,
     PetProfileGuard,
     SelectPetGuard,
@@ -120,6 +124,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
   entryComponents: [
     NewMedicalCardComponent,
     NewPetComponent,
-    ChangePhotoComponent ]
+    ChangePhotoComponent,
+    PdfViewComponent ]
 })
 export class AppModule { }
