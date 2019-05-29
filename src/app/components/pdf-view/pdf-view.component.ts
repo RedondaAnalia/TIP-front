@@ -25,7 +25,7 @@ export class PdfViewComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this._pdfService.downloadPDF(document.getElementById('medical-pdf'),)
+    this._pdfService.downloadPDF(document.getElementById('medical-pdf'));
   }
 
 

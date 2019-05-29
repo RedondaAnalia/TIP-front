@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // tslint:disable-next-line:max-line-length
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatStepperModule, MatGridListModule, MatListModule, MatRadioModule, MatChipsModule, MAT_DATE_LOCALE, MatTooltipModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatStepperModule, MatGridListModule, MatListModule, MatRadioModule, MatChipsModule, MAT_DATE_LOCALE, MatTooltipModule, MatDialogModule, MatSidenavModule, MatExpansionModule, MatMenuModule} from '@angular/material';
 
 
 // Config
@@ -101,6 +101,9 @@ import { PdfService } from './services/pdf.service';
     MatDialogModule,
     MatSnackBarModule,
     MatSelectModule,
+    MatSidenavModule,
+    MatExpansionModule,
+    MatMenuModule,
     MatRadioModule,
     MatStepperModule,
     MatDatepickerModule,        // <----- import(must)
