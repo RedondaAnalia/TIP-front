@@ -13,7 +13,7 @@ export class UserProfileComponent implements OnInit {
    height;
    mode:string = 'side';
    open = 'true';
-   title = 'Responsive Sidenav Starter';
+   title = 'Pet Heroes';
    navList: NavList[];
 
    constructor(public ngZone: NgZone,
@@ -25,23 +25,18 @@ export class UserProfileComponent implements OnInit {
                    [
                        { subCategoryName: 'Ver mis mascotas',
                          subCategoryLink: '/myPets', subCategoryQuery: {title: 'query item 1'}, visable: true, },
-                       { subCategoryName: 'Item 2', subCategoryLink:'/link1', visable: true, },
-                       { subCategoryName: 'Item 3', subCategoryLink:'/link1', visable: true, },
                    ]
            },
            { categoryName: 'Logros', icon: 'thumb_up', dropDown: false,
                subCategory:
                    [
                        { subCategoryName: 'Ver mis logros', subCategoryLink:'/myMilestones', visable: true, },
-                       { subCategoryName: 'Item 2', subCategoryLink:'/link1', visable: true, },
-                       { subCategoryName: 'Item 3', subCategoryLink:'/link1', visable: true, },
                    ]
            },
            { categoryName: 'Veterinarias cercanas', icon: 'room', dropDown: false,
                subCategory:
                    [
-                       { subCategoryName: 'Item 1', subCategoryLink:'/link1', visable: true, },
-                       { subCategoryName: 'Item 2', subCategoryLink:'/link1', visable: true, },
+                       { subCategoryName: 'Ver veterinarias cercanas', subCategoryLink:'/nearbyVeterinarians', visable: true, },
                    ]
            },
        ];
