@@ -60,11 +60,11 @@ export class UserProfileComponent implements OnInit {
    changeMode() {
        this.width = window.innerWidth;
        this.height = window.innerHeight;
-       if(this.width <= 800) {
+       if (this.width <= 800) {
            this.mode = 'over';
            this.open = 'false';
        }
-       if(this.width > 800) {
+       if (this.width > 800) {
            this.mode = 'side';
            this.open = 'true';
        }
@@ -107,5 +107,10 @@ export class NavListItem {
 
   viewMilestones() {
     this.router.navigate(['/myMilestones']);
-  }*/
+  }
 
+  viewNearbyVeterinarians() {
+    this.router.navigate(['/nearbyVeterinarians']);
+  }
+}
+*/

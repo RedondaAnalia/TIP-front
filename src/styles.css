@@ -29,6 +29,7 @@
     margin-left: 20px;
 }
 
+
 .complete-main-container {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -39,9 +40,13 @@
 }
 
 .profile-image {
-    width: 8cm;
-    height: 8cm;
+    min-width: 8cm;
+    min-height: 8cm;
     align-items: center;
+}
+
+.sidebar-width{
+    min-width: 8cm;
 }
 
 .maxWidth8cm{
@@ -143,6 +148,11 @@
       max-width: 500px
   }
 
+  .vet-map{
+    min-width: 100%;
+    max-width: 100%
+}
+
   .minHeight100{
       min-height: 100%;
   }
@@ -153,7 +163,7 @@
   }
 
   .cardHeight{
-      min-height: 75vh;
+      min-height: 55vh;
   }
 
   .example-card {
@@ -168,6 +178,10 @@
   .margin-top1{
       margin-top: 10px;
   }
+  agm-map {
+      height: 600px; /* height is required */
+    }
+
 
 
 
@@ -299,23 +313,23 @@ example-container {
     left: 0;
     right: 0;
   }
-  
+
   .example-is-mobile .example-toolbar {
     position: fixed;
     /* Make sure the toolbar will stay on top of the content as it scrolls past. */
     z-index: 2;
   }
-  
+
   h1.example-app-name {
     margin-left: 8px;
   }
-  
+
   .example-sidenav-container {
     /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
     flex: 1;
   }
-  
+
   .example-is-mobile .example-sidenav-container {
     /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
        `<body>` to be our scrolling element for mobile layouts. */

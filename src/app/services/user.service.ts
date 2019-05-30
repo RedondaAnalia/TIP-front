@@ -34,9 +34,7 @@ export class UserService {
   findUserPets(mail) {
     const url = URL_SERVICIOS + 'users/' + mail ;
     return this.http.get(url).map((res: any) => {this.petOwner = mail;
-      res.data.pets.map( (x) => this.processPhoto(x));
-      console.log(res.data.pets);
-
+                                                  res.data.pets.map( (x) => this.processPhoto(x));
                                                 return res.data; } );
   }
 
@@ -77,8 +75,7 @@ export class UserService {
        }
     };
     return this.http.post(url, body, httpOptions)
-                    .map((res: any) => {console.log(res.user);
-                                        this.userLogged = res.user;
+                    .map((res: any) => {this.userLogged = res.user;
                                         this.processImages();
                                         this.userLoggedSubject.next(this.userLogged);
                                         return res;

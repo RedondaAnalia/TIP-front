@@ -13,7 +13,7 @@ export class MyMilestonesComponent implements OnInit {
   constructor(private _userService: UserService) {
     this.points = this._userService.userLogged.experience;
     this.milestones = this._userService.userLogged.milestones;
-    this._userService.userLogged$.subscribe((res: any) => {console.log(res); this.milestones = res.milestones; });
+    this._userService.userLogged$.subscribe((res: any) => { this.milestones = res.milestones; });
    }
 
   breakpoint = 3;  // to adjust to screen

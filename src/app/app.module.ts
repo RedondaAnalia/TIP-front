@@ -6,8 +6,30 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // tslint:disable-next-line:max-line-length
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatStepperModule, MatGridListModule, MatListModule, MatRadioModule, MatChipsModule, MAT_DATE_LOCALE, MatTooltipModule, MatDialogModule, MatSidenavModule, MatExpansionModule, MatMenuModule} from '@angular/material';
+import {MatButtonModule,
+        MatToolbarModule,
+        MatTabsModule,
+        MatCardModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSnackBarModule,
+        MatStepperModule,
+        MatGridListModule,
+        MatExpansionModule,
+        MatListModule,
+        MatRadioModule,
+        MatChipsModule,
+        MAT_DATE_LOCALE,
+        MatTooltipModule,
+        MatDialogModule,
+        MatMenuModule,
+        MatSidenavModule} from '@angular/material';
 
+import { AgmCoreModule } from '@agm/core';
 
 // Config
 import {APP_ROUTING} from './app.routes';
@@ -38,7 +60,6 @@ import { LoggedGuard } from './services/guards/logged.guard';
 import { UserLoggedGuard } from './services/guards/user-logged.guard';
 import { VetLoggedGuard } from './services/guards/vet-logged.guard';
 import { UserProfileComponent } from './components/pages/user-profile/user-profile.component';
-import { USER_ROUTES } from './components/pages/user-profile/user-profile.routes';
 import { UserModule } from './components/pages/user-profile/user.module';
 import { ShowMedicalCardsComponent } from './components/show-medical-cards/show-medical-cards.component';
 import { NewMedicalCardComponent } from './components/new-medical-card/new-medical-card.component';
@@ -51,6 +72,8 @@ import { ChangePhotoComponent } from './components/change-photo/change-photo.com
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
 import { PdfService } from './services/pdf.service';
+import { VeterinariesMapComponent } from './components/veterinaries-map/veterinaries-map.component';
+import { MyNearbyVeterinariansComponent } from './components/pages/my-nearby-veterinarians/my-nearby-veterinarians.component';
 
 @NgModule({
   declarations: [
@@ -77,8 +100,14 @@ import { PdfService } from './services/pdf.service';
     ChangePhotoComponent,
     ImagenPipe,
     PdfViewComponent,
+    VeterinariesMapComponent,
+    MyNearbyVeterinariansComponent,
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAx82m7KSQg0obJQYw7L5tGcEXcoM1u9sE',
+      libraries: ['places'],
+    }),
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -98,6 +127,8 @@ import { PdfService } from './services/pdf.service';
     MatCardModule,
     BrowserAnimationsModule,
     MatTooltipModule,
+    MatMenuModule,
+    MatSidenavModule,
     MatDialogModule,
     MatSnackBarModule,
     MatSelectModule,

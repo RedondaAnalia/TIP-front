@@ -3,10 +3,7 @@ import { Router } from '@angular/router';
 import { PetService } from '../../../services/pet-service';
 import 'rxjs/add/operator/catch';
 import { UserService } from '../../../services/user.service';
-import * as _swal from 'sweetalert';
-import { SweetAlert } from 'sweetalert/typings/core';
-
-const swal: SweetAlert = _swal as any;
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-find-pet',
@@ -20,6 +17,7 @@ export class FindPetComponent implements OnInit {
   constructor(
     private router: Router,
     private _petService: PetService,
+    private snackBar: MatSnackBar,
     private _userService: UserService
   ) { }
 
@@ -29,18 +27,18 @@ export class FindPetComponent implements OnInit {
 
   find() {
     if (this.input === undefined) {
-      swal( 'Por favor ingrese un mail', '' , 'warning');
+      this.erroredSnackBar( 'Por favor ingrese un mail');
     } else {
     this.busy = true;
     this._userService.findUserPets(this.input).subscribe(
       (data: any) => {
         if (!data) {
           this.busy = false;
-          swal( 'No existe un usuario con el mail ' + this.input, '' , 'error');
+          this.erroredSnackBar( 'No existe un usuario con el mail ');
           return;
         }
         switch (data.pets.length) {
-          case 0: swal('El usuario ' + data.name + ' no posee mascotas');
+          case 0: this.erroredSnackBar('El usuario ' + data.name + ' no posee mascotas');
           this.busy = false;
                   break;
           case 1: this._petService.findPetById(data.pets[0]._id).subscribe(( res: any) => {
@@ -57,14 +55,27 @@ export class FindPetComponent implements OnInit {
       },
       error => {
         this.busy = false;
-        swal( 'No existe un usuario con el mail ' + this.input, '' , 'error');
+        this.erroredSnackBar( 'No existe un usuario con el mail ' + this.input);
         return;
       }
     );
   }
 }
 
-signOut() {
-  this._userService.signOut();
-}
+  signOut() {
+    this._userService.signOut();
+  }
+
+  successSnackBar(msj ) {
+    this.snackBar.open(msj , 'HECHO', {
+      duration: 2000,
+    });
+  }
+
+    erroredSnackBar(msj) {
+    this.snackBar.open(msj , 'ERROR', {
+      duration: 2000,
+    });
+  }
+
 }
