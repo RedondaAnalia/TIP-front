@@ -1,9 +1,9 @@
 <mat-nav-list class="py-2">
   <mat-list-item >
     <img matListAvatar matTooltip="Cambiar foto de perfil"  matTooltipPosition="before" (click)="changePhoto()" [src]="srcPhoto | image" alt="...">
-    <h3 matLine> {{this.user.name | uppercase}} 
-         <span class="text-muted"> (Nivel: {{this.user.level}}) </span>
-    </h3>
+    <h1 matLine> <strong>{{this.user.name | uppercase}}</strong> 
+         <span class="text-muted"> (Nivel {{this.user.level}}) </span>
+    </h1>
     <p matLine>
       <span class="text-muted">{{this.user.email}} </span>
     </p>

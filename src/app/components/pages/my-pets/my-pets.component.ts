@@ -13,15 +13,4 @@ export class MyPetsComponent implements OnInit {
   ngOnInit() {
   }
 
-  newPet() {
-    const dialogRef = this.dialog.open(NewPetComponent, {
-      height: '675px',
-      width: '600px',
-      data: { }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-    });
-  }
-
 }

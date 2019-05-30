@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="main-nav mat-elevation-z4">
+<mat-toolbar color="primary" class="main-nav mat-elevation-z4" dense>
 
     <button mat-icon-button (click)="start.toggle()" class="icon-padding">
         <mat-icon aria-hidden="true">menu</mat-icon>
@@ -16,24 +16,24 @@
 
     <mat-sidenav class="mat-elevation-z10" #start [opened]="open" fixedTopGap="64" [mode]="mode" fixedInViewport="true" style="width:240px;">
 
-        <mat-list dense>
+        <mat-list>
             <app-show-user-profile></app-show-user-profile>
             <ng-container *ngFor="let nav of navList">
                 <mat-expansion-panel class="mat-elevation-z0" hideToggle="true" [expanded]="nav.dropDown">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             <mat-icon mat-list-icon>{{nav.icon}}</mat-icon>
-                            <span class="nav-list-item-text">{{nav.categoryName}}</span>
+                            <span class="nav-list-item-text px-2">{{nav.categoryName}}</span>
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <mat-nav-list>
+                    <mat-nav-list dense>
                         <div style="margin-top: -20px;">
                             <ng-container *ngFor="let subCategory of nav.subCategory">
                                 <ng-container *ngIf="subCategory.visable"> <!--Sub category list-->
                                     <mat-list-item (click)="mode === 'over'? start.close() : null" routerLinkActive="mat-icon-active" style="margin-left: -30px;margin-right: -24px;">
                                         <span [routerLink]="subCategory.subCategoryLink" [queryParams]="subCategory.subCategoryQuery" mat-line style="margin-left: 30px;">{{subCategory.subCategoryName}}</span>
-                                        <button mat-icon-button >
-                                            <mat-icon>info</mat-icon>
+                                        <button mat-icon-button [routerLink]="subCategory.subCategoryLink">
+                                            <mat-icon aria-hidden="true">arrow_forward</mat-icon>
                                         </button>
                                     </mat-list-item>
                                 </ng-container>

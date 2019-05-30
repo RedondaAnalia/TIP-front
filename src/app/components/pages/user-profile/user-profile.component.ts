@@ -8,10 +8,9 @@ import { UserService } from '../../../services/user.service';
 })
 export class UserProfileComponent implements OnInit {
 
-   //Sidenav responsive
    width;
    height;
-   mode:string = 'side';
+   mode: String = 'side';
    open = 'true';
    title = 'Pet Heroes';
    navList: NavList[];
@@ -25,18 +24,26 @@ export class UserProfileComponent implements OnInit {
                    [
                        { subCategoryName: 'Ver mis mascotas',
                          subCategoryLink: '/myPets', subCategoryQuery: {title: 'query item 1'}, visable: true, },
+                       { subCategoryName: 'Agregar una mascota',
+                         subCategoryLink: '/addPet', subCategoryQuery: {title: 'query item 1'}, visable: true, },
                    ]
            },
            { categoryName: 'Logros', icon: 'thumb_up', dropDown: false,
                subCategory:
                    [
-                       { subCategoryName: 'Ver mis logros', subCategoryLink:'/myMilestones', visable: true, },
+                       { subCategoryName: 'Ver mis logros', subCategoryLink: '/myMilestones', visable: true, },
                    ]
            },
            { categoryName: 'Veterinarias cercanas', icon: 'room', dropDown: false,
                subCategory:
                    [
-                       { subCategoryName: 'Ver veterinarias cercanas', subCategoryLink:'/nearbyVeterinarians', visable: true, },
+                       { subCategoryName: 'Ver veterinarias cercanas', subCategoryLink: '/nearbyVeterinarians', visable: true, },
+                   ]
+           },
+           { categoryName: 'Salir', icon: 'exit_to_app', dropDown: false,
+               subCategory:
+                   [
+                       { subCategoryName: 'Cerrar sesion', subCategoryLink: '/login', visable: true, },
                    ]
            },
        ];
@@ -87,25 +94,3 @@ export class NavListItem {
    visable: boolean;
 }
 
-/*  constructor(private router: Router, private _userService: UserService) { }
-
-  ngOnInit() {
-  }
-
-  viewPets() {
-    this.router.navigate(['/myPets']);
-  }
-
-  signOut() {
-    this._userService.signOut();
-  }
-
-  viewMilestones() {
-    this.router.navigate(['/myMilestones']);
-  }
-
-  viewNearbyVeterinarians() {
-    this.router.navigate(['/nearbyVeterinarians']);
-  }
-}
-*/
