@@ -49,8 +49,12 @@
     min-width: 8cm;
 }
 
-.maxWidth8cm{
-    max-width: 8cm;
+.maxWidth3cm{
+    max-width: 3cm;
+}
+
+.maxHeight1cm{
+    max-width: 1cm;
 }
 
 .select-image{
