@@ -8,11 +8,15 @@ import { Router } from '@angular/router';
 export class UserService {
 
   userLogged;
+  friends;
   userToken;
   petOwner;
 
   private userLoggedSubject = new Subject<any>();
   userLogged$ = this.userLoggedSubject.asObservable();
+
+  private userFriendsSubject = new Subject<any>();
+  userFriends$ = this.userFriendsSubject.asObservable();
 
   constructor(public http: HttpClient, private router: Router) { }
 
@@ -28,7 +32,7 @@ export class UserService {
   }
 
   processPhoto(pet) {
-    pet.image !== null ? pet.image = (URL_PHOTO_SERVICE + pet.image) : pet.image = null;
+    return pet.image;
   }
 
   findUserPets(mail) {
@@ -36,6 +40,13 @@ export class UserService {
     return this.http.get(url).map((res: any) => {this.petOwner = mail;
                                                   res.data.pets.map( (x) => this.processPhoto(x));
                                                 return res.data; } );
+  }
+
+  getFriends() {
+    const url = URL_SERVICIOS + "users/friends?mail='" + this.userLogged.email + "'";
+    return this.http.get(url).map((res: any) => {this.friends = res.data;
+                                                        this.userFriendsSubject.next(this.friends);
+                                                        return this.friends; });
   }
 
   login(user, pass) {

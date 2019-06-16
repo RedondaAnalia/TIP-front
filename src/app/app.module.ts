@@ -74,6 +74,7 @@ import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
 import { PdfService } from './services/pdf.service';
 import { VeterinariesMapComponent } from './components/veterinaries-map/veterinaries-map.component';
 import { MyNearbyVeterinariansComponent } from './components/pages/my-nearby-veterinarians/my-nearby-veterinarians.component';
+import { MyFriendsComponent } from './components/my-friends-component/my-friends.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ import { MyNearbyVeterinariansComponent } from './components/pages/my-nearby-vet
     PdfViewComponent,
     VeterinariesMapComponent,
     MyNearbyVeterinariansComponent,
+    MyFriendsComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
