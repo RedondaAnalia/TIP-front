@@ -19,7 +19,8 @@ export class NewPetComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder,
               private _userService: UserService,
               private snackBar: MatSnackBar,
-              private dialogRef: MatDialogRef<NewPetComponent>) {}
+              // private dialogRef: MatDialogRef<NewPetComponent>
+              ) {}
 
   ngOnInit() {
     this.today = new Date();
@@ -49,7 +50,7 @@ export class NewPetComponent implements OnInit {
                             this.fourthFormGroup.value.gender
                     ).subscribe(res => {
                       this.openSnackBar();
-                      this.dialogRef.close();
+                 //     this.dialogRef.close();
                     });
   }
 

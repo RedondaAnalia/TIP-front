@@ -22,9 +22,11 @@ export class PetProfileComponent implements OnInit {
   goBack() {
     switch (this.router.routerState.snapshot.url) {
       case('/myPet'): this.router.navigate(['/myPets']); break;
-      case('/petProfile'): this.router.navigate(['/selectPet']); break;
+      case('/petProfile'): if (this._petService.pets.length <= 1 ) {
+                            this.router.navigate(['/findPet']); break;
+                          } else {
+                            this.router.navigate(['/selectPet']); break;
+                          }
     }
-
   }
-
 }

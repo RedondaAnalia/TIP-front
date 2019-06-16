@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PetService } from '../../services/pet-service';
 
-import * as _swal from 'sweetalert';
-import { SweetAlert } from 'sweetalert/typings/core';
 import { MatSnackBar, MatDialogRef } from '@angular/material';
-const swal: SweetAlert = _swal as any;
 
 
 @Component({
@@ -15,17 +12,19 @@ export class NewMedicalCardComponent implements OnInit {
 
   diagnostic;
   title;
-  constructor(private _petService: PetService, public snackBar: MatSnackBar, public dialogRef: MatDialogRef<NewMedicalCardComponent>) { }
+  constructor(private _petService: PetService,
+              private snackBar: MatSnackBar,
+              public dialogRef: MatDialogRef<NewMedicalCardComponent>) { }
 
   ngOnInit() {
   }
 
   addToMedicalHistory() {
     if (!this.diagnostic || !this.title) {
-      swal('Debes completar todos los campos', '', 'error');
+      this.erroredSnackBar('Debes completar todos los campos');
     } else {
     this._petService.addMedicalCard(this.title, this.diagnostic).subscribe(res => {
-      this.openSnackBar();
+      this.successSnackBar('Historia agregada');
       this.diagnostic = null;
       this.title = null;
       this.dialogRef.close();
@@ -33,9 +32,14 @@ export class NewMedicalCardComponent implements OnInit {
   }
   }
 
+  successSnackBar(msj ) {
+    this.snackBar.open(msj , 'HECHO', {
+      duration: 2000,
+    });
+  }
 
-  openSnackBar() {
-    this.snackBar.open('Historia agregada', 'HECHO', {
+    erroredSnackBar(msj) {
+    this.snackBar.open(msj , 'ERROR', {
       duration: 2000,
     });
   }

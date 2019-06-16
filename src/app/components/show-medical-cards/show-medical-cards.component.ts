@@ -4,6 +4,11 @@ import { PetService } from '../../services/pet-service';
 import { UserService } from '../../services/user.service';
 import { MatDialog } from '@angular/material';
 import { NewMedicalCardComponent } from '../new-medical-card/new-medical-card.component';
+import * as jsPDF from 'jspdf';
+import * as html2canvas from 'html2canvas';
+import { PdfViewComponent } from '../pdf-view/pdf-view.component';
+
+declare var $;
 
 @Component({
   selector: 'app-show-medical-cards',
@@ -21,10 +26,22 @@ export class ShowMedicalCardsComponent implements OnInit {
   ngOnInit() {
   }
 
+  downloadPDF() {
+    const dialogRef = this.dialog.open(PdfViewComponent, {
+      height: '90%',
+      width: '800px',
+      data: { medicalCards : this.medicalCards}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
   openDialog() {
     const dialogRef = this.dialog.open(NewMedicalCardComponent, {
-      height: '450px',
-      width: '600px',
+       height: '400 px',
+      width: '600 px',
       data: { }
     });
 

@@ -1,15 +1,13 @@
-<div class="mat-body">
-
-<mat-grid-list cols="1" rowHeight="100px">
-  <mat-grid-tile class="py-2" colspan="1" rowspan="3" style.background="lightblue">
-    <img matTooltip="Cambiar foto de perfil"  matTooltipPosition="before" (click)="changePhoto()" class="profile-image img-thumbnail rounded-circle" [src]="srcPhoto | image" alt="..."> 
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1" rowspan="1" style.background="lightblue">
-    <h4 class="text-center" matLine> {{this.user.name | uppercase}} 
-      <div class="text-muted">
-        ({{this.user.email}}) 
-      </div>
-    </h4>  
-  </mat-grid-tile>
-</mat-grid-list>
-</div>
+<mat-nav-list class="py-2">
+  <mat-list-item >
+    <img matListAvatar matTooltip="Cambiar foto de perfil"  matTooltipPosition="before" (click)="changePhoto()" [src]="srcPhoto | image" alt="...">
+    <h1 matLine> <strong>{{this.user.name | uppercase}}</strong> 
+         <span class="text-muted"> (Nivel {{this.user.level}}) </span>
+    </h1>
+    <p matLine>
+      <span class="text-muted">{{this.user.email}} </span>
+    </p>
+    <mat-divider class="example-full-width"></mat-divider>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-nav-list>

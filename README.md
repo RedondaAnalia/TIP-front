@@ -1,5 +1,5 @@
 # PET-HEROES (Front-End)
-
+[![Build Status](https://travis-ci.com/RedondaAnalia/TIP-front.svg?branch=master)](https://travis-ci.com/RedondaAnalia/TIP-front)
 
 ## Documentacion del proyecto
 

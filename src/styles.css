@@ -1,4 +1,5 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 .blue-background{
     background-color: limegreen;
@@ -28,6 +29,7 @@
     margin-left: 20px;
 }
 
+
 .complete-main-container {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -38,13 +40,21 @@
 }
 
 .profile-image {
-    width: 8cm;
-    height: 8cm;
+    min-width: 8cm;
+    min-height: 8cm;
     align-items: center;
 }
 
-.maxWidth8cm{
-    max-width: 8cm;
+.sidebar-width{
+    min-width: 8cm;
+}
+
+.maxWidth3cm{
+    max-width: 3cm;
+}
+
+.maxHeight1cm{
+    max-width: 1cm;
 }
 
 .select-image{
@@ -142,6 +152,11 @@
       max-width: 500px
   }
 
+  .vet-map{
+    min-width: 100%;
+    max-width: 100%
+}
+
   .minHeight100{
       min-height: 100%;
   }
@@ -152,7 +167,7 @@
   }
 
   .cardHeight{
-      min-height: 75vh;
+      min-height: 55vh;
   }
 
   .example-card {
@@ -163,6 +178,13 @@
     max-width: 30vh;
     max-height: 30vh;
   }
+
+  .margin-top1{
+      margin-top: 10px;
+  }
+  agm-map {
+      height: 600px; /* height is required */
+    }
 
 
 
@@ -192,8 +214,129 @@
         opacity: 1;
     }
 }
-
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}
 .fadeIn {
     animation-name: fadeIn;
 }
+
+
+/* PARA PDF!!!!!!!!!!!!!!!!!
+*/
+
+.invoice-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue';
+    color: #555;
+}
+.invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+}
+.invoice-box table td {
+    padding: 5px;
+    vertical-align: top;
+}
+.invoice-box table tr td:nth-child(2) {
+    text-align: right;
+}
+.invoice-box table tr.top table td {
+    padding-bottom: 20px;
+}
+.invoice-box table tr.top table td.title {
+    font-size: 45px;
+    line-height: 45px;
+    color: #333;
+}
+.invoice-box table tr.information table td {
+    padding-bottom: 40px;
+}
+.invoice-box table tr.heading td {
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+.invoice-box table tr.item td {
+    border-bottom: 1px solid #eee;
+}
+
+.invoice-box .company-logo-wrapper {
+    background-color: #0000;
+    width:130px;
+    height:40px;
+    padding-top:10px;
+    border-radius:8px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  padding: 10px;
+}
+
+.grid-item {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+.invoice-box .company-logo {
+    background: rgba(0, 0, 0, 0) url("https://s3-sa-east-1.amazonaws.com/pet-heroes/assets/logo-petheroes.png") no-repeat scroll 0 0;
+    margin: auto;
+    width:150px;
+    height:50px
+}
+div.a {
+  text-align: justify; /* For Edge */
+  -moz-text-align-last: right; /* For Firefox prior 58.0 */
+  text-align-last: right;
+}
+div.b {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+
+
+
+/* PARA RESPONSIVE */
+
+example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .example-is-mobile .example-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+  }
+
+  h1.example-app-name {
+    margin-left: 8px;
+  }
+
+  .example-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+  }
+
+  .example-is-mobile .example-sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+       `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+  }
 

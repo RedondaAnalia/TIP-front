@@ -1,33 +1,33 @@
-<div class="d-flex flex-row justify-content-center bg-light all animated fadeIn fast">
-    <div class="d-flex flex-column all justify-content-center align-content-center">
-        <div class="align-self-end mb-auto">
+<div class="d-flex flex-row bg-light animated fadeIn fast flex-fill">
+    <div class="d-flex flex-column flex-fill">
+        <div class="align-self-end">
             <a mat-button color="primary" class="my-1" (click)="signOut()"> 
-                <i class="fas fa-sign-out-alt" style="color:primary"></i>
+                 <mat-icon aria-hidden="true">exit_to_app</mat-icon>
                 Salir
             </a>
         </div>
-        <div class="d-flex justify-content-center align-content-center py-5">
-            <img src="./assets/img/search_logo_2.png"/>
+        <div class="d-flex flex-column justify-content-center py-5">
+        <div class="d-flex flex-row justify-content-center">
+            <img class="  d-flex flex-wrap"src="./assets/img/search_logo_2.png"/>
         </div>
-        <div class="d-flex justify-content-center">
-        </div>
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <form class="example-form">
-                <mat-form-field class="example-full-width">
-                    <input class="text-center" (input)="input=$event.target.value" autofocus (keyup.enter)="find()" type="text" matInput placeholder="Ingrese el mail del dueño de la mascota" required>
+        <div class="d-flex flex-row justify-content-center py-5">
+            <form class="example-form width100">
+                <mat-form-field class="width100" >
+                    <input class="text-center width100" (input)="input=$event.target.value" autofocus (keyup.enter)="find()" type="text" matInput placeholder="Ingrese el mail del dueño de la mascota" required>
                 </mat-form-field>
             </form>
-            <a class="d-flex flex-row justify-content-center" mat-raised-button color="primary" (click)="find()">
-                <div class= "d-flex justify-content-center">
+               <a class="d-flex my-3 mx-1" mat-raised-button color="primary" (click)="find()">
+                <div class= "d-flex justify-content-center align-self-center">
                     <strong>Buscar</strong>
-                 <div class= "d-flex px-2 justify-content-center align-items-center" *ngIf="busy">
-                    <i class="fas fa-spinner fa-spin"></i>
+                 <div class= "d-flex px-2 align-self-center" *ngIf="busy">
+                    <i class=" fa-spinner fa-spin"></i>
                  </div>
-                 <div class= "d-flex px-2 justify-content-center align-items-center" *ngIf="!busy">
+                 <div class= "d-flex px-2 align-self-center" *ngIf="!busy">
                     <i class="fas fa-search"></i>
                  </div>                
                 </div>
             </a>
         </div>
-    </div>
+        </div>
+       </div>
 </div>
