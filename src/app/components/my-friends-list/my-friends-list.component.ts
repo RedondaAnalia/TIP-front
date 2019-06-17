@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../services/user.service';
 
 @Component({
-  selector: 'app-my-friends-component',
-  templateUrl: './my-friends.component.html'
+  selector: 'app-my-friends-list-component',
+  templateUrl: './my-friends-list.component.html'
 })
-export class MyFriendsComponent implements OnInit {
+export class MyFriendsListComponent implements OnInit {
 
   friends;
 
