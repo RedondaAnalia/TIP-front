@@ -76,6 +76,7 @@ import { VeterinariesMapComponent } from './components/veterinaries-map/veterina
 import { MyNearbyVeterinariansComponent } from './components/pages/my-nearby-veterinarians/my-nearby-veterinarians.component';
 import { MyFriendsListComponent } from './components/my-friends-list/my-friends-list.component';
 import { MyFriendsComponent } from './components/pages/my-friends/my-friends.component';
+import { SearchUsersComponent } from './components/search-users/search-users.component';
 
 @NgModule({
   declarations: [
@@ -106,6 +107,7 @@ import { MyFriendsComponent } from './components/pages/my-friends/my-friends.com
     VeterinariesMapComponent,
     MyNearbyVeterinariansComponent,
     MyFriendsComponent,
+    SearchUsersComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({

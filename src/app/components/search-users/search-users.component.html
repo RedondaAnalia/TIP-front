@@ -1,0 +1,29 @@
+<mat-form-field class="example-full-width">
+  <div class="d-flex">
+    <mat-icon>search</mat-icon>
+    <input matInput (keyup)="log($event)">
+  </div>
+</mat-form-field>
+
+
+<div *ngIf='searchResult && searchResult.length === 0' >
+        <div class="alert alert-light text-center" role="alert">
+                No existen resultados para tu busqueda.
+        </div>
+</div>
+<div *ngIf='!searchResult' >
+        <div class="alert alert-light text-center" role="alert">
+                Haz una busqueda ahora!
+        </div>
+</div>
+<mat-nav-list class="py-2">
+  <mat-list-item *ngFor="let user of searchResult; let i=index; last as last">
+    <img matListAvatar [src]="user.image| image" alt="...">
+    <h3 matLine> {{user.name| uppercase}} </h3>
+    <p matLine>
+      <span class="text-muted">Email: {{user.email}} </span>
+    </p>
+    <mat-divider class="example-full-width" [inset]="true" *ngIf="!last"></mat-divider>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-nav-list>

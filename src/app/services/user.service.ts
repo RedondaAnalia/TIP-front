@@ -43,6 +43,7 @@ export class UserService {
   }
 
   getFriends() {
+    // tslint:disable-next-line:quotemark
     const url = URL_SERVICIOS + "users/friends?mail='" + this.userLogged.email + "'";
     return this.http.get(url).map((res: any) => {this.friends = res.data;
                                                         this.userFriendsSubject.next(this.friends);
@@ -50,6 +51,7 @@ export class UserService {
   }
 
   findUsers(query) {
+    // tslint:disable-next-line:quotemark
     const url = URL_SERVICIOS + 'users/search?query=' + query + "'";
     return this.http.get(url). map((res: any) => res.data );
   }

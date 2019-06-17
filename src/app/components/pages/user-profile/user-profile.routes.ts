@@ -9,6 +9,7 @@ import { MyPetsComponent } from '../my-pets/my-pets.component';
 import { VeterinariesMapComponent } from '../../veterinaries-map/veterinaries-map.component';
 import { MyNearbyVeterinariansComponent } from '../my-nearby-veterinarians/my-nearby-veterinarians.component';
 import { NewPetComponent } from '../../new-pet/new-pet.component';
+import { SearchUsersComponent } from '../../search-users/search-users.component';
 
 const userRoutes: Routes = [
     {
@@ -19,6 +20,7 @@ const userRoutes: Routes = [
             { path: 'myPets', component: MyPetsComponent},
             { path: 'myPet', component: PetProfileComponent},
             { path: 'myFriends', component: MyFriendsComponent},
+            { path: 'searchFriends', component: SearchUsersComponent},
             { path: 'addPet', component: NewPetComponent},
             { path: 'myMilestones', component: MyMilestonesComponent},
             { path: 'nearbyVeterinarians', component: MyNearbyVeterinariansComponent},
