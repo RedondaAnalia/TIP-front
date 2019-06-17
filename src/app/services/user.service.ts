@@ -49,6 +49,11 @@ export class UserService {
                                                         return this.friends; });
   }
 
+  findUsers(query) {
+    const url = URL_SERVICIOS + 'users/search?query=' + query + "'";
+    return this.http.get(url). map((res: any) => res.data );
+  }
+
   login(user, pass) {
     const url = URL_SERVICIOS + 'login';
     const httpOptions = {
