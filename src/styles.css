@@ -340,3 +340,15 @@ example-container {
     flex: 1 0 auto;
   }
 
+.singUpDiv {
+  margin: 20px;
+}
+
+.md-button.md-fab {
+  line-height: 5.6rem;
+  min-width: 0;
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 50%;
+  align-content: end;
+}

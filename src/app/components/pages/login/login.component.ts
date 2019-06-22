@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
 import { PetService } from '../../../services/pet-service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar , MatDialog, MatDialogConfig} from '@angular/material';
+import {SingUpDialogComponent} from '../../sing-up-dialog/sing-up-dialog.component';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(private _userService: UserService,
               private snackBar: MatSnackBar,
               private router: Router,
-              private _petService: PetService) {
+              private _petService: PetService,
+              private dialog: MatDialog) {
     this.busy = false;
     this._userService.signOut();
    }
@@ -46,6 +48,16 @@ export class LoginComponent implements OnInit {
         }
       );
     }
+  }
+
+  openDialog() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(SingUpDialogComponent, dialogConfig);
   }
 
   successSnackBar(msj ) {

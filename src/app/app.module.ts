@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+
 // tslint:disable-next-line:max-line-length
 import {MatButtonModule,
         MatToolbarModule,
@@ -68,6 +69,7 @@ import { MyMilestonesComponent } from './components/pages/my-milestones/my-miles
 import { NewPetComponent } from './components/new-pet/new-pet.component';
 import { BooleanTransformerPipe } from './pipes/boolean-transformer.pipe';
 import { GenderTransformerPipe } from './pipes/gender-transformer.pipe';
+import { GenderUserTransformerPipe } from './pipes/gender-user-transformer.pipe';
 import { ChangePhotoComponent } from './components/change-photo/change-photo.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
@@ -77,6 +79,7 @@ import { MyNearbyVeterinariansComponent } from './components/pages/my-nearby-vet
 import { MyFriendsListComponent } from './components/my-friends-list/my-friends-list.component';
 import { MyFriendsComponent } from './components/pages/my-friends/my-friends.component';
 import { SearchUsersComponent } from './components/search-users/search-users.component';
+import {SingUpDialogComponent} from './components/sing-up-dialog/sing-up-dialog.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +103,7 @@ import { SearchUsersComponent } from './components/search-users/search-users.com
     NewPetComponent,
     BooleanTransformerPipe,
     GenderTransformerPipe,
+    GenderUserTransformerPipe,
     ChangePhotoComponent,
     MyFriendsListComponent,
     ImagenPipe,
@@ -108,6 +112,7 @@ import { SearchUsersComponent } from './components/search-users/search-users.com
     MyNearbyVeterinariansComponent,
     MyFriendsComponent,
     SearchUsersComponent,
+    SingUpDialogComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -165,6 +170,7 @@ import { SearchUsersComponent } from './components/search-users/search-users.com
     NewMedicalCardComponent,
     NewPetComponent,
     ChangePhotoComponent,
+    SingUpDialogComponent,
     PdfViewComponent ]
 })
 export class AppModule { }

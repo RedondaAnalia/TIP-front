@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URL_SERVICIOS, URL_PHOTO_SERVICE } from '../../config/config';
 import { Subject } from 'rxjs/Subject';
 import { Router } from '@angular/router';
+import {log} from "util";
 
 @Injectable()
 export class UserService {
@@ -74,6 +75,23 @@ export class UserService {
                                         this.userToken = res.token;
                                         return res;
                                         });
+  }
+
+  create(name, pass, email, phone, gender) {
+    const url = URL_SERVICIOS + 'users';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    const body = {
+      name : name,
+      email : email,
+      gender: gender,
+      phone: phone,
+      password : pass};
+    console.log(body)
+    return this.http.post(url, body, httpOptions);
   }
 
   addPet(petName, birthday, castrate, gender) {

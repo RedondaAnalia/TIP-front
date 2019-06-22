@@ -1,0 +1,12 @@
+<mat-nav-list class="py-2">
+  <mat-list-item *ngFor="let friend of friends; last as last" >
+    <img matListAvatar [src]="friend[0].image| image" alt="...">
+    <h3 matLine> {{friend[0].name| uppercase}} </h3>
+    <p matLine>
+      <span class="text-muted">Email: {{friend[0].email}} </span>
+    </p>
+    <mat-divider class="example-full-width" [inset]="true" *ngIf="!last"></mat-divider>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-nav-list>
+
