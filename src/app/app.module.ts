@@ -80,6 +80,7 @@ import { MyFriendsListComponent } from './components/my-friends-list/my-friends-
 import { MyFriendsComponent } from './components/pages/my-friends/my-friends.component';
 import { SearchUsersComponent } from './components/search-users/search-users.component';
 import {SingUpDialogComponent} from './components/sing-up-dialog/sing-up-dialog.component';
+import { FindUsersComponent } from './components/pages/find-users/find-users.component';
 
 @NgModule({
   declarations: [
@@ -113,6 +114,7 @@ import {SingUpDialogComponent} from './components/sing-up-dialog/sing-up-dialog.
     MyFriendsComponent,
     SearchUsersComponent,
     SingUpDialogComponent,
+    FindUsersComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
