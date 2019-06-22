@@ -13,7 +13,7 @@ import {SingUpDialogComponent} from '../../sing-up-dialog/sing-up-dialog.compone
 })
 export class LoginComponent implements OnInit {
 
-  user;
+  user = '';
   pass;
   busy;
   constructor(private _userService: UserService,
@@ -56,8 +56,14 @@ export class LoginComponent implements OnInit {
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+    dialogConfig.height = '100%';
 
-    this.dialog.open(SingUpDialogComponent, dialogConfig);
+    const dialogRef = this.dialog.open(SingUpDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.user = result;
+    });
   }
 
   successSnackBar(msj ) {

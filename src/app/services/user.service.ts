@@ -90,7 +90,7 @@ export class UserService {
       gender: gender,
       phone: phone,
       password : pass};
-    console.log(body)
+    console.log(body);
     return this.http.post(url, body, httpOptions);
   }
 
