@@ -27,6 +27,10 @@
       <mat-icon>person_add</mat-icon>
       Agregar amigo
     </button>
+    <button mat-raised-button disabled class="px-0 add-friend-button" *ngIf="isUserUrl() && isFriend(user.email)">
+      <mat-icon>people</mat-icon>
+      Amigo
+    </button>
     <mat-divider class="example-full-width" [inset]="true" *ngIf="!last"></mat-divider>
   </mat-list-item>
   <mat-divider></mat-divider>
