@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers } from '@angular/http';
-
 
 import 'rxjs/add/operator/map';
 
@@ -83,17 +81,11 @@ export class PetService {
         formData.append('id', this.pet._id);
         formData.append('image', file);
         return this.http.put(url, formData)
-                        .map((res: any) => { this.processPhoto(res.data);
-                                              this.pet = res.data;
+                        .map((res: any) => { this.pet = res.data;
                                              this.pets[this.petIndex] = this.pet;
                                              this.petSubject.next(this.pet);
                                             });
   }
-
-  processPhoto(pet) {
-    pet.image !== null ? pet.image = (URL_PHOTO_SERVICE + pet.image) : pet.image = null;
-  }
-
 
 }
 

@@ -17,7 +17,7 @@
         </div>
 </div>
 <mat-nav-list class="py-2">
-  <mat-list-item *ngFor="let user of searchResult; let i=index; last as last">
+  <mat-list-item *ngFor="let user of searchResult; let i=index; last as last" (click)="onClick(i)">
     <img matListAvatar [src]="user.image| image" alt="...">
     <h3 matLine> {{user.name| uppercase}} </h3>
     <p matLine>

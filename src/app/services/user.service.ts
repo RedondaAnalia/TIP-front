@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URL_SERVICIOS, URL_PHOTO_SERVICE } from '../../config/config';
 import { Subject } from 'rxjs/Subject';
 import { Router } from '@angular/router';
-import {log} from "util";
 
 @Injectable()
 export class UserService {
@@ -27,19 +26,10 @@ export class UserService {
     this.router.navigate(['/login']);
   }
 
-  processImages() {
-    this.userLogged.image !== null ? this.userLogged.image = URL_PHOTO_SERVICE + this.userLogged.image : this.userLogged.image = null ;
-    this.userLogged.pets.map( (x) => this.processPhoto(x) );
-  }
-
-  processPhoto(pet) {
-    return pet.image;
-  }
 
   findUserPets(mail) {
     const url = URL_SERVICIOS + 'users/' + mail ;
     return this.http.get(url).map((res: any) => {this.petOwner = mail;
-                                                  res.data.pets.map( (x) => this.processPhoto(x));
                                                 return res.data; } );
   }
 
@@ -70,7 +60,6 @@ export class UserService {
       };
     return this.http.post(url, body, httpOptions)
                     .map((res: any) => {this.userLogged = res.usuario;
-                                        this.processImages();
                                         this.userLoggedSubject.next(this.userLogged);
                                         this.userToken = res.token;
                                         return res;
@@ -112,7 +101,6 @@ export class UserService {
     };
     return this.http.post(url, body, httpOptions)
                     .map((res: any) => {this.userLogged = res.user;
-                                        this.processImages();
                                         this.userLoggedSubject.next(this.userLogged);
                                         return res;
                                         });
@@ -125,7 +113,6 @@ export class UserService {
       formData.append('image', file);
         return this.http.put(url, formData)
                         .map((res: any) => { this.userLogged = res.data;
-                                            this.processImages();
                                             this.userLoggedSubject.next(this.userLogged);
                                             });
   }
