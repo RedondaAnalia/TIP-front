@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import {Router} from "@angular/router";
-import {PetService} from "../../services/pet-service";
-import {MatSnackBar} from "@angular/material";
+import {Router} from '@angular/router';
+import {PetService} from '../../services/pet-service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-search-users',
@@ -11,13 +11,27 @@ import {MatSnackBar} from "@angular/material";
 export class SearchUsersComponent implements OnInit {
 
   searchResult;
+  myFriends: Array<any>;
+  url: String;
 
   constructor(private _userService: UserService,
               private router: Router,
               private snackBar: MatSnackBar,
-              private _petService: PetService) { }
+              private _petService: PetService) {
+                this.url = this.router.routerState.snapshot.url;
+                this._userService.userFriends$.subscribe(res => this.myFriends = res.map(x => x[0].email));
+                this._userService.getFriends().subscribe();
+               }
 
   ngOnInit() {
+  }
+
+  isFriend(email) {
+    return this.myFriends.indexOf(email) >= 0;
+  }
+
+  isUserUrl() {
+    return this.url === '/searchFriends';
   }
 
   log($event) {
