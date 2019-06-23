@@ -38,6 +38,12 @@ export class SearchUsersComponent implements OnInit {
     this._userService.findUsers($event.target.value).subscribe(res => this.searchResult = res);
   }
 
+  addFriend(email) {
+    this._userService.addFriend(email).subscribe((res: any) => { if (res.ok) { this.myFriends.push(email); }
+                                                                else { this.erroredSnackBar('Error agregando amigo :('); } });
+
+  }
+
 
   onClick(index) {
     if (this.router.routerState.snapshot.url === '/findPet') {
