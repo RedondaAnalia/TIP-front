@@ -6,12 +6,12 @@
 
     <form class="example-form">
       <mat-form-field class="example-full-width">
-        <input (input)="user=$event.target.value" type="email" matInput placeholder="Usuario" required>
+        <input name="user" [(ngModel)]="user" type="email" matInput placeholder="Usuario" required>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <input (keyup.enter)="login()" (input)="pass=$event.target.value"  matInput placeholder="Contraseña" type="password" required >
-      </mat-form-field>    
+      </mat-form-field>
     </form>
 <!--
 <div class="checkbox mb-3">
@@ -28,6 +28,9 @@
         </div>
       </div>
     </button>
+    <div class="singUpDiv">
+      <a mat-button  color="primary" (click)="openDialog()" >Registrarme</a>
+    </div>
   </form>
 </div>
     <footer class="footer d-flex align-self-bottom justify-content-center py-2">

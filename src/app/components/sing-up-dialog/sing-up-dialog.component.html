@@ -1,0 +1,94 @@
+<div class="mat-body">
+
+  <button mat-icon-button (click)="close()" class="icon-padding">
+    <mat-icon aria-hidden="true">close</mat-icon>
+  </button>
+  <h3 class="text-center">Nuevo Usuario!</h3>
+
+  <mat-vertical-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Nombre</ng-template>
+        <mat-form-field>
+          <input autofocus matInput placeholder="Nombre completo" formControlName="name" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>email</ng-template>
+        <mat-form-field>
+          <input autofocus matInput placeholder="Usuario" formControlName="email" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Password</ng-template>
+        <mat-form-field>
+          <input autofocus matInput placeholder="Password" type="password" formControlName="password" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="fourthFormGroup">
+      <form [formGroup]="fourthFormGroup">
+        <ng-template matStepLabel>Telefono</ng-template>
+        <mat-form-field>
+          <input autofocus matInput placeholder="Telefono" formControlName="phone" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="sixthFormGroup">
+      <form [formGroup]="sixthFormGroup">
+        <ng-template matStepLabel>Género</ng-template>
+        <mat-form-field>
+          <mat-select matInput matStepperNext autofocus placeholder="Seleccione su genero" formControlName="gender">
+            <mat-option value="FEMALE">Mujer</mat-option>
+            <mat-option value="MALE">Hombre</mat-option>
+            <mat-option value="X">Que te importa!</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Por favor, confirmá los datos</ng-template>
+      <div class="d-flex flex-column align-content-center justify-content-center">
+        <div class="text-center">
+          <strong>Nombre: </strong>{{this.firstFormGroup.value.name}}
+        </div>
+        <div class="text-center">
+          <strong>Email: </strong>{{this.secondFormGroup.value.email}}
+        </div>
+        <div class="text-center">
+          <strong>Telefono: </strong>{{this.fourthFormGroup.value.phone}}
+        </div>
+        <div class="text-center">
+          <strong>Género: </strong>{{this.sixthFormGroup.value.gender | genderUserTransformer}}
+        </div>
+        <div class="d-flex justify-content-around py-4">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-raised-button color="primary" (click)="save()">Crear nuevo usuario!</button>
+        </div>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>

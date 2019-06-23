@@ -8,11 +8,15 @@ import { Router } from '@angular/router';
 export class UserService {
 
   userLogged;
+  friends;
   userToken;
   petOwner;
 
   private userLoggedSubject = new Subject<any>();
   userLogged$ = this.userLoggedSubject.asObservable();
+
+  private userFriendsSubject = new Subject<any>();
+  userFriends$ = this.userFriendsSubject.asObservable();
 
   constructor(public http: HttpClient, private router: Router) { }
 
@@ -22,20 +26,25 @@ export class UserService {
     this.router.navigate(['/login']);
   }
 
-  processImages() {
-    this.userLogged.image !== null ? this.userLogged.image = URL_PHOTO_SERVICE + this.userLogged.image : this.userLogged.image = null ;
-    this.userLogged.pets.map( (x) => this.processPhoto(x) );
-  }
-
-  processPhoto(pet) {
-    pet.image !== null ? pet.image = (URL_PHOTO_SERVICE + pet.image) : pet.image = null;
-  }
 
   findUserPets(mail) {
     const url = URL_SERVICIOS + 'users/' + mail ;
     return this.http.get(url).map((res: any) => {this.petOwner = mail;
-                                                  res.data.pets.map( (x) => this.processPhoto(x));
                                                 return res.data; } );
+  }
+
+  getFriends() {
+    // tslint:disable-next-line:quotemark
+    const url = URL_SERVICIOS + "users/friends?mail='" + this.userLogged.email + "'";
+    return this.http.get(url).map((res: any) => {this.friends = res.data;
+                                                        this.userFriendsSubject.next(this.friends);
+                                                        return this.friends; });
+  }
+
+  findUsers(query) {
+    // tslint:disable-next-line:quotemark
+    const url = URL_SERVICIOS + 'users/search?query=' + query ;
+    return this.http.get(url). map((res: any) => res.data );
   }
 
   login(user, pass) {
@@ -51,11 +60,27 @@ export class UserService {
       };
     return this.http.post(url, body, httpOptions)
                     .map((res: any) => {this.userLogged = res.usuario;
-                                        this.processImages();
                                         this.userLoggedSubject.next(this.userLogged);
                                         this.userToken = res.token;
                                         return res;
                                         });
+  }
+
+  create(name, pass, email, phone, gender) {
+    const url = URL_SERVICIOS + 'users';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    const body = {
+      name : name,
+      email : email,
+      gender: gender,
+      phone: phone,
+      password : pass};
+    console.log(body);
+    return this.http.post(url, body, httpOptions);
   }
 
   addPet(petName, birthday, castrate, gender) {
@@ -76,7 +101,6 @@ export class UserService {
     };
     return this.http.post(url, body, httpOptions)
                     .map((res: any) => {this.userLogged = res.user;
-                                        this.processImages();
                                         this.userLoggedSubject.next(this.userLogged);
                                         return res;
                                         });
@@ -89,7 +113,6 @@ export class UserService {
       formData.append('image', file);
         return this.http.put(url, formData)
                         .map((res: any) => { this.userLogged = res.data;
-                                            this.processImages();
                                             this.userLoggedSubject.next(this.userLogged);
                                             });
   }

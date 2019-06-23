@@ -16,8 +16,7 @@ export class UserProfileComponent implements OnInit {
    navList: NavList[];
 
    constructor(public ngZone: NgZone,
-               public route: Router)
-   {
+               public route: Router) {
        this.navList = [
            { categoryName: 'Mascotas', icon: 'pets', dropDown: false,
                subCategory:
@@ -28,6 +27,15 @@ export class UserProfileComponent implements OnInit {
                          subCategoryLink: '/addPet', subCategoryQuery: {title: 'query item 1'}, visable: true, },
                    ]
            },
+         { categoryName: 'Amigos', icon: 'person', dropDown: false,
+           subCategory:
+             [
+               { subCategoryName: 'Ver mis amigos',
+                 subCategoryLink: '/myFriends', subCategoryQuery: {title: 'query item 1'}, visable: true, },
+               { subCategoryName: 'Agregar un amigo',
+                 subCategoryLink: '/searchFriends', subCategoryQuery: {title: 'query item 1'}, visable: true, },
+             ]
+         },
            { categoryName: 'Logros', icon: 'thumb_up', dropDown: false,
                subCategory:
                    [

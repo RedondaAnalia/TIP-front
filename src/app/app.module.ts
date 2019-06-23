@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+
 // tslint:disable-next-line:max-line-length
 import {MatButtonModule,
         MatToolbarModule,
@@ -68,12 +69,18 @@ import { MyMilestonesComponent } from './components/pages/my-milestones/my-miles
 import { NewPetComponent } from './components/new-pet/new-pet.component';
 import { BooleanTransformerPipe } from './pipes/boolean-transformer.pipe';
 import { GenderTransformerPipe } from './pipes/gender-transformer.pipe';
+import { GenderUserTransformerPipe } from './pipes/gender-user-transformer.pipe';
 import { ChangePhotoComponent } from './components/change-photo/change-photo.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
 import { PdfService } from './services/pdf.service';
 import { VeterinariesMapComponent } from './components/veterinaries-map/veterinaries-map.component';
 import { MyNearbyVeterinariansComponent } from './components/pages/my-nearby-veterinarians/my-nearby-veterinarians.component';
+import { MyFriendsListComponent } from './components/my-friends-list/my-friends-list.component';
+import { MyFriendsComponent } from './components/pages/my-friends/my-friends.component';
+import { SearchUsersComponent } from './components/search-users/search-users.component';
+import {SingUpDialogComponent} from './components/sing-up-dialog/sing-up-dialog.component';
+import { FindUsersComponent } from './components/pages/find-users/find-users.component';
 
 @NgModule({
   declarations: [
@@ -97,11 +104,17 @@ import { MyNearbyVeterinariansComponent } from './components/pages/my-nearby-vet
     NewPetComponent,
     BooleanTransformerPipe,
     GenderTransformerPipe,
+    GenderUserTransformerPipe,
     ChangePhotoComponent,
+    MyFriendsListComponent,
     ImagenPipe,
     PdfViewComponent,
     VeterinariesMapComponent,
     MyNearbyVeterinariansComponent,
+    MyFriendsComponent,
+    SearchUsersComponent,
+    SingUpDialogComponent,
+    FindUsersComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -159,6 +172,7 @@ import { MyNearbyVeterinariansComponent } from './components/pages/my-nearby-vet
     NewMedicalCardComponent,
     NewPetComponent,
     ChangePhotoComponent,
+    SingUpDialogComponent,
     PdfViewComponent ]
 })
 export class AppModule { }
