@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PetService } from '../../services/pet-service';
-import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PetService } from '../../services/pet-service';
 import { MatDialog } from '@angular/material';
 import { ChangePhotoComponent } from '../change-photo/change-photo.component';
-import { URL_PHOTO_SERVICE } from '../../../config/config';
 import { UserService } from '../../services/user.service';
 
 @Component({

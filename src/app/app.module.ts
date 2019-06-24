@@ -4,8 +4,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
-
+import { environment } from '../environments/environment';
+const firebaseConfig = environment.firebaseConfig;
 // tslint:disable-next-line:max-line-length
 import {MatButtonModule,
         MatToolbarModule,
@@ -81,6 +81,12 @@ import { MyFriendsComponent } from './components/pages/my-friends/my-friends.com
 import { SearchUsersComponent } from './components/search-users/search-users.component';
 import {SingUpDialogComponent} from './components/sing-up-dialog/sing-up-dialog.component';
 import { FindUsersComponent } from './components/pages/find-users/find-users.component';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {LocationPetComponent} from './components/location-pet/location-pet.component';
+import {AngularFirestore} from "@angular/fire/firestore";
+import {FirebaseService} from "./services/firebase.service";
+
 
 @NgModule({
   declarations: [
@@ -115,12 +121,12 @@ import { FindUsersComponent } from './components/pages/find-users/find-users.com
     SearchUsersComponent,
     SingUpDialogComponent,
     FindUsersComponent,
+    LocationPetComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAx82m7KSQg0obJQYw7L5tGcEXcoM1u9sE',
-      libraries: ['places'],
-    }),
+      libraries: ['places']}),
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -153,9 +159,12 @@ import { FindUsersComponent } from './components/pages/find-users/find-users.com
     MatDatepickerModule,        // <----- import(must)
     MatNativeDateModule,        // <----- import for date formating(optional)
     APP_ROUTING,
-    UserModule
+    UserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [
+    FirebaseService,
     PetService,
     UserService,
     PdfService,
@@ -165,6 +174,7 @@ import { FindUsersComponent } from './components/pages/find-users/find-users.com
     LoggedGuard,
     UserLoggedGuard,
     VetLoggedGuard,
+    AngularFirestore,
     {provide: MAT_DATE_LOCALE, useValue: 'es'},
   ],
   bootstrap: [AppComponent],
