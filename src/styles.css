@@ -44,6 +44,12 @@
     min-height: 8cm;
     align-items: center;
 }
+.profile-mini-image {
+  min-width: 2cm;
+  min-height: 2cm;
+  align-items: center;
+}
+
 
 .sidebar-width{
     min-width: 8cm;
@@ -148,7 +154,7 @@
   }
 
   .pet-list{
-      min-width: 400px;
+      min-width: 700px;
       max-width: 500px
   }
 
