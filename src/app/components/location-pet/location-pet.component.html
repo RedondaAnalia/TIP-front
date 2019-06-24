@@ -1,6 +1,4 @@
 <div class="pet-list">
-<h2>hola</h2>
-
   <div id="map"  ></div>
   <div class="mat-body">
     <agm-map libraries="places"
@@ -15,10 +13,7 @@
         <agm-info-window >
           <div class="d-flex justifify-content-center align-content-center flex-column">
             <strong class="align-self-center">{{m.name}}</strong>
-            <div class="align-self-center text-muted"><small>★ {{m.rating}}/5 ({{m.votes}} votos)</small></div>
-            <div class="align-self-center"> {{m.address}} </div>
-            <div class="align-self-center" *ngIf="m.open_now" style="color:green"> Abierto ahora!</div>
-            <div class="align-self-center" *ngIf="!m.open_now" style="color:#FF0000"> Cerrado.</div>
+            <img class="profile-mini-image img-thumbnail rounded-circle" [src]="m.photo | image "/>
           </div>
         </agm-info-window>
       </agm-marker>

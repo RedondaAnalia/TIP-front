@@ -18,6 +18,6 @@ export class Pet {
 }
 
 export class Location {
-  alt: string;
+  long: string;
   lat: string;
 }
