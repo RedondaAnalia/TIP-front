@@ -44,7 +44,7 @@ export class UserService {
   findUsers(query) {
     // tslint:disable-next-line:quotemark
     const url = URL_SERVICIOS + 'users/search?query=' + query ;
-    return this.http.get(url). map((res: any) => res.data );
+    return this.http.get(url). map((res: any) => res.data.filter(x => x[0]) );
   }
 
   login(user, pass) {
@@ -115,5 +115,19 @@ export class UserService {
                         .map((res: any) => { this.userLogged = res.data;
                                             this.userLoggedSubject.next(this.userLogged);
                                             });
+  }
+
+  addFriend(email) {
+    const url = URL_SERVICIOS + 'friends/relationship';
+    const body = {
+      aMail: this.userLogged.email,
+      bMail: email
+    };
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    return this.http.post(url, body, httpOptions).map((res: any) => res);
   }
 }

@@ -20,16 +20,18 @@
   </label>
 </div>
 -->
+    <div class="singUpDiv d-flex flex-column align-content-end">
     <button mat-raised-button color="primary" (click)="login()" type="submit">
       <div class= "d-flex justify-content-center align-items-center">
-        Sign in
+        Ingresar
         <div class= "d-flex px-2 justify-content-center" *ngIf="busy">
           <i class="fas fa-spinner fa-spin"></i>
         </div>
       </div>
     </button>
-    <div class="singUpDiv">
-      <a mat-button  color="primary" (click)="openDialog()" >Registrarme</a>
+    <div class="py-2">
+      <a mat-button  color="primary" (click)="openDialog()">Registrarme</a>
+    </div>
     </div>
   </form>
 </div>
