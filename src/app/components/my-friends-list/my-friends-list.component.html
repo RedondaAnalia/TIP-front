@@ -1,4 +1,4 @@
-<div *ngIf='!this.friends' >
+<div *ngIf='!this.friends || this.friends.length == 0' >
   <div class="alert alert-light text-center" role="alert">
     No tienes amigos registrados.
   </div>
