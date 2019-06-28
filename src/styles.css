@@ -158,6 +158,11 @@
       max-width: 500px
   }
 
+  .spinner-signup{
+      width: 3cm;
+      height: 3cm
+  }
+
   .vet-map{
     min-width: 100%;
     max-width: 100%

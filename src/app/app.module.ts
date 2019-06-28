@@ -28,7 +28,8 @@ import {MatButtonModule,
         MatTooltipModule,
         MatDialogModule,
         MatMenuModule,
-        MatSidenavModule} from '@angular/material';
+        MatSidenavModule,
+        MatProgressSpinnerModule} from '@angular/material';
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -84,8 +85,8 @@ import { FindUsersComponent } from './components/pages/find-users/find-users.com
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {LocationPetComponent} from './components/location-pet/location-pet.component';
-import {AngularFirestore} from "@angular/fire/firestore";
-import {FirebaseService} from "./services/firebase.service";
+import {AngularFirestore} from '@angular/fire/firestore';
+import {FirebaseService} from './services/firebase.service';
 
 
 @NgModule({
@@ -155,6 +156,7 @@ import {FirebaseService} from "./services/firebase.service";
     MatExpansionModule,
     MatMenuModule,
     MatRadioModule,
+    MatProgressSpinnerModule,
     MatStepperModule,
     MatDatepickerModule,        // <----- import(must)
     MatNativeDateModule,        // <----- import for date formating(optional)
