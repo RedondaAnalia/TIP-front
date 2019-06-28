@@ -87,7 +87,7 @@
         <div class="d-flex justify-content-around py-4">
           <button mat-button matStepperPrevious>Back</button>
           <button mat-raised-button color="primary" (click)="save()">Crear nuevo usuario!</button>
-          <mat-spinner diameter=20 class="px-3" ></mat-spinner>
+          <mat-spinner diameter=20 class="px-3" *ngIf="busy"></mat-spinner>
         </div>
       </div>
     </mat-step>
