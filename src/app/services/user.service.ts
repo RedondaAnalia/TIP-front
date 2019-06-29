@@ -116,4 +116,18 @@ export class UserService {
                                             this.userLoggedSubject.next(this.userLogged);
                                             });
   }
+
+  addFriend(email) {
+    const url = URL_SERVICIOS + 'friends/relationship';
+    const body = {
+      aMail: this.userLogged.email,
+      bMail: email
+    };
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    return this.http.post(url, body, httpOptions).map((res: any) => res);
+  }
 }

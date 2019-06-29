@@ -17,6 +17,7 @@ export class SingUpDialogComponent implements OnInit {
   fifthFormGroup: FormGroup;
   sixthFormGroup: FormGroup;
   today;
+  busy;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -27,6 +28,7 @@ export class SingUpDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.busy = false;
     this.today = new Date();
     this.firstFormGroup = this._formBuilder.group({
       name: ['', Validators.required]
@@ -52,6 +54,7 @@ export class SingUpDialogComponent implements OnInit {
 
 
   save() {
+    this.busy = true;
     this._userService.create(
       this.firstFormGroup.value.name,
       this.thirdFormGroup.value.password,
@@ -59,10 +62,12 @@ export class SingUpDialogComponent implements OnInit {
       this.fourthFormGroup.value.phone,
       this.sixthFormGroup.value.gender
     ).subscribe(res => {
+      this.busy = false;
         this.openSnackBar();
         this.dialogRef.close(this.secondFormGroup.value.email);
       },
       error => {
+        this.busy = false;
       switch (error.status) {
         case 412: this.openErroredSnackBar('Ya existe un usuario con ese Email'); break;
         default: this.openErroredSnackBar('Error inesperado, intente de nuevo mas tarde'); break;

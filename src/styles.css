@@ -118,7 +118,7 @@
 }
 
 .text-center{
-    text-align: "center"
+    text-align: center;
 }
 
 .all{
@@ -156,6 +156,20 @@
   .pet-list{
       min-width: 700px;
       max-width: 500px
+  }
+
+  .users-list{
+    min-width: 600px;
+    max-width: 700px
+  }
+
+  .add-friend-button{
+      width: 200px;
+  }
+
+  .spinner-signup{
+      width: 3cm;
+      height: 3cm
   }
 
   .vet-map{
