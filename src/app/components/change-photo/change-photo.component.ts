@@ -15,6 +15,7 @@ export class ChangePhotoComponent implements OnInit {
 
   imageSrc;
   image;
+  busy;
 
 
   constructor(private snackBar: MatSnackBar,
@@ -22,9 +23,9 @@ export class ChangePhotoComponent implements OnInit {
               private _userService: UserService,
               private _petService: PetService,
               private router: Router,
-              @Inject(MAT_DIALOG_DATA) private data: any) {
-
+              @Inject(MAT_DIALOG_DATA) private data: any){
                 this.imageSrc = data.imgSrc;
+                this.busy=false;
               }
 
   ngOnInit() {
@@ -67,9 +68,14 @@ export class ChangePhotoComponent implements OnInit {
         case ('pets') : chosenService = this._petService; break;
         case ('users') : chosenService = this._userService; break;
       }
+      this.busy = true;
       chosenService.changePhoto(this.image).subscribe(res => {
+        this.busy = false;
         this.successSnackBar('Foto cambiada!');
         this.dialogRef.close();
+      }, error => {
+        this.busy = false;
+        this.erroredSnackBar('Error inesperado. Intente nuevamente mas tarde');
       });
     }
   }
