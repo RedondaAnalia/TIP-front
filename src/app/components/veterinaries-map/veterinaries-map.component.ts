@@ -33,8 +33,6 @@ export class VeterinariesMapComponent implements OnInit {
         return;
       }
     const myLatLng = new google.maps.LatLng(this.lat, this.lng);
-    console.log(this.lat);
-    console.log(this.lng);
 
     const map = new google.maps.Map( document.getElementById('map'));
     const service = new google.maps.places.PlacesService(map);
@@ -44,7 +42,6 @@ export class VeterinariesMapComponent implements OnInit {
                         keyword: 'veterinaria',
                         types: ['veterinary_care']
                         }, (results, status)  => {
-                          console.log(myLatLng);
                                         const res = [];
                                         if (status === google.maps.places.PlacesServiceStatus.OK) {
                                           for (let i = 0; i < results.length; i++) {
@@ -59,7 +56,6 @@ export class VeterinariesMapComponent implements OnInit {
                                             });
                                           }
                                         this.markers = res;
-                                        console.log(this.markers);
                                         }
                             });
     });

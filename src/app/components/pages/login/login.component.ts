@@ -61,7 +61,6 @@ export class LoginComponent implements OnInit {
     const dialogRef = this.dialog.open(SingUpDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       this.user = result;
     });
   }

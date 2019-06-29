@@ -45,8 +45,6 @@ export class LocationPetComponent implements OnInit {
       return;
     }
     const myLatLng = new google.maps.LatLng(this.lat, this.lng);
-    console.log(this.lat);
-    console.log(this.lng);
     const map = new google.maps.Map( document.getElementById('map'));
     this.fireService.getPets('/pets/' + 'aa3432dde').subscribe(petRequest => {
       const res = [];
@@ -58,7 +56,6 @@ export class LocationPetComponent implements OnInit {
         }
       );
       this.markers = res;
-      console.log(this.markers);
     });
   }
 

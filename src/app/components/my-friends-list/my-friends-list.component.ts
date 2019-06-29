@@ -16,8 +16,7 @@ export class MyFriendsListComponent implements OnInit {
       this.friends = res;
       this.sanearLista();
     });
-    console.log(this.friends);
-    this._userService.userFriends$.subscribe(res => {console.log(res); } );
+    this._userService.userFriends$.subscribe(res => res);
   }
 
   ngOnInit() {
