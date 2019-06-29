@@ -44,7 +44,7 @@ export class UserService {
   findUsers(query) {
     // tslint:disable-next-line:quotemark
     const url = URL_SERVICIOS + 'users/search?query=' + query ;
-    return this.http.get(url). map((res: any) => res.data.filter(x => x[0]) );
+    return this.http.get(url). map((res: any) => res.data );
   }
 
   login(user, pass) {
