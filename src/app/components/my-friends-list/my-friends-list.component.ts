@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-friends-list-component',
@@ -9,7 +10,8 @@ export class MyFriendsListComponent implements OnInit {
 
   friends;
 
-  constructor(private _userService: UserService) {
+  constructor(private _userService: UserService,
+              private router: Router) {
     this._userService.getFriends().subscribe(res => {
       this.friends = res;
       this.sanearLista();
@@ -21,6 +23,10 @@ export class MyFriendsListComponent implements OnInit {
   ngOnInit() {
   }
 
+  irABuscarUsuarios() {
+    this.router.navigate(['/searchFriends']);
+
+  }
 
   sanearLista() {
     this.friends = this.friends.filter(x => x.length > 0);
