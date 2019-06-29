@@ -36,4 +36,8 @@ export class PetsListComponent implements OnInit {
     });
   }
 
+  irAAgregarMascota() {
+    this.router.navigate(['/addPet']);
+  }
+
 }
