@@ -4,5 +4,9 @@
     <img id="blah" [src]="imageSrc |image" alt="your image" class="py-3 preview-image align-self-center rounded-image" />
     <input type='file' (change)="readURL($event);" class="align-self-center" id="input"/>
   </mat-dialog-content>
-  <button mat-raised-button color="primary" class="my-2 align-self-end" (click)="changePhoto()" (enter)="changePhoto()">Cambiar foto!</button>
+  <div class="d-flex flex-row justify-content-end">
+    <button mat-raised-button [disabled]="busy" color="primary" class="my-2 align-self-end" (click)="changePhoto()" (enter)="changePhoto()">Cambiar foto!</button>
+    <mat-spinner diameter=20 class="px-3" *ngIf="busy"></mat-spinner>
+  </div>
+
 </div>

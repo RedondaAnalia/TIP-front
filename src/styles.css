@@ -40,13 +40,13 @@
 }
 
 .profile-image {
-    min-width: 8cm;
-    min-height: 8cm;
+    width: 8cm;
+    height: 8cm;
     align-items: center;
 }
 .profile-mini-image {
-  min-width: 2cm;
-  min-height: 2cm;
+  width: 2cm;
+  height: 2cm;
   align-items: center;
 }
 
@@ -371,4 +371,11 @@ example-container {
   height: 5.6rem;
   border-radius: 50%;
   align-content: end;
+}
+
+input[type=number] { -moz-appearance:textfield; }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

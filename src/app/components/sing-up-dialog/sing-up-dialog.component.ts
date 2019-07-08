@@ -37,7 +37,7 @@ export class SingUpDialogComponent implements OnInit {
       email: ['', Validators.email]
     });
     this.thirdFormGroup = this._formBuilder.group({
-      password: ['', Validators.minLength(4)]
+      password: ['', Validators.minLength(5)]
     });
 
     this.fourthFormGroup = this._formBuilder.group({

@@ -35,8 +35,7 @@ export class SearchUsersComponent implements OnInit {
   }
 
   log($event) {
-    console.log($event.target.value);
-    this._userService.findUsers($event.target.value).subscribe(res => {console.log(res); this.searchResult = res; } );
+    this._userService.findUsers($event.target.value).subscribe(res => {this.searchResult = res; } );
   }
 
   addFriend(email) {

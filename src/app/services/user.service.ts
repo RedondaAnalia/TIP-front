@@ -44,7 +44,11 @@ export class UserService {
   findUsers(query) {
     // tslint:disable-next-line:quotemark
     const url = URL_SERVICIOS + 'users/search?query=' + query ;
-    return this.http.get(url). map((res: any) => res.data );
+    return this.http.get(url). map((res: any) => this.filterMe(res.data) );
+  }
+
+  filterMe(list) {
+    return list.filter( x => x.email !== this.userLogged.email);
   }
 
   login(user, pass) {
@@ -79,7 +83,6 @@ export class UserService {
       gender: gender,
       phone: phone,
       password : pass};
-    console.log(body);
     return this.http.post(url, body, httpOptions);
   }
 

@@ -1,6 +1,12 @@
-<div *ngIf='!this.friends || this.friends.length == 0' >
+<div *ngIf='!this.friends' >
+  <mat-spinner></mat-spinner>
+</div>
+
+
+<div *ngIf='this.friends && this.friends.length === 0' >
   <div class="alert alert-light text-center" role="alert">
     No tienes amigos registrados.
+    <a mat-button class="px-0" color="primary" (click)="irABuscarUsuarios()">Busca un amigo ahora!</a>
   </div>
 </div>
 
