@@ -61,8 +61,8 @@
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="fourthFormGroup">
-    <form [formGroup]="fourthFormGroup">
+  <mat-step [stepControl]="fiveFormGroup">
+    <form [formGroup]="fiveFormGroup">
       <ng-template matStepLabel>Género</ng-template>
       <mat-form-field>
         <mat-select matInput matStepperNext autofocus placeholder="Select" formControlName="gender">
@@ -89,7 +89,10 @@
       <strong>Castrado/a: </strong>{{this.thirdFormGroup.value.castrate | booleanTransformer}}
     </div>
     <div class="text-center">
-      <strong>Género: </strong>{{this.fourthFormGroup.value.gender | genderTransformer}}
+      <strong>Especie: </strong>{{this.fourthFormGroup.value.specie | genderTransformer}}
+    </div>
+    <div class="text-center">
+      <strong>Género: </strong>{{this.fiveFormGroup.value.gender | genderTransformer}}
     </div>
     <div class="d-flex justify-content-around py-4">
       <button mat-button matStepperPrevious>Back</button>
