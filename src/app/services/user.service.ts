@@ -86,7 +86,7 @@ export class UserService {
     return this.http.post(url, body, httpOptions);
   }
 
-  addPet(petName, birthday, castrate, gender) {
+  addPet(petName, birthday, castrate, species, gender) {
     const url = URL_SERVICIOS + 'users/pet?token=' + this.userToken;
     const httpOptions = {
       headers: new HttpHeaders({
@@ -99,6 +99,7 @@ export class UserService {
         name : petName,
         date_of_birth : birthday,
         castrate: castrate,
+        species: species,
         gender: gender
        }
     };

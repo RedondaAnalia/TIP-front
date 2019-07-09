@@ -4,8 +4,6 @@ import { PetService } from '../../services/pet-service';
 import { UserService } from '../../services/user.service';
 import { MatDialog } from '@angular/material';
 import { NewMedicalCardComponent } from '../new-medical-card/new-medical-card.component';
-import * as jsPDF from 'jspdf';
-import * as html2canvas from 'html2canvas';
 import { PdfViewComponent } from '../pdf-view/pdf-view.component';
 
 declare var $;
@@ -34,7 +32,6 @@ export class ShowMedicalCardsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      
     });
   }
 

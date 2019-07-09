@@ -44,6 +44,25 @@
   </mat-step>
   <mat-step [stepControl]="fourthFormGroup">
     <form [formGroup]="fourthFormGroup">
+      <ng-template matStepLabel>Especie</ng-template>
+      <mat-form-field>
+        <mat-select matInput matStepperNext autofocus placeholder="Select" formControlName="specie">
+          <mat-option value="Perro">Perro</mat-option>
+          <mat-option value="Gato">Gato</mat-option>
+          <mat-option value="Hamster">Hamster</mat-option>
+          <mat-option value="Pajaro">Pajaro</mat-option>
+          <mat-option value="Caballo">Caballo</mat-option>
+          <mat-option value="otros">otros</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="fourthFormGroup">
+    <form [formGroup]="fourthFormGroup">
       <ng-template matStepLabel>Género</ng-template>
       <mat-form-field>
         <mat-select matInput matStepperNext autofocus placeholder="Select" formControlName="gender">

@@ -14,6 +14,7 @@ export class NewPetComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
+  fiveFormGroup: FormGroup;
 
   today;
   busy;
@@ -37,6 +38,9 @@ export class NewPetComponent implements OnInit {
       castrate: ['', Validators.required]
     });
     this.fourthFormGroup = this._formBuilder.group({
+      specie: ['', Validators.required]
+    });
+    this.fiveFormGroup = this._formBuilder.group({
       gender: ['', Validators.required]
     });
   }
@@ -51,7 +55,8 @@ export class NewPetComponent implements OnInit {
     this._userService.addPet(this.firstFormGroup.value.name,
                             this.secondFormGroup.value.birthday,
                             this.thirdFormGroup.value.castrate,
-                            this.fourthFormGroup.value.gender
+                            this.fourthFormGroup.value.specie,
+                            this.fiveFormGroup.value.gender
                     ).subscribe(res => {
                       this.busy = false;
                       this.openSnackBar();
