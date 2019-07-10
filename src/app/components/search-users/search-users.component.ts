@@ -12,6 +12,7 @@ export class SearchUsersComponent implements OnInit {
 
   searchResult;
   myFriends: Array<any>;
+  disabled: Boolean;
   url: String;
 
   constructor(private _userService: UserService,
@@ -21,6 +22,7 @@ export class SearchUsersComponent implements OnInit {
                 this.url = this.router.routerState.snapshot.url;
                 this._userService.userFriends$.subscribe(res => this.myFriends = res.map(x => x[0].email));
                 this._userService.getFriends().subscribe();
+                this.disabled = false;
                }
 
   ngOnInit() {
@@ -39,8 +41,11 @@ export class SearchUsersComponent implements OnInit {
   }
 
   addFriend(email) {
+    this.disabled = true;
     this._userService.addFriend(email).subscribe((res: any) => { if (res.ok) { this.myFriends.push(email); }
-                                                                else { this.erroredSnackBar('Error agregando amigo :('); } });
+                                                                else { this.erroredSnackBar('Error agregando amigo :(');}
+                                                                      this.disabled = false;}
+                                                                );
 
   }
 
