@@ -17,6 +17,7 @@ export class UserProfileComponent implements OnInit {
 
    constructor(public ngZone: NgZone,
                public route: Router) {
+
        this.navList = [
            { categoryName: 'Mascotas', icon: 'pets', dropDown: false,
                subCategory:

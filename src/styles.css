@@ -379,3 +379,45 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+
+@media (max-width: 600px) {
+
+    mat-sidenav-container{
+        width:100%;
+        height:100%;
+        display:block!important;
+    }
+
+    mat-sidenav-content{
+    width:inherit!important;
+    height:100%;
+    }
+
+    .pet-list{
+        width:100%;
+        height:100%;
+        display: block;
+    }
+
+    mat-nav-list{
+        width:100%;
+        height:100%;
+        display: block!important;
+    }
+
+    .display{
+        display:block!important;
+    }
+    .users-list{
+        width:100%;
+        height:100%;
+        display: block;
+    }
+
+    div{
+        width:100%;
+        height:100%;
+    }
+
+}
