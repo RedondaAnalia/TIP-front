@@ -23,7 +23,7 @@
     <p matLine>
       <span class="text-muted">Email: {{user.email}} </span>
     </p>
-    <button [disabled]="disabled" ] mat-raised-button color="primary" class="px-0 add-friend-button" *ngIf="isUserUrl() && !isFriend(user.email)" (click)="addFriend(user.email)">
+    <button [disabled]="disabled" mat-raised-button color="primary" class="px-0 add-friend-button" *ngIf="isUserUrl() && !isFriend(user.email)" (click)="addFriend(user.email)">
       <mat-icon>person_add</mat-icon>
       Agregar amigo
     </button>
