@@ -20,14 +20,16 @@ export class LocationPetComponent implements OnInit {
   pets: Observable<any[]>;
   pet;
 
-  constructor(private mapsAPILoader: MapsAPILoader, private fireService: FirebaseService, private _petService: PetService ) { }
+  constructor(private mapsAPILoader: MapsAPILoader, private fireService: FirebaseService, private _petService: PetService ) {
+    localStorage.removeItem('firebase:previous_websocket_failure');
+
+  }
   ngOnInit() {
     this.pet = this._petService.pet;
     this.mapsAPILoader.load().then(() => {
       this.getUserLocation();
     });
   }
-
 
   private getUserLocation() {
     if (navigator.geolocation) {
