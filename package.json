@@ -36,7 +36,7 @@
     "font-awesome": "^4.7.0",
     "html2canvas": "^1.0.0-rc.1",
     "jquery": "^3.3.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "popper": "^1.0.1",
     "popper.js": "^1.14.7",
     "rxjs": "^6.5.2",
